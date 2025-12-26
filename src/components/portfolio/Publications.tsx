@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, BookOpen, FileText, Building2 } from 'lucide-react';
-import { publications } from '@/data/portfolio';
+import { ExternalLink, FileText, BookOpen, Award } from 'lucide-react';
+import { publications, certifications } from '@/data/portfolio';
 
 export function Publications() {
   const ref = useRef(null);
@@ -14,99 +14,107 @@ export function Publications() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="mb-8"
+          className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm">04.</span>
-          <h2 className="text-4xl font-display font-bold mt-2">Publications</h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl">
-            Research work published in international journals and conferences
+          <h2 className="text-4xl font-bold mb-4">Publications & Certifications</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Research contributions and professional certifications
           </p>
         </motion.div>
 
-        {/* Publications List */}
-        <div className="space-y-6">
-          {publications.map((pub, i) => (
-            <motion.div
-              key={pub.title}
-              initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.2 + i * 0.1 }}
-              className="group relative"
-            >
-              <div className="flex gap-6 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all">
-                {/* Number */}
-                <div className="hidden sm:flex items-start">
-                  <span className="text-4xl font-display font-bold text-primary/20 group-hover:text-primary/40 transition-colors">
-                    {pub.number}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 space-y-3">
-                  <h3 className="text-lg font-display font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Publications */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.2 }}
+          >
+            <h3 className="flex items-center gap-2 text-xl font-semibold mb-6">
+              <FileText className="w-5 h-5 text-primary" />
+              📝 Research Publications
+            </h3>
+            
+            <div className="space-y-4">
+              {publications.map((pub, i) => (
+                <motion.div
+                  key={pub.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className="p-5 rounded-xl bg-card border border-border hover:border-primary/30 transition-all"
+                >
+                  <h4 className="font-semibold text-foreground mb-2 leading-tight">
                     {pub.title}
-                  </h3>
+                  </h4>
+                  <p className="text-sm text-muted-foreground mb-2">{pub.authors}</p>
                   
-                  <p className="text-sm text-muted-foreground">{pub.authors}</p>
-                  
-                  <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <BookOpen className="w-4 h-4" />
-                      {pub.venue}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Building2 className="w-4 h-4" />
-                      {pub.publisher}
+                  <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mb-3">
+                    <span className="px-2 py-1 rounded bg-primary/10 text-primary">{pub.venue}</span>
+                    <span className="px-2 py-1 rounded bg-secondary">{pub.year}</span>
+                    <span className="px-2 py-1 rounded bg-emerald-500/10 text-emerald-500">
+                      {pub.doi === 'Publishing in Progress' ? 'Under Review' : 'Published'}
                     </span>
                   </div>
 
-                  {pub.doi && (
-                    <p className="text-xs text-muted-foreground/60">
-                      DOI: {pub.doi}
-                    </p>
-                  )}
-                </div>
-
-                {/* Year & Link */}
-                <div className="flex flex-col items-end justify-between">
-                  <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                    {pub.year}
-                  </span>
-                  {pub.link && (
-                    <motion.a
-                      href={pub.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </motion.a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5 }}
-          className="grid grid-cols-3 gap-4 mt-12"
-        >
-          {[
-            { value: '3', label: 'Publications' },
-            { value: '2025', label: 'Latest Year' },
-            { value: '3+', label: 'Publishers' }
-          ].map((stat) => (
-            <div key={stat.label} className="text-center p-4 rounded-xl bg-card border border-border/50">
-              <p className="text-2xl font-display font-bold text-primary">{stat.value}</p>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  <div className="flex gap-3">
+                    {pub.doi && pub.doi !== 'Publishing in Progress' && (
+                      <a
+                        href={`https://doi.org/${pub.doi}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
+                      >
+                        <BookOpen className="w-3 h-3" />
+                        DOI
+                      </a>
+                    )}
+                    {pub.link && (
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
+                      >
+                        <ExternalLink className="w-3 h-3" />
+                        PDF
+                      </a>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
+
+          {/* Certifications */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.3 }}
+          >
+            <h3 className="flex items-center gap-2 text-xl font-semibold mb-6">
+              <Award className="w-5 h-5 text-primary" />
+              🏆 Certifications
+            </h3>
+            
+            <div className="grid gap-3">
+              {certifications.map((cert, i) => (
+                <motion.div
+                  key={cert.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.4 + i * 0.05 }}
+                  className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-all"
+                >
+                  <span className="text-2xl">🎓</span>
+                  <div className="flex-1">
+                    <p className="font-medium text-foreground text-sm">{cert.name}</p>
+                    <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
