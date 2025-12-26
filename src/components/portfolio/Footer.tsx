@@ -1,18 +1,17 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Terminal } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 
 export function Footer() {
   return (
-    <footer className="py-12 px-4 border-t border-border/50">
+    <footer className="py-8 px-4 border-t border-border">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Terminal className="w-4 h-4 text-primary" />
-            <span className="font-mono text-sm">
-              <span className="text-primary">$</span> {personalInfo.email}
-            </span>
+          <div className="flex items-center gap-1 text-lg font-bold">
+            <span className="text-primary">&lt;</span>
+            <span className="text-primary">AM</span>
+            <span className="text-primary">/&gt;</span>
           </div>
 
           {/* Social Links */}
@@ -36,8 +35,8 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Achyuth Mukund
+          <p className="flex items-center gap-1 text-sm text-muted-foreground">
+            Built with <Heart className="w-3 h-3 text-red-500" /> by Achyuth Mukund
           </p>
         </div>
       </div>

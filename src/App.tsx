@@ -6,10 +6,11 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from '@/components/portfolio/Navbar';
 import { Hero } from '@/components/portfolio/Hero';
 import { About } from '@/components/portfolio/About';
-import { Experience } from '@/components/portfolio/Experience';
+import { TechStack } from '@/components/portfolio/TechStack';
 import { Projects } from '@/components/portfolio/Projects';
+import { Experience } from '@/components/portfolio/Experience';
 import { Publications } from '@/components/portfolio/Publications';
-import { Timeline } from '@/components/portfolio/Timeline';
+import { Leadership } from '@/components/portfolio/Leadership';
 import { Contact } from '@/components/portfolio/Contact';
 import { Footer } from '@/components/portfolio/Footer';
 
@@ -26,10 +27,11 @@ const App = () => (
           <main>
             <Hero />
             <About />
-            <Experience />
+            <TechStack />
             <Projects />
+            <Experience />
             <Publications />
-            <Timeline />
+            <Leadership />
             <Contact />
           </main>
           <Footer />

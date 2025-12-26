@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ChevronDown, Code2, Cpu, Cog } from 'lucide-react';
+import { Github, Linkedin, Mail, ChevronDown, Download, ArrowRight } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 
 const roles = [
-  "Building Intelligent Systems",
-  "Crafting GenAI Solutions", 
-  "Engineering IoT Platforms",
-  "Developing ML Models"
+  "Software Developer",
+  "IoT Engineer", 
+  "ML Researcher",
+  "GenAI Builder"
 ];
 
 export function Hero() {
@@ -22,7 +22,7 @@ export function Hero() {
       if (displayText.length < currentRole.length) {
         const timeout = setTimeout(() => {
           setDisplayText(currentRole.slice(0, displayText.length + 1));
-        }, 80);
+        }, 100);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => setIsTyping(false), 2000);
@@ -32,7 +32,7 @@ export function Hero() {
       if (displayText.length > 0) {
         const timeout = setTimeout(() => {
           setDisplayText(displayText.slice(0, -1));
-        }, 40);
+        }, 50);
         return () => clearTimeout(timeout);
       } else {
         setRoleIndex((prev) => (prev + 1) % roles.length);
@@ -41,57 +41,53 @@ export function Hero() {
     }
   }, [displayText, isTyping, roleIndex]);
 
-  const scrollToProjects = () => {
-    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToContact = () => {
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,200,180,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,200,180,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
       
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(20,184,166,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(20,184,166,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        {/* Location Badge */}
+        {/* Availability Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 text-sm text-muted-foreground font-mono mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 border border-border text-sm text-muted-foreground mb-8"
         >
-          <span className="text-primary">~</span>
-          {personalInfo.location}
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          Available for opportunities • {personalInfo.location}
         </motion.div>
 
-        {/* Name */}
-        <motion.h1
+        {/* Main Heading */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-display font-bold tracking-tight mb-4"
+          className="mb-6"
         >
-          <span className="text-foreground">Achyuth </span>
-          <span className="text-primary">Mukund</span>
-        </motion.h1>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight">
+            <span className="text-foreground">Hi, I'm</span>
+            <br />
+            <span className="text-primary">Achyuth Mukund</span>
+          </h1>
+        </motion.div>
 
         {/* Typing Role */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-xl sm:text-2xl text-muted-foreground font-mono mb-6 h-8"
+          className="text-2xl sm:text-3xl text-primary font-medium mb-8 h-10"
         >
-          <span className="text-primary">&gt;</span>{' '}
           <span>{displayText}</span>
-          <span className="inline-block w-0.5 h-6 bg-primary ml-1 animate-blink" />
+          <span className="inline-block w-0.5 h-7 bg-primary ml-1 animate-blink" />
         </motion.div>
 
         {/* Description */}
@@ -99,61 +95,58 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
+          className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed"
         >
-          Software developer crafting intelligent systems at the intersection of{' '}
-          <span className="text-primary font-medium">GenAI</span>,{' '}
-          <span className="text-primary font-medium">IoT</span>, and{' '}
-          <span className="text-primary font-medium">ML</span>. Shipping clean code that solves real problems.
+          Building intelligent systems at the intersection of{' '}
+          <span className="text-primary font-medium">IoT</span>,{' '}
+          <span className="text-primary font-medium">Machine Learning</span>, and{' '}
+          <span className="text-primary font-medium">Generative AI</span>.
         </motion.p>
 
-        {/* Domain Icons */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55 }}
-          className="flex justify-center gap-4 mb-8"
+          className="text-muted-foreground mb-10"
         >
-          {[
-            { icon: Code2, label: 'GenAI' },
-            { icon: Cpu, label: 'IoT' },
-            { icon: Cog, label: 'ML' }
-          ].map((item, i) => (
-            <motion.div
-              key={item.label}
-              className="p-3 rounded-xl bg-secondary/50 border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors cursor-default"
-              whileHover={{ scale: 1.1, y: -2 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 + i * 0.1 }}
-            >
-              <item.icon className="w-5 h-5" />
-            </motion.div>
-          ))}
-        </motion.div>
+          Pursuing B.Tech in CSE (IoT) at Shiv Nadar University & BS in Data Science at IIT Madras.
+        </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
         >
           <motion.button
-            onClick={scrollToProjects}
-            className="px-8 py-3 bg-primary text-primary-foreground rounded-xl font-medium"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px -10px hsl(var(--primary))' }}
+            onClick={() => scrollToSection('#projects')}
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px -5px hsl(var(--primary))' }}
             whileTap={{ scale: 0.95 }}
           >
             View Projects
+            <ArrowRight className="w-4 h-4" />
           </motion.button>
-          <motion.button
-            onClick={scrollToContact}
-            className="px-8 py-3 bg-transparent border border-border text-foreground rounded-xl font-medium hover:bg-secondary/50 transition-colors"
+          
+          <motion.a
+            href="/resume.pdf"
+            target="_blank"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-transparent border border-border text-foreground rounded-lg font-medium hover:bg-secondary/50 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Get In Touch
+            <Download className="w-4 h-4" />
+            Download Resume
+          </motion.a>
+          
+          <motion.button
+            onClick={() => scrollToSection('#contact')}
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-secondary text-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Contact Me
           </motion.button>
         </motion.div>
 
@@ -161,20 +154,20 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.7 }}
           className="flex justify-center gap-4"
         >
           {[
-            { icon: Github, href: personalInfo.social.github },
-            { icon: Linkedin, href: personalInfo.social.linkedin },
-            { icon: Mail, href: `mailto:${personalInfo.email}` }
-          ].map((item, i) => (
+            { icon: Github, href: personalInfo.social.github, label: 'GitHub' },
+            { icon: Linkedin, href: personalInfo.social.linkedin, label: 'LinkedIn' },
+            { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email' }
+          ].map((item) => (
             <motion.a
-              key={i}
+              key={item.label}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-secondary/30 border border-border/50 text-muted-foreground hover:text-foreground hover:border-border transition-all"
+              className="p-3 rounded-full bg-secondary/50 border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
             >
               <item.icon className="w-5 h-5" />
@@ -186,18 +179,30 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground"
+          transition={{ delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
+            className="p-2 rounded-full border border-border text-muted-foreground"
           >
             <ChevronDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll to top button - positioned fixed */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-primary-foreground shadow-lg z-50"
+        whileHover={{ scale: 1.1 }}
+      >
+        <ChevronDown className="w-5 h-5 rotate-180" />
+      </motion.button>
     </section>
   );
 }
