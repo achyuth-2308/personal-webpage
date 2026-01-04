@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Github, ExternalLink, ChevronRight } from 'lucide-react';
-import { projects, personalInfo } from '@/data/portfolio';
+import { personalInfo } from '@/data/portfolio';
 
 const categories = ['All', 'GenAI', 'IoT', 'Full-Stack', 'Computer Vision', 'MLOps'];
 

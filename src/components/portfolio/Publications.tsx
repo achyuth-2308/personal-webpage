@@ -56,6 +56,14 @@ export function Publications() {
                     </span>
                   </div>
 
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {pub.venue.includes('Conference') 
+                      ? 'Conference paper on federated learning and IoT systems.'
+                      : pub.venue.includes('Book') || pub.venue.includes('Chapter')
+                      ? 'Book chapter on privacy-preserving techniques.'
+                      : 'Research publication in the field of AI and IoT.'}
+                  </p>
+
                   <div className="flex gap-3">
                     {pub.doi && pub.doi !== 'Publishing in Progress' && (
                       <a

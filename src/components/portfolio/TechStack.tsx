@@ -1,12 +1,10 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code, Palette, Server, Brain, Cpu, Database, Cloud, Sparkles } from 'lucide-react';
 
 const categories = [
   {
-    icon: Code,
-    title: 'Languages',
     emoji: '💻',
+    title: 'Languages',
     skills: [
       { name: 'Python', icon: '🐍' },
       { name: 'JavaScript', icon: '📜' },
@@ -15,9 +13,8 @@ const categories = [
     ]
   },
   {
-    icon: Palette,
-    title: 'Frontend',
     emoji: '🎨',
+    title: 'Frontend',
     skills: [
       { name: 'React', icon: '⚛️' },
       { name: 'Tailwind', icon: '🎨' },
@@ -25,9 +22,8 @@ const categories = [
     ]
   },
   {
-    icon: Server,
-    title: 'Backend',
     emoji: '⚙️',
+    title: 'Backend',
     skills: [
       { name: 'Node.js', icon: '💚' },
       { name: 'FastAPI', icon: '⚡' },
@@ -35,9 +31,8 @@ const categories = [
     ]
   },
   {
-    icon: Brain,
-    title: 'ML & AI',
     emoji: '🤖',
+    title: 'ML & AI',
     skills: [
       { name: 'TensorFlow', icon: '🧠' },
       { name: 'PyTorch', icon: '🔥' },
@@ -47,9 +42,8 @@ const categories = [
     ]
   },
   {
-    icon: Cpu,
-    title: 'IoT & Hardware',
     emoji: '🔌',
+    title: 'IoT & Hardware',
     skills: [
       { name: 'ESP32', icon: '📡' },
       { name: 'Arduino', icon: '🔧' },
@@ -58,9 +52,8 @@ const categories = [
     ]
   },
   {
-    icon: Database,
-    title: 'Databases',
     emoji: '🗃️',
+    title: 'Databases',
     skills: [
       { name: 'MongoDB', icon: '🍃' },
       { name: 'PostgreSQL', icon: '🐘' },
@@ -68,9 +61,8 @@ const categories = [
     ]
   },
   {
-    icon: Cloud,
-    title: 'DevOps & Cloud',
     emoji: '☁️',
+    title: 'DevOps & Cloud',
     skills: [
       { name: 'Docker', icon: '🐳' },
       { name: 'Git', icon: '📚' },
@@ -79,9 +71,8 @@ const categories = [
     ]
   },
   {
-    icon: Sparkles,
-    title: 'GenAI Tools',
     emoji: '✨',
+    title: 'GenAI Tools',
     skills: [
       { name: 'GPT APIs', icon: '🧠' },
       { name: 'Gemini', icon: '💎' },
