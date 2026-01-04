@@ -47,35 +47,19 @@ export function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-      
-      {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(20,184,166,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(20,184,166,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(20,184,166,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(20,184,166,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        {/* Availability Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 border border-border text-sm text-muted-foreground mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          Available for opportunities • {personalInfo.location}
-        </motion.div>
-
         {/* Main Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.2 }}
           className="mb-6"
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight">
-            <span className="text-foreground">Hi, I'm</span>
-            <br />
-            <span className="text-primary">Achyuth Mukund</span>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-primary">
+            Achyuth Mukund
           </h1>
         </motion.div>
 
@@ -83,7 +67,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.3 }}
           className="text-2xl sm:text-3xl text-primary font-medium mb-8 h-10"
         >
           <span>{displayText}</span>
