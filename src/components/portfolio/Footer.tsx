@@ -3,6 +3,8 @@ import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="py-8 px-4 border-t border-border">
       <div className="max-w-6xl mx-auto">
@@ -36,7 +38,7 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="flex items-center gap-1 text-sm text-muted-foreground">
-            Built with <Heart className="w-3 h-3 text-red-500" /> by Achyuth Mukund
+            © {currentYear} • Built with <Heart className="w-3 h-3 text-red-500" /> by Achyuth Mukund
           </p>
         </div>
       </div>

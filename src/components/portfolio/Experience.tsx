@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MapPin, Calendar, Building2 } from 'lucide-react';
+import { MapPin, Calendar } from 'lucide-react';
 import { experience } from '@/data/portfolio';
 
 export function Experience() {
@@ -58,9 +58,6 @@ export function Experience() {
 
                   {exp.highlights.length > 0 && (
                     <div className="mb-4">
-                      <p className="text-muted-foreground mb-3">
-                        {exp.highlights[0].split('.')[0]}.
-                      </p>
                       <ul className="space-y-2">
                         {exp.highlights.map((highlight, j) => (
                           <li key={j} className="flex gap-2 text-sm text-muted-foreground">
