@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Cpu, Brain, Sparkles } from 'lucide-react';
-import profileImage from '@/assets/achyuth-profile.png';
+import profileImage from '@/assets/achyuth-profile.jpg';
 
 const specializations = [
   {
