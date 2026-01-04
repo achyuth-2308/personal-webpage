@@ -62,25 +62,25 @@
 }
 
 .dark {
-  /* Dark mode - Deep space with electric accents */
-  --background: hsl(240 15% 5%);
+  /* Dark mode - Deep teal oceanic theme */
+  --background: hsl(200 50% 8%);
   --foreground: hsl(0 0% 96%);
   
-  --card: hsl(240 12% 8%);
+  --card: hsl(200 45% 10%);
   --card-foreground: hsl(0 0% 96%);
   
-  --popover: hsl(240 12% 7%);
+  --popover: hsl(200 45% 9%);
   --popover-foreground: hsl(0 0% 96%);
   
-  /* Electric Cyan Primary - brighter in dark */
-  --primary: hsl(185 100% 50%);
-  --primary-foreground: hsl(240 15% 5%);
+  /* Electric Teal Primary */
+  --primary: hsl(173 80% 45%);
+  --primary-foreground: hsl(200 50% 5%);
   
-  --secondary: hsl(240 10% 12%);
+  --secondary: hsl(200 40% 14%);
   --secondary-foreground: hsl(0 0% 92%);
   
-  --muted: hsl(240 10% 14%);
-  --muted-foreground: hsl(240 5% 55%);
+  --muted: hsl(200 35% 16%);
+  --muted-foreground: hsl(200 20% 55%);
   
   /* Warm Coral Accent */
   --accent: hsl(15 95% 58%);
@@ -89,29 +89,29 @@
   --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 100%);
   
-  --border: hsl(240 10% 16%);
-  --input: hsl(240 10% 16%);
-  --ring: hsl(185 100% 50%);
+  --border: hsl(200 35% 18%);
+  --input: hsl(200 35% 18%);
+  --ring: hsl(173 80% 45%);
   
-  /* Glow colors - more vivid in dark */
-  --glow-primary: hsl(185 100% 60%);
-  --glow-secondary: hsl(260 85% 70%);
+  /* Glow colors - vibrant teal */
+  --glow-primary: hsl(173 80% 55%);
+  --glow-secondary: hsl(200 70% 50%);
   --glow-accent: hsl(15 95% 65%);
   
   /* Gradient stops */
-  --gradient-start: hsl(185 100% 50%);
-  --gradient-mid: hsl(260 85% 65%);
-  --gradient-end: hsl(15 95% 58%);
+  --gradient-start: hsl(173 80% 45%);
+  --gradient-mid: hsl(200 70% 45%);
+  --gradient-end: hsl(173 80% 55%);
   
   /* Sidebar dark */
-  --sidebar-background: hsl(240 12% 7%);
-  --sidebar-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-primary: hsl(185 100% 50%);
+  --sidebar-background: hsl(200 45% 9%);
+  --sidebar-foreground: hsl(0 0% 95%);
+  --sidebar-primary: hsl(173 80% 45%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 10% 14%);
-  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-border: hsl(240 10% 16%);
-  --sidebar-ring: hsl(185 100% 50%);
+  --sidebar-accent: hsl(200 35% 16%);
+  --sidebar-accent-foreground: hsl(0 0% 95%);
+  --sidebar-border: hsl(200 35% 18%);
+  --sidebar-ring: hsl(173 80% 45%);
 }
 
 /* =====================================================
