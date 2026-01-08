@@ -1,84 +1,80 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
+// Using skillicons.dev for all icons
+const getSkillIcon = (name: string) => {
+  const iconMap: Record<string, string> = {
+    'Python': 'python',
+    'JavaScript': 'javascript',
+    'C/C++': 'cpp',
+    'SQL': 'mysql',
+    'Java': 'java',
+    'React': 'react',
+    'Tailwind': 'tailwind',
+    'HTML/CSS': 'html',
+    'Node.js': 'nodejs',
+    'FastAPI': 'fastapi',
+    'Flask': 'flask',
+    'TensorFlow': 'tensorflow',
+    'PyTorch': 'pytorch',
+    'Scikit-learn': 'sklearn',
+    'OpenCV': 'opencv',
+    'LangChain': 'python', // No specific icon, using python
+    'ESP32': 'arduino',
+    'Arduino': 'arduino',
+    'Raspberry Pi': 'raspberrypi',
+    'Sensors': 'arduino',
+    'MongoDB': 'mongodb',
+    'PostgreSQL': 'postgresql',
+    'Firebase': 'firebase',
+    'Docker': 'docker',
+    'Git': 'git',
+    'AWS': 'aws',
+    'Azure': 'azure',
+    'GPT APIs': 'python',
+    'Gemini': 'python',
+    'LangGraph': 'python',
+    'RAG Systems': 'python',
+    'MySQL': 'mysql',
+    'Linux': 'linux',
+    'VS Code': 'vscode',
+    'Postman': 'postman'
+  };
+  return iconMap[name] || 'python';
+};
+
 const categories = [
   {
-    emoji: '💻',
     title: 'Languages',
-    skills: [
-      { name: 'Python', icon: '🐍' },
-      { name: 'JavaScript', icon: '📜' },
-      { name: 'C/C++', icon: '⚡' },
-      { name: 'SQL', icon: '🗄️' }
-    ]
+    skills: ['Python', 'JavaScript', 'C/C++', 'Java', 'SQL']
   },
   {
-    emoji: '🎨',
     title: 'Frontend',
-    skills: [
-      { name: 'React', icon: '⚛️' },
-      { name: 'Tailwind', icon: '🎨' },
-      { name: 'HTML/CSS', icon: '🌐' }
-    ]
+    skills: ['React', 'Tailwind', 'HTML/CSS']
   },
   {
-    emoji: '⚙️',
     title: 'Backend',
-    skills: [
-      { name: 'Node.js', icon: '💚' },
-      { name: 'FastAPI', icon: '⚡' },
-      { name: 'Flask', icon: '🌶️' }
-    ]
+    skills: ['Node.js', 'FastAPI', 'Flask']
   },
   {
-    emoji: '🤖',
     title: 'ML & AI',
-    skills: [
-      { name: 'TensorFlow', icon: '🧠' },
-      { name: 'PyTorch', icon: '🔥' },
-      { name: 'Scikit-learn', icon: '📊' },
-      { name: 'OpenCV', icon: '👁️' },
-      { name: 'LangChain', icon: '🔗' }
-    ]
+    skills: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'OpenCV', 'LangChain']
   },
   {
-    emoji: '🔌',
     title: 'IoT & Hardware',
-    skills: [
-      { name: 'ESP32', icon: '📡' },
-      { name: 'Arduino', icon: '🔧' },
-      { name: 'Raspberry Pi', icon: '🥧' },
-      { name: 'Sensors', icon: '📡' }
-    ]
+    skills: ['ESP32', 'Arduino', 'Raspberry Pi']
   },
   {
-    emoji: '🗃️',
     title: 'Databases',
-    skills: [
-      { name: 'MongoDB', icon: '🍃' },
-      { name: 'PostgreSQL', icon: '🐘' },
-      { name: 'Firebase', icon: '🔥' }
-    ]
+    skills: ['MongoDB', 'PostgreSQL', 'Firebase', 'MySQL']
   },
   {
-    emoji: '☁️',
     title: 'DevOps & Cloud',
-    skills: [
-      { name: 'Docker', icon: '🐳' },
-      { name: 'Git', icon: '📚' },
-      { name: 'AWS', icon: '☁️' },
-      { name: 'Azure', icon: '💠' }
-    ]
+    skills: ['Docker', 'Git', 'AWS', 'Azure', 'Linux']
   },
   {
-    emoji: '✨',
     title: 'GenAI Tools',
-    skills: [
-      { name: 'GPT APIs', icon: '🧠' },
-      { name: 'Gemini', icon: '💎' },
-      { name: 'LangGraph', icon: '📊' },
-      { name: 'RAG Systems', icon: '🔍' }
-    ]
+    skills: ['LangChain', 'LangGraph', 'Gemini']
   }
 ];
 
@@ -113,20 +109,24 @@ export function TechStack() {
               whileHover={{ y: -4 }}
             >
               {/* Header */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">{category.emoji}</span>
+              <div className="mb-4">
                 <h3 className="font-semibold text-foreground">{category.title}</h3>
               </div>
 
-              {/* Skills */}
+              {/* Skills with SkillIcons */}
               <div className="space-y-2">
                 {category.skills.map((skill) => (
                   <div
-                    key={skill.name}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-secondary/50 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                    key={skill}
+                    className="flex items-center gap-3 px-3 py-2 rounded-lg bg-secondary/50 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                   >
-                    <span>{skill.icon}</span>
-                    <span>{skill.name}</span>
+                    <img 
+                      src={`https://skillicons.dev/icons?i=${getSkillIcon(skill)}&theme=dark`}
+                      alt={skill}
+                      className="w-6 h-6"
+                      loading="lazy"
+                    />
+                    <span>{skill}</span>
                   </div>
                 ))}
               </div>

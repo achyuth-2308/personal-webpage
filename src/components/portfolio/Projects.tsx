@@ -3,61 +3,61 @@ import { useRef, useState } from 'react';
 import { Github, ExternalLink, ChevronRight } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 
-const categories = ['All', 'GenAI', 'IoT', 'Full-Stack', 'Computer Vision', 'MLOps'];
+const categories = ['All', 'GenAI', 'IoT', 'Computer Vision'];
 
 const allProjects = [
   {
-    title: 'IntelliRisk PoC',
-    subtitle: 'AI-powered risk evaluation system using multi-agent architecture',
+    title: 'IntelliRisk',
+    subtitle: 'AI Powered Risk Evaluation Engine for Engineering Product Compliance',
     category: 'GenAI',
     image: 'https://via.placeholder.com/600x400/14b8a6/ffffff?text=IntelliRisk',
-    technologies: ['Python', 'LangChain', 'LangGraph', 'Gemini API', 'FastAPI', 'React'],
-    github: 'https://github.com/achyuth-2308/intellirisk',
-    demo: '#'
+    technologies: ['Python', 'LangChain', 'Streamlit', 'FAISS', 'Gemini APIs', 'Pandas'],
+    github: 'https://github.com/achyuth-2308/IntelliRisk-AI-Powered-Risk-Evaluation-Engine',
+    demo: null
+  },
+  {
+    title: 'SmartSeal',
+    subtitle: 'IoT-based Smart Anti-Tampering Solution for Secure Deliveries',
+    category: 'IoT',
+    image: 'https://via.placeholder.com/600x400/f59e0b/ffffff?text=SmartSeal',
+    technologies: ['Arduino', 'ESP32', 'IoT Sensors', 'MQTT', 'React'],
+    github: 'https://github.com/achyuth-2308/SmartSeal-IoT-based-Smart-Anti-Tampering-Solution-for-Secure-Deliveries',
+    demo: null
+  },
+  {
+    title: 'GestureGenius',
+    subtitle: 'Virtual Cursor Commander - Hand Gesture Controlled Mouse',
+    category: 'Computer Vision',
+    image: 'https://via.placeholder.com/600x400/8b5cf6/ffffff?text=GestureGenius',
+    technologies: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
+    github: 'https://github.com/achyuth-2308/GestureGenius-Virtual-Cursor-Commander',
+    demo: null
+  },
+  {
+    title: 'EquiBot',
+    subtitle: 'Self-Balancing Bot with PID Control',
+    category: 'IoT',
+    image: 'https://via.placeholder.com/600x400/06b6d4/ffffff?text=EquiBot',
+    technologies: ['Arduino', 'MPU6050', 'DC Motors', 'PID Control'],
+    github: 'https://github.com/achyuth-2308/EquiBot-Self-Balancing-Bot',
+    demo: null
+  },
+  {
+    title: 'SafeStep',
+    subtitle: 'Smart IoT Safety Net for Elderly Fall Detection',
+    category: 'IoT',
+    image: 'https://via.placeholder.com/600x400/ec4899/ffffff?text=SafeStep',
+    technologies: ['ESP32', 'Accelerometer', 'Firebase', 'React Native'],
+    github: 'https://github.com/achyuth-2308/SafeStep-Smart-IoT-Safety-Net',
+    demo: null
   },
   {
     title: 'EcoSphereX',
-    subtitle: 'Environmental monitoring system with real-time IoT sensors',
+    subtitle: 'IoT-Based Integrated Monitoring System for Environmental Health',
     category: 'IoT',
     image: 'https://via.placeholder.com/600x400/10b981/ffffff?text=EcoSphereX',
-    technologies: ['ESP32', 'Arduino', 'Python', 'MQTT', 'MongoDB', 'React Dashboard'],
-    github: 'https://github.com/achyuth-2308/ecospherex',
-    demo: '#'
-  },
-  {
-    title: 'Quiz Master V1',
-    subtitle: 'Multi-user quiz platform with admin dashboard',
-    category: 'Full-Stack',
-    image: 'https://via.placeholder.com/600x400/06b6d4/ffffff?text=Quiz+Master',
-    technologies: ['Flask', 'PostgreSQL', 'JavaScript', 'Bootstrap', 'Socket.IO'],
-    github: 'https://github.com/achyuth-2308/quiz-master',
-    demo: '#'
-  },
-  {
-    title: 'Virtual Mouse',
-    subtitle: 'Hand gesture-controlled mouse using OpenCV',
-    category: 'Computer Vision',
-    image: 'https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Virtual+Mouse',
-    technologies: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
-    github: 'https://github.com/achyuth-2308/virtual-mouse',
-    demo: null
-  },
-  {
-    title: 'Smart Home Automation',
-    subtitle: 'ESP32-based home automation with voice control',
-    category: 'IoT',
-    image: 'https://via.placeholder.com/600x400/f59e0b/ffffff?text=Smart+Home',
-    technologies: ['ESP32', 'MQTT', 'Node.js', 'React Native', 'Firebase'],
-    github: 'https://github.com/achyuth-2308/smart-home',
-    demo: null
-  },
-  {
-    title: 'ML Model Deployment Pipeline',
-    subtitle: 'Automated ML model training and deployment system',
-    category: 'MLOps',
-    image: 'https://via.placeholder.com/600x400/ec4899/ffffff?text=ML+Pipeline',
-    technologies: ['Python', 'Docker', 'MLflow', 'FastAPI', 'GitHub Actions', 'AWS'],
-    github: 'https://github.com/achyuth-2308/ml-pipeline',
+    technologies: ['Arduino IDE', 'NodeMCU ESP8266', 'DHT-11', 'MQTT Protocol'],
+    github: 'https://github.com/achyuth-2308/EcoSphereX-IoT-Based-Integrated-Monitoring-System-for-Environmental-Health',
     demo: null
   }
 ];
@@ -65,9 +65,7 @@ const allProjects = [
 const categoryColors: Record<string, string> = {
   'GenAI': 'bg-emerald-500/10 text-emerald-500 border-emerald-500/30',
   'IoT': 'bg-amber-500/10 text-amber-500 border-amber-500/30',
-  'Full-Stack': 'bg-blue-500/10 text-blue-500 border-blue-500/30',
-  'Computer Vision': 'bg-violet-500/10 text-violet-500 border-violet-500/30',
-  'MLOps': 'bg-pink-500/10 text-pink-500 border-pink-500/30'
+  'Computer Vision': 'bg-violet-500/10 text-violet-500 border-violet-500/30'
 };
 
 export function Projects() {

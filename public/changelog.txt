@@ -1,0 +1,56 @@
+CHANGELOG - Portfolio Update
+============================
+Date: January 2026
+
+SOCIAL LINKS UPDATED:
+- GitHub: https://github.com/achyuth-2308
+- LinkedIn: https://www.linkedin.com/in/achyuth-mukund/
+- YouTube: https://www.youtube.com/@AchyuthMukund
+- Instagram: https://instagram.com/achyuth_2308
+- Medium: https://medium.com/@achyuth_2308
+- ResearchGate: https://www.researchgate.net/profile/Achyuth-Mukund
+- ORCiD: https://orcid.org/0009-0002-5798-0858
+
+EMAIL UPDATED:
+- mailto:achyuth2004@gmail.com
+
+PROJECTS LINKED (with exact GitHub URLs):
+1. IntelliRisk - AI Powered Risk Evaluation Engine
+   → https://github.com/achyuth-2308/IntelliRisk-AI-Powered-Risk-Evaluation-Engine
+
+2. SmartSeal - IoT-based Smart Anti-Tampering Solution
+   → https://github.com/achyuth-2308/SmartSeal-IoT-based-Smart-Anti-Tampering-Solution-for-Secure-Deliveries
+
+3. GestureGenius - Virtual Cursor Commander
+   → https://github.com/achyuth-2308/GestureGenius-Virtual-Cursor-Commander
+
+4. EquiBot - Self-Balancing Bot
+   → https://github.com/achyuth-2308/EquiBot-Self-Balancing-Bot
+
+5. SafeStep - Smart IoT Safety Net for Elderly
+   → https://github.com/achyuth-2308/SafeStep-Smart-IoT-Safety-Net
+
+6. EcoSphereX - IoT-Based Environmental Monitoring
+   → https://github.com/achyuth-2308/EcoSphereX-IoT-Based-Integrated-Monitoring-System-for-Environmental-Health
+
+INTERNSHIPS ADDED (from resume):
+1. Research Intern - IIIT D&M Kancheepuram (Dec 2024 - Jan 2025)
+   - RL-based routing on IoT Networks
+   - UWB localization with Raspberry Pi & ESP-32
+   - Hybrid Intelligence Lab collaboration
+
+2. Machine Learning Intern - Suvidha Foundation (Jan 2024 - Feb 2024)
+   - EDA on 10,000+ data points
+   - TensorFlow/Scikit-learn pipelines
+   - 37% model accuracy improvement
+
+TECH ICONS UPDATED:
+- Replaced emoji icons with skillicons.dev SVGs
+- All icons from https://skillicons.dev/
+- Uniform sizing (24x24px) with dark theme
+
+OTHER CHANGES:
+- All social links open in new tab (target="_blank")
+- Email links open mail client (mailto:)
+- Preserved mobile responsiveness
+- Maintained all animations and interactions

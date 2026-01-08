@@ -1,0 +1,39 @@
+{
+  "socials": {
+    "github": "https://github.com/achyuth-2308",
+    "linkedin": "https://www.linkedin.com/in/achyuth-mukund/",
+    "youtube": "https://www.youtube.com/@AchyuthMukund",
+    "instagram": "https://instagram.com/achyuth_2308",
+    "medium": "https://medium.com/@achyuth_2308",
+    "researchgate": "https://www.researchgate.net/profile/Achyuth-Mukund",
+    "orcid": "https://orcid.org/0009-0002-5798-0858",
+    "linktree": "https://linktr.ee/achyuth.mukund"
+  },
+  "email": "achyuth2004@gmail.com",
+  "projects": [
+    {
+      "name": "IntelliRisk",
+      "url": "https://github.com/achyuth-2308/IntelliRisk-AI-Powered-Risk-Evaluation-Engine"
+    },
+    {
+      "name": "SmartSeal",
+      "url": "https://github.com/achyuth-2308/SmartSeal-IoT-based-Smart-Anti-Tampering-Solution-for-Secure-Deliveries"
+    },
+    {
+      "name": "GestureGenius",
+      "url": "https://github.com/achyuth-2308/GestureGenius-Virtual-Cursor-Commander"
+    },
+    {
+      "name": "EquiBot",
+      "url": "https://github.com/achyuth-2308/EquiBot-Self-Balancing-Bot"
+    },
+    {
+      "name": "SafeStep",
+      "url": "https://github.com/achyuth-2308/SafeStep-Smart-IoT-Safety-Net"
+    },
+    {
+      "name": "EcoSphereX",
+      "url": "https://github.com/achyuth-2308/EcoSphereX-IoT-Based-Integrated-Monitoring-System-for-Environmental-Health"
+    }
+  ]
+}
