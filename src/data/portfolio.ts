@@ -185,7 +185,13 @@ export const projects = [
   }
 ];
 
-export const researchIntro = `I'm deeply fascinated by the intersection of privacy, intelligence, and real-world impact. My research explores privacy-preserving AI—particularly federated learning for IoT and wearable systems—where sensitive data never leaves the edge. I'm captivated by the challenge of building efficient on-device models for healthcare, enabling predictive insights without compromising patient trust. Recently, I've been investigating how implicit biases emerge in large language models and how we might design fairer, more transparent AI systems. For me, research isn't just about algorithms—it's about building technology that respects human dignity.`;
+export const researchPhilosophy = `I've always been drawn to problems that sit right at the edge of technology and humanity. What excites me most is the idea that intelligence doesn't need to come at the cost of privacy. That's what pushed me into privacy-preserving AI, especially federated learning for IoT and wearable systems, where data stays where it belongs — with the person, at the edge, not in a distant server.
+
+My work in healthcare AI comes from a simple belief: predictions are powerful only when trust is preserved. Building efficient on-device models for sensitive medical and sensor data fascinates me because it forces creativity — making models smaller, smarter, faster, and more respectful of the people they serve.
+
+Lately, my curiosity has shifted toward the invisible side of AI — implicit and intersectional bias in LLMs. BADx was born from frustration with static bias tests that don't reflect how models behave when they "wear" personas. Studying how bias changes under context, and how we can explain it clearly, keeps me hooked.
+
+To me, research isn't about publishing papers — it's about proving that we can build systems that are intelligent, cautious, and fair at the same time. If a model I build or audit makes even one person trust AI a little more, or protects one piece of sensitive data, I consider that real progress.`;
 
 export const researchProfiles = {
   googleScholar: "https://scholar.google.com/citations?user=zMSeQwQAAAAJ&hl=en",
@@ -199,12 +205,12 @@ export const publications = [
     title: "The Synergy of Federated Learning and IoT: Pioneering Privacy and Efficiency in Decentralised Systems",
     authors: "Achyuth Mukund, T. Aditya Varun, K. B. Sundharakumar",
     year: "2025",
-    venue: "ICCIDS 2025 (Springer)",
+    venue: "ICCIDS 2025",
     publisher: "Springer",
     doi: "10.1007/978-3-031-98360-3_6",
-    link: "https://doi.org/10.1007/978-3-031-98360-3_6",
     linkedinPost: "https://www.linkedin.com/feed/update/urn:li:activity:7296823234719621120/",
-    status: "published"
+    status: "published",
+    abstract: "This paper explores the integration of Federated Learning with Internet of Things ecosystems, demonstrating how decentralized machine learning can preserve data privacy while maintaining model accuracy. We present a comprehensive framework for implementing privacy-preserving AI in distributed IoT networks."
   },
   {
     number: "02",
@@ -214,9 +220,9 @@ export const publications = [
     venue: "Predictive Algorithms for Rehabilitation and Assistive Systems",
     publisher: "IGI Global Scientific Publishing",
     doi: "10.4018/979-8-3373-0194-5.ch010",
-    link: "https://doi.org/10.4018/979-8-3373-0194-5.ch010",
     linkedinPost: "https://www.linkedin.com/feed/update/urn:li:activity:7339959639381327873/",
-    status: "published"
+    status: "published",
+    abstract: "This chapter examines how wearable sensors and predictive analytics can transform rehabilitation practices. We discuss methodologies for collecting, processing, and analyzing sensor data to provide personalized rehabilitation recommendations and real-time progress monitoring."
   },
   {
     number: "03",
@@ -224,23 +230,23 @@ export const publications = [
     authors: "Achyuth Mukund",
     year: "2025",
     venue: "Building Secure Ecosystems: Advances in Privacy-Preserving Machine Learning",
-    publisher: "Apple Academic Press (CRC Press, Taylor & Francis Group)",
+    publisher: "Apple Academic Press (CRC Press, Taylor & Francis Group), Burlington, Canada",
     doi: null,
-    link: null,
     linkedinPost: null,
-    status: "in-press"
+    status: "in-press",
+    abstract: "This book chapter addresses critical security challenges in federated learning implementations for healthcare environments. We propose novel security mechanisms to protect sensitive medical data during collaborative model training across distributed healthcare institutions."
   },
   {
     number: "04",
     title: "Invisible Influences: Investigating Implicit Intersectional Biases through Persona Engineering in Large Language Models",
-    authors: "Nandini Arimanda, Achyuth Mukund, Sathi B. Muthiah, Rajesh Sharma",
+    authors: "Nandini Arimanda, Achyuth Mukund, Dr. Sathi Balan Muthiah, Dr. Rajesh Sharma",
     year: "2025",
     venue: "Under Review",
     publisher: null,
     doi: null,
-    link: null,
     linkedinPost: null,
-    status: "under-review"
+    status: "under-review",
+    abstract: "A persona-induced bias study introducing the BADx metric for dynamic intersectional bias measurement and explainability. We systematically analyze how implicit biases manifest across 5 state-of-the-art LLMs when prompted with various persona configurations, revealing hidden patterns of intersectional discrimination."
   }
 ];
 
