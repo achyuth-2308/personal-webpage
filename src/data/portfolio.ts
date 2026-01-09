@@ -185,26 +185,38 @@ export const projects = [
   }
 ];
 
+export const researchIntro = `I'm deeply fascinated by the intersection of privacy, intelligence, and real-world impact. My research explores privacy-preserving AI—particularly federated learning for IoT and wearable systems—where sensitive data never leaves the edge. I'm captivated by the challenge of building efficient on-device models for healthcare, enabling predictive insights without compromising patient trust. Recently, I've been investigating how implicit biases emerge in large language models and how we might design fairer, more transparent AI systems. For me, research isn't just about algorithms—it's about building technology that respects human dignity.`;
+
+export const researchProfiles = {
+  googleScholar: "https://scholar.google.com/citations?user=zMSeQwQAAAAJ&hl=en",
+  researchGate: "https://www.researchgate.net/profile/Achyuth-Mukund/research",
+  orcid: "https://orcid.org/my-orcid?orcid=0009-0002-5798-0858"
+};
+
 export const publications = [
   {
     number: "01",
+    title: "The Synergy of Federated Learning and IoT: Pioneering Privacy and Efficiency in Decentralised Systems",
+    authors: "Achyuth Mukund, T. Aditya Varun, K. B. Sundharakumar",
+    year: "2025",
+    venue: "ICCIDS 2025 (Springer)",
+    publisher: "Springer",
+    doi: "10.1007/978-3-031-98360-3_6",
+    link: "https://doi.org/10.1007/978-3-031-98360-3_6",
+    linkedinPost: "https://www.linkedin.com/feed/update/urn:li:activity:7296823234719621120/",
+    status: "published"
+  },
+  {
+    number: "02",
     title: "Wearable Technology and Sensor Data in Assistive Systems: Enhancing Rehabilitation Through Predictive Analytics",
     authors: "Achyuth Mukund",
     year: "2025",
     venue: "Predictive Algorithms for Rehabilitation and Assistive Systems",
     publisher: "IGI Global Scientific Publishing",
     doi: "10.4018/979-8-3373-0194-5.ch010",
-    link: "https://www.igi-global.com/"
-  },
-  {
-    number: "02",
-    title: "The Synergy of Federated Learning and IoT: Pioneering Privacy and Efficiency in Decentralised Systems",
-    authors: "Achyuth Mukund, T. Aditya Varun, Dr. Sundharakumar KB",
-    year: "2025",
-    venue: "8th International Conference on Computational Intelligence and Data Science (ICCIDS 2025)",
-    publisher: "Chennai, India",
-    doi: null,
-    link: null
+    link: "https://doi.org/10.4018/979-8-3373-0194-5.ch010",
+    linkedinPost: "https://www.linkedin.com/feed/update/urn:li:activity:7339959639381327873/",
+    status: "published"
   },
   {
     number: "03",
@@ -213,8 +225,22 @@ export const publications = [
     year: "2025",
     venue: "Building Secure Ecosystems: Advances in Privacy-Preserving Machine Learning",
     publisher: "Apple Academic Press (CRC Press, Taylor & Francis Group)",
-    doi: "Publishing in Progress",
-    link: null
+    doi: null,
+    link: null,
+    linkedinPost: null,
+    status: "in-press"
+  },
+  {
+    number: "04",
+    title: "Invisible Influences: Investigating Implicit Intersectional Biases through Persona Engineering in Large Language Models",
+    authors: "Nandini Arimanda, Achyuth Mukund, Sathi B. Muthiah, Rajesh Sharma",
+    year: "2025",
+    venue: "Under Review",
+    publisher: null,
+    doi: null,
+    link: null,
+    linkedinPost: null,
+    status: "under-review"
   }
 ];
 
