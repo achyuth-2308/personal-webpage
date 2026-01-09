@@ -5,9 +5,10 @@
     "youtube": "https://www.youtube.com/@AchyuthMukund",
     "instagram": "https://instagram.com/achyuth_2308",
     "medium": "https://medium.com/@achyuth_2308",
-    "researchgate": "https://www.researchgate.net/profile/Achyuth-Mukund",
+    "researchgate": "https://www.researchgate.net/profile/Achyuth-Mukund/research",
     "orcid": "https://orcid.org/0009-0002-5798-0858",
-    "linktree": "https://linktr.ee/achyuth.mukund"
+    "linktree": "https://linktr.ee/achyuth.mukund",
+    "googleScholar": "https://scholar.google.com/citations?user=zMSeQwQAAAAJ&hl=en"
   },
   "email": "achyuth2004@gmail.com",
   "projects": [
@@ -34,6 +35,40 @@
     {
       "name": "EcoSphereX",
       "url": "https://github.com/achyuth-2308/EcoSphereX-IoT-Based-Integrated-Monitoring-System-for-Environmental-Health"
+    }
+  ],
+  "publications": [
+    {
+      "title": "The Synergy of Federated Learning and IoT: Pioneering Privacy and Efficiency in Decentralised Systems",
+      "authors": "Achyuth Mukund, T. Aditya Varun, K. B. Sundharakumar",
+      "year": "2025",
+      "doi": "10.1007/978-3-031-98360-3_6",
+      "image_space": "placeholder",
+      "abstract_preview": "This paper explores the integration of Federated Learning with Internet of Things ecosystems, demonstrating how decentralized machine learning can preserve data privacy..."
+    },
+    {
+      "title": "Wearable Technology and Sensor Data in Assistive Systems: Enhancing Rehabilitation Through Predictive Analytics",
+      "authors": "Achyuth Mukund",
+      "year": "2025",
+      "doi": "10.4018/979-8-3373-0194-5.ch010",
+      "image_space": "placeholder",
+      "abstract_preview": "This chapter examines how wearable sensors and predictive analytics can transform rehabilitation practices..."
+    },
+    {
+      "title": "Enhancing Security in Federated Learning for Healthcare Data Sharing",
+      "authors": "Achyuth Mukund",
+      "year": "2025",
+      "doi": null,
+      "image_space": "placeholder",
+      "abstract_preview": "This book chapter addresses critical security challenges in federated learning implementations for healthcare environments..."
+    },
+    {
+      "title": "Invisible Influences: Investigating Implicit Intersectional Biases through Persona Engineering in Large Language Models",
+      "authors": "Nandini Arimanda, Achyuth Mukund, Dr. Sathi Balan Muthiah, Dr. Rajesh Sharma",
+      "year": "2025",
+      "doi": null,
+      "image_space": "placeholder",
+      "abstract_preview": "A persona-induced bias study introducing the BADx metric for dynamic intersectional bias measurement and explainability across 5 LLMs."
     }
   ]
 }
