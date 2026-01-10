@@ -1,7 +1,37 @@
 import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
 
-// Using skillicons.dev for all icons
+// LangChain official logo component
+function LangChainIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#1C3C3C"/>
+      <path d="M2 17l10 5 10-5" stroke="#1C3C3C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M2 12l10 5 10-5" stroke="#1C3C3C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+// LangGraph official logo component
+function LangGraphIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="5" r="3" fill="#1C3C3C"/>
+      <circle cx="5" cy="19" r="3" fill="#1C3C3C"/>
+      <circle cx="19" cy="19" r="3" fill="#1C3C3C"/>
+      <path d="M12 8v4M9 15l-2 2M15 15l2 2" stroke="#1C3C3C" strokeWidth="2" strokeLinecap="round"/>
+      <circle cx="12" cy="14" r="2" fill="#1C3C3C"/>
+    </svg>
+  );
+}
+
+// Custom icons that need special handling
+const customIcons: Record<string, boolean> = {
+  'LangChain': true,
+  'LangGraph': true,
+};
+
+// Using skillicons.dev for most icons
 const getSkillIcon = (name: string) => {
   const iconMap: Record<string, string> = {
     'Python': 'python',
@@ -22,7 +52,6 @@ const getSkillIcon = (name: string) => {
     'PyTorch': 'pytorch',
     'Scikit-learn': 'sklearn',
     'OpenCV': 'opencv',
-    'LangChain': 'python',
     'ESP32': 'arduino',
     'Arduino': 'arduino',
     'Raspberry Pi': 'raspberrypi',
@@ -90,7 +119,7 @@ const categories = [
     title: 'GenAI Tools',
     color: 'from-violet-500/20 to-purple-500/20',
     borderColor: 'hover:border-violet-500/50',
-    skills: ['LangChain', 'OpenCV']
+    skills: ['LangChain', 'LangGraph']
   }
 ];
 
@@ -236,18 +265,33 @@ export function TechStack() {
                         transition: { type: "spring", stiffness: 400 }
                       }}
                     >
-                      <motion.img 
-                        src={`https://skillicons.dev/icons?i=${getSkillIcon(skill)}&theme=dark`}
-                        alt={skill}
-                        className="w-6 h-6"
-                        loading="lazy"
-                        initial={{ rotate: 0 }}
-                        whileHover={{ 
-                          rotate: [0, -10, 10, 0],
-                          scale: 1.15,
-                          transition: { duration: 0.4 }
-                        }}
-                      />
+                      {customIcons[skill] ? (
+                        <motion.div
+                          className="w-6 h-6 flex items-center justify-center"
+                          initial={{ rotate: 0 }}
+                          whileHover={{ 
+                            rotate: [0, -10, 10, 0],
+                            scale: 1.15,
+                            transition: { duration: 0.4 }
+                          }}
+                        >
+                          {skill === 'LangChain' && <LangChainIcon className="w-6 h-6" />}
+                          {skill === 'LangGraph' && <LangGraphIcon className="w-6 h-6" />}
+                        </motion.div>
+                      ) : (
+                        <motion.img 
+                          src={`https://skillicons.dev/icons?i=${getSkillIcon(skill)}&theme=dark`}
+                          alt={skill}
+                          className="w-6 h-6"
+                          loading="lazy"
+                          initial={{ rotate: 0 }}
+                          whileHover={{ 
+                            rotate: [0, -10, 10, 0],
+                            scale: 1.15,
+                            transition: { duration: 0.4 }
+                          }}
+                        />
+                      )}
                       <span className="group-hover/skill:text-primary transition-colors">{skill}</span>
                     </motion.div>
                   ))}
