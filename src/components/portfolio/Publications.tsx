@@ -250,7 +250,7 @@ export function Publications() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="publications" className="py-24 px-4 relative overflow-hidden" ref={ref}>
+    <section id="publications" className="min-h-screen py-24 px-4 pt-24 relative overflow-hidden" ref={ref}>
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
       
