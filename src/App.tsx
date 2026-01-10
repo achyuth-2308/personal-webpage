@@ -2,40 +2,60 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from '@/components/portfolio/Navbar';
-import { Hero } from '@/components/portfolio/Hero';
-import { About } from '@/components/portfolio/About';
-import { TechStack } from '@/components/portfolio/TechStack';
-import { Projects } from '@/components/portfolio/Projects';
-import { Experience } from '@/components/portfolio/Experience';
-import { Publications } from '@/components/portfolio/Publications';
-import { Leadership } from '@/components/portfolio/Leadership';
-import { Contact } from '@/components/portfolio/Contact';
-import { Footer } from '@/components/portfolio/Footer';
+import { AnimatePresence, motion } from 'framer-motion';
+
+// Pages
+import HomePage from '@/pages/HomePage';
+import ResearchPage from '@/pages/ResearchPage';
+import EducationPage from '@/pages/EducationPage';
+import ExperiencePage from '@/pages/ExperiencePage';
+import ProjectsPage from '@/pages/ProjectsPage';
+import SkillsPage from '@/pages/SkillsPage';
+import ContactPage from '@/pages/ContactPage';
 
 const queryClient = new QueryClient();
+
+// Page transition wrapper
+function PageWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <div className="min-h-screen bg-background">
-          <Navbar />
-          <main>
-            <Hero />
-            <About />
-            <TechStack />
-            <Projects />
-            <Experience />
-            <Publications />
-            <Leadership />
-            <Contact />
-          </main>
-          <Footer />
-        </div>
+        <BrowserRouter>
+          <Toaster />
+          <Sonner />
+          <div className="min-h-screen bg-background">
+            <Navbar />
+            <main>
+              <AnimatePresence mode="wait">
+                <Routes>
+                  <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
+                  <Route path="/research" element={<PageWrapper><ResearchPage /></PageWrapper>} />
+                  <Route path="/education" element={<PageWrapper><EducationPage /></PageWrapper>} />
+                  <Route path="/experience" element={<PageWrapper><ExperiencePage /></PageWrapper>} />
+                  <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
+                  <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />
+                  <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
+                </Routes>
+              </AnimatePresence>
+            </main>
+          </div>
+        </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
