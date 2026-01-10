@@ -203,13 +203,15 @@ export const publications = [
   {
     number: "01",
     title: "The Synergy of Federated Learning and IoT: Pioneering Privacy and Efficiency in Decentralised Systems",
-    authors: "Achyuth Mukund, T. Aditya Varun, K. B. Sundharakumar",
+    authors: "Achyuth Mukund, T. Aditya Varun, Dr. K. B. Sundharakumar",
     year: "2025",
     venue: "ICCIDS 2025",
     publisher: "Springer",
     doi: "10.1007/978-3-031-98360-3_6",
     linkedinPost: "https://www.linkedin.com/feed/update/urn:li:activity:7296823234719621120/",
+    mediumPost: "https://medium.com/@achyuth_2308/from-conference-halls-to-real-world-impact-a-journey-into-federated-learning-and-iot-6d46e20fdcdc",
     status: "published",
+    images: ["publications/iccids-presentation.png", "publications/iccids-certificate.png"],
     abstract: "This paper explores the integration of Federated Learning with Internet of Things ecosystems, demonstrating how decentralized machine learning can preserve data privacy while maintaining model accuracy. We present a comprehensive framework for implementing privacy-preserving AI in distributed IoT networks."
   },
   {
@@ -222,6 +224,7 @@ export const publications = [
     doi: "10.4018/979-8-3373-0194-5.ch010",
     linkedinPost: "https://www.linkedin.com/feed/update/urn:li:activity:7339959639381327873/",
     status: "published",
+    images: ["publications/igi-global-wearable.png"],
     abstract: "This chapter examines how wearable sensors and predictive analytics can transform rehabilitation practices. We discuss methodologies for collecting, processing, and analyzing sensor data to provide personalized rehabilitation recommendations and real-time progress monitoring."
   },
   {

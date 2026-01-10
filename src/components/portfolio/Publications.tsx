@@ -4,6 +4,17 @@ import { ExternalLink, BookOpen, FileText, Linkedin, ChevronDown, ChevronUp } fr
 import { publications, researchPhilosophy, researchProfiles } from '@/data/portfolio';
 import researchHero from '@/assets/research-hero.png';
 
+// Import publication images
+import iccidsPresentation from '@/assets/publications/iccids-presentation.png';
+import iccidsCertificate from '@/assets/publications/iccids-certificate.png';
+import igiGlobalWearable from '@/assets/publications/igi-global-wearable.png';
+
+const imageMap: Record<string, string> = {
+  'publications/iccids-presentation.png': iccidsPresentation,
+  'publications/iccids-certificate.png': iccidsCertificate,
+  'publications/igi-global-wearable.png': igiGlobalWearable,
+};
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -78,8 +89,32 @@ function getStatusBadge(status: string) {
   }
 }
 
+// Medium icon component
+function MediumIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+    </svg>
+  );
+}
+
+interface PublicationData {
+  number: string;
+  title: string;
+  authors: string;
+  year: string;
+  venue: string;
+  publisher: string | null;
+  doi: string | null;
+  linkedinPost: string | null;
+  mediumPost?: string | null;
+  status: string;
+  images?: string[];
+  abstract: string;
+}
+
 interface PublicationCardProps {
-  pub: typeof publications[0];
+  pub: PublicationData;
   index: number;
 }
 
@@ -87,22 +122,38 @@ function PublicationCard({ pub, index }: PublicationCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const abstractPreview = pub.abstract?.slice(0, 150);
   const hasMoreContent = pub.abstract && pub.abstract.length > 150;
+  const pubImages = pub.images;
+  const mediumPost = pub.mediumPost;
 
   return (
     <motion.article
       variants={itemVariants}
-      className="group flex gap-5 p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5"
+      className="group"
     >
-      {/* Image placeholder container */}
-      <div className="hidden sm:flex shrink-0 w-24 h-32 rounded-xl bg-muted/50 border border-border/50 items-center justify-center overflow-hidden">
-        <div className="text-muted-foreground/30 text-xs text-center p-2">
-          <BookOpen className="w-8 h-8 mx-auto mb-1 opacity-30" />
-          <span className="opacity-50">Image</span>
+      {/* Publication Images - Outside card, full width */}
+      {pubImages && pubImages.length > 0 && (
+        <div className={`mb-6 grid gap-4 ${pubImages.length > 1 ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+          {pubImages.map((imgPath, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="relative rounded-xl overflow-hidden shadow-xl border border-border/50 hover:border-primary/30 transition-all group/img"
+            >
+              <img
+                src={imageMap[imgPath]}
+                alt={`${pub.title} - Image ${idx + 1}`}
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity" />
+            </motion.div>
+          ))}
         </div>
-      </div>
+      )}
 
-      {/* Content */}
-      <div className="flex-1 min-w-0">
+      {/* Publication Card */}
+      <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
         <div className="flex items-start justify-between gap-3 mb-3">
           <span className="text-xs font-mono text-muted-foreground bg-muted px-2 py-1 rounded shrink-0">
             #{pub.number}
@@ -110,8 +161,9 @@ function PublicationCard({ pub, index }: PublicationCardProps) {
           {getStatusBadge(pub.status)}
         </div>
         
-        <h4 className="font-semibold text-foreground mb-2 leading-tight text-lg group-hover:text-primary transition-colors">
-          <em>{pub.title}</em>
+        {/* Title - No italics, better font */}
+        <h4 className="font-bold text-foreground mb-3 leading-tight text-lg md:text-xl tracking-tight group-hover:text-primary transition-colors">
+          {pub.title}
         </h4>
         
         <p className="text-sm text-muted-foreground mb-3">
@@ -174,6 +226,17 @@ function PublicationCard({ pub, index }: PublicationCardProps) {
             >
               <Linkedin className="w-3.5 h-3.5" />
               View Post
+            </a>
+          )}
+          {mediumPost && (
+            <a
+              href={mediumPost}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground hover:underline bg-foreground/5 px-3 py-1.5 rounded-full hover:bg-foreground/10 transition-colors"
+            >
+              <MediumIcon className="w-3.5 h-3.5" />
+              View Story on Medium
             </a>
           )}
         </div>
@@ -274,9 +337,9 @@ export function Publications() {
             Publications
           </h3>
           
-          <div className="space-y-6">
+          <div className="space-y-10">
             {publications.map((pub, i) => (
-              <PublicationCard key={pub.title} pub={pub} index={i} />
+              <PublicationCard key={pub.title} pub={pub as PublicationData} index={i} />
             ))}
           </div>
         </motion.div>
