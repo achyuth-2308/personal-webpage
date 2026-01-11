@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import HomePage from '@/pages/HomePage';
 import ResearchPage from '@/pages/ResearchPage';
 import EducationPage from '@/pages/EducationPage';
+import CertificationsPage from '@/pages/CertificationsPage';
 import ExperiencePage from '@/pages/ExperiencePage';
 import ProjectsPage from '@/pages/ProjectsPage';
 import SkillsPage from '@/pages/SkillsPage';
@@ -47,6 +48,7 @@ const App = () => (
                   <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
                   <Route path="/research" element={<PageWrapper><ResearchPage /></PageWrapper>} />
                   <Route path="/education" element={<PageWrapper><EducationPage /></PageWrapper>} />
+                  <Route path="/certifications" element={<PageWrapper><CertificationsPage /></PageWrapper>} />
                   <Route path="/experience" element={<PageWrapper><ExperiencePage /></PageWrapper>} />
                   <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
                   <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />

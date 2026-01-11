@@ -1,0 +1,153 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { Award, ExternalLink } from 'lucide-react';
+import { certifications } from '@/data/portfolio';
+
+// Official logo URLs/icons for certification issuers
+const issuerLogos: Record<string, string> = {
+  'Postman': 'https://voyager.postman.com/logo/postman-logo-icon-orange.svg',
+  'Coursera': 'https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-194x194.png',
+  'IBM': 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
+  'IIT Kharagpur - NPTEL': 'https://nptel.ac.in/content/nptelfavicon.png',
+  'HP Foundation': 'https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg',
+  'CyberTEA - IIIT Sri City': 'https://www.iiits.ac.in/wp-content/uploads/2019/08/IIITS-logo-1.png',
+  'IIT Delhi - NPTEL': 'https://nptel.ac.in/content/nptelfavicon.png',
+};
+
+interface CertificationCardProps {
+  name: string;
+  issuer: string;
+  index: number;
+}
+
+function CertificationCard({ name, issuer, index }: CertificationCardProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const logoUrl = issuerLogos[issuer];
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group relative bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+    >
+      {/* Background Logo Watermark */}
+      {logoUrl && (
+        <div className="absolute top-4 right-4 w-12 h-12 opacity-10 group-hover:opacity-20 transition-opacity">
+          <img
+            src={logoUrl}
+            alt=""
+            className="w-full h-full object-contain"
+            loading="lazy"
+          />
+        </div>
+      )}
+
+      <div className="relative z-10">
+        {/* Icon */}
+        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+          <Award className="w-5 h-5 text-primary" />
+        </div>
+
+        {/* Content */}
+        <h3 className="font-semibold text-foreground text-base mb-2 pr-12 leading-tight">
+          {name}
+        </h3>
+        
+        <div className="flex items-center gap-2">
+          {logoUrl && (
+            <img
+              src={logoUrl}
+              alt={issuer}
+              className="w-4 h-4 object-contain"
+              loading="lazy"
+            />
+          )}
+          <span className="text-sm text-muted-foreground">{issuer}</span>
+        </div>
+      </div>
+
+      {/* Hover indicator */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 rounded-b-xl"
+        initial={{ scaleX: 0 }}
+        whileHover={{ scaleX: 1 }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.div>
+  );
+}
+
+export function Certifications() {
+  const headerRef = useRef(null);
+  const isHeaderInView = useInView(headerRef, { once: true });
+
+  return (
+    <section id="certifications" className="min-h-screen py-24 px-4 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary/30 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <motion.div
+          ref={headerRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            Professional Development
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Certifications
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Industry-recognized certifications demonstrating expertise in cloud computing, 
+            AI/ML, API development, and software engineering best practices.
+          </p>
+        </motion.div>
+
+        {/* Certifications Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certifications.map((cert, index) => (
+            <CertificationCard
+              key={cert.name}
+              name={cert.name}
+              issuer={cert.issuer}
+              index={index}
+            />
+          ))}
+        </div>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 flex flex-wrap justify-center gap-8"
+        >
+          <div className="text-center">
+            <div className="text-3xl font-bold text-primary">{certifications.length}+</div>
+            <div className="text-sm text-muted-foreground">Certifications</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-primary">5+</div>
+            <div className="text-sm text-muted-foreground">Organizations</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-primary">4+</div>
+            <div className="text-sm text-muted-foreground">Domains</div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

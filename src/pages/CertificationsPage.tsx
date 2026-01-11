@@ -1,11 +1,11 @@
-import { Publications } from '@/components/portfolio/Publications';
+import { Certifications } from '@/components/portfolio/Certifications';
 import { Footer } from '@/components/portfolio/Footer';
 import { ScrollToTop } from '@/components/portfolio/ScrollToTop';
 
-export default function ResearchPage() {
+export default function CertificationsPage() {
   return (
     <>
-      <Publications />
+      <Certifications />
       <Footer />
       <ScrollToTop />
     </>
