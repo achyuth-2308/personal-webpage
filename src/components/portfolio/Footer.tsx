@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
+import { Link } from 'react-router-dom';
 
 // Custom YouTube icon component
 const YouTubeIcon = ({ className }: { className?: string }) => (
@@ -33,12 +34,14 @@ const socialLinks = [
 ];
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Tech Stack', href: '#techstack' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'Home', href: '/' },
+  { label: 'Work Experience', href: '/experience' },
+  { label: 'Education', href: '/education' },
+  { label: 'Certifications', href: '/certifications' },
+  { label: 'Skills', href: '/skills' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Research & Publications', href: '/research' },
+  { label: 'Contact', href: '/contact' }
 ];
 
 export function Footer() {
@@ -73,12 +76,12 @@ export function Footer() {
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

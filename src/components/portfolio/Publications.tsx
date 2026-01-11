@@ -28,24 +28,54 @@ const itemVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
+// Official Google Scholar icon
+function GoogleScholarIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+    </svg>
+  );
+}
+
+// Official ResearchGate icon
+function ResearchGateIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.365 8.365 0 0 0-.078.53 9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016a31.121 31.121 0 0 0 .014 1.017 9 9 0 0 0 .05.727 7.946 7.946 0 0 0 .077.53h-.005a3.334 3.334 0 0 0 .113.438c.245.743.65 1.303 1.214 1.68.565.376 1.256.564 2.075.564.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.076-.235.135-.558.177-.93a10.9 10.9 0 0 0 .043-1.207v-.82c0-.095-.047-.142-.14-.142h-3.064c-.094 0-.14.047-.14.141v.956c0 .094.046.14.14.14h1.666c.056 0 .084.03.084.086 0 .36 0 .62-.036.865-.038.244-.1.447-.147.606-.108.385-.348.664-.638.876-.29.212-.738.35-1.227.35-.545 0-.901-.15-1.21-.353-.306-.203-.517-.5-.67-.9a3.75 3.75 0 0 1-.135-.452 6.507 6.507 0 0 1-.075-.507 6.93 6.93 0 0 1-.035-.503 31.6 31.6 0 0 1 0-1.54c.009-.17.02-.336.036-.503.015-.167.04-.34.074-.507.036-.167.08-.32.136-.453.153-.4.363-.697.67-.9.308-.202.664-.352 1.21-.352.476 0 .873.092 1.137.238.264.145.46.34.595.558.134.218.22.42.26.604.038.183.057.308.057.376.047.093.093.14.14.14h1.228c.094 0 .14-.047.14-.14-.013-.18-.08-.455-.2-.825-.12-.37-.31-.756-.57-1.156-.26-.4-.614-.754-1.062-1.06-.448-.307-1.016-.51-1.714-.565zM4.078 7.9v9.138c0 .94.093 1.96.276 2.823.182.862.56 1.593 1.13 2.187.57.593 1.385.888 2.442.888.995 0 1.892-.306 2.563-.887.668-.582 1.105-1.318 1.348-2.103a6.2 6.2 0 0 0 .236-1.202c.03-.338.047-.574.047-.71v-.133c0-.094-.046-.14-.14-.14h-1.23c-.092 0-.14.046-.14.14v.102c0 .14-.01.343-.028.604-.02.26-.065.538-.14.832-.074.295-.195.556-.36.783-.166.226-.38.407-.644.542-.263.135-.59.203-.98.203-.432 0-.76-.09-.987-.27a1.51 1.51 0 0 1-.524-.643 3.04 3.04 0 0 1-.2-.827 6.2 6.2 0 0 1-.047-.766v-9.55c0-.094-.046-.14-.14-.14H4.22c-.093 0-.14.046-.14.14z"/>
+    </svg>
+  );
+}
+
+// Official ORCID icon
+function OrcidIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.684 3.18h1.359v11.08H6.685zm3.642 0h3.68c3.659 0 5.441 2.594 5.441 5.549 0 3.138-2.046 5.53-5.565 5.53h-3.556zm1.359 1.159v8.762h2.245c2.969 0 4.189-2.05 4.189-4.381 0-2.5-1.509-4.381-4.189-4.381z"/>
+    </svg>
+  );
+}
+
 const profileLinks = [
   {
     name: "Google Scholar",
     url: researchProfiles.googleScholar,
-    icon: "📚",
-    color: "from-blue-500 to-blue-600"
+    Icon: GoogleScholarIcon,
+    color: "text-blue-600 hover:text-blue-700",
+    bgColor: "bg-blue-500/10 hover:bg-blue-500/20"
   },
   {
     name: "ResearchGate",
     url: researchProfiles.researchGate,
-    icon: "🔬",
-    color: "from-teal-500 to-teal-600"
+    Icon: ResearchGateIcon,
+    color: "text-teal-600 hover:text-teal-700",
+    bgColor: "bg-teal-500/10 hover:bg-teal-500/20"
   },
   {
     name: "ORCID",
     url: researchProfiles.orcid,
-    icon: "🆔",
-    color: "from-green-500 to-green-600"
+    Icon: OrcidIcon,
+    color: "text-green-600 hover:text-green-700",
+    bgColor: "bg-green-500/10 hover:bg-green-500/20"
   }
 ];
 
@@ -293,9 +323,9 @@ export function Publications() {
               href={profile.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10"
+              className={`group flex items-center gap-2 px-4 py-2.5 rounded-full ${profile.bgColor} border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10`}
             >
-              <span className="text-lg">{profile.icon}</span>
+              <profile.Icon className={`w-5 h-5 ${profile.color} transition-colors`} />
               <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                 {profile.name}
               </span>
