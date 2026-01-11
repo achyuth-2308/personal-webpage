@@ -7,12 +7,12 @@ import { MobileDrawer } from './MobileDrawer';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Research & Publications', href: '/research' },
+  { label: 'Work Experience', href: '/experience' },
   { label: 'Education', href: '/education' },
   { label: 'Certifications', href: '/certifications' },
-  { label: 'Experience', href: '/experience' },
-  { label: 'Projects', href: '/projects' },
   { label: 'Skills', href: '/skills' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Research & Publications', href: '/research' },
   { label: 'Contact', href: '/contact' },
 ];
 

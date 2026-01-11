@@ -1,27 +1,20 @@
 import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
 
+import langchainLogo from '@/assets/icons/langchain-logo.png';
+import langgraphLogo from '@/assets/icons/langgraph-logo.png';
+
 // LangChain official logo component
 function LangChainIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none">
-      <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#1C3C3C"/>
-      <path d="M2 17l10 5 10-5" stroke="#1C3C3C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 12l10 5 10-5" stroke="#1C3C3C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
+    <img src={langchainLogo} alt="LangChain" className={className} />
   );
 }
 
 // LangGraph official logo component
 function LangGraphIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="5" r="3" fill="#1C3C3C"/>
-      <circle cx="5" cy="19" r="3" fill="#1C3C3C"/>
-      <circle cx="19" cy="19" r="3" fill="#1C3C3C"/>
-      <path d="M12 8v4M9 15l-2 2M15 15l2 2" stroke="#1C3C3C" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="12" cy="14" r="2" fill="#1C3C3C"/>
-    </svg>
+    <img src={langgraphLogo} alt="LangGraph" className={className} />
   );
 }
 

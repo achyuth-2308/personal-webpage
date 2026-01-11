@@ -5,11 +5,12 @@ import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Research & Publications', href: '/research' },
+  { label: 'Work Experience', href: '/experience' },
   { label: 'Education', href: '/education' },
-  { label: 'Experience', href: '/experience' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Certifications', href: '/certifications' },
   { label: 'Skills', href: '/skills' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Research & Publications', href: '/research' },
   { label: 'Contact', href: '/contact' },
 ];
 
