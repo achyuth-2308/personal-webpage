@@ -37,7 +37,6 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Work Experience', href: '/experience' },
   { label: 'Education', href: '/education' },
-  { label: 'Certifications', href: '/certifications' },
   { label: 'Skills', href: '/skills' },
   { label: 'Projects', href: '/projects' },
   { label: 'Research & Publications', href: '/research' },
