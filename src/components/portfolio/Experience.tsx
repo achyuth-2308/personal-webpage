@@ -70,10 +70,10 @@ export function Experience() {
                     <div className="flex items-center gap-4">
                       {/* Logo circle node */}
                       <motion.div 
-                        className={`relative w-14 h-14 rounded-full flex items-center justify-center overflow-hidden transition-all duration-300 ${
+                        className={`relative w-14 h-14 rounded-full flex items-center justify-center overflow-hidden bg-white transition-all duration-300 ${
                           isSelected 
-                            ? 'bg-background ring-4 ring-primary shadow-lg shadow-primary/30' 
-                            : 'bg-card ring-2 ring-border group-hover:ring-primary/50'
+                            ? 'ring-4 ring-primary shadow-lg shadow-primary/30' 
+                            : 'ring-2 ring-border group-hover:ring-primary/50'
                         }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -167,7 +167,7 @@ export function Experience() {
                   <div className="flex items-start gap-4">
                     {/* Company logo */}
                     {companyLogos[selectedExp.company] && (
-                      <div className="w-16 h-16 rounded-xl bg-background border border-border p-2 flex items-center justify-center shadow-md">
+                      <div className="w-16 h-16 rounded-xl bg-white border border-border p-2 flex items-center justify-center shadow-md">
                         <img 
                           src={companyLogos[selectedExp.company]} 
                           alt={selectedExp.company}
