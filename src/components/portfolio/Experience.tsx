@@ -70,10 +70,10 @@ export function Experience() {
                     <div className="flex items-center gap-4">
                       {/* Logo circle node */}
                       <motion.div 
-                        className={`relative w-14 h-14 rounded-full flex items-center justify-center overflow-hidden transition-all duration-300 ${
+                        className={`relative w-14 h-14 rounded-full flex items-center justify-center overflow-hidden bg-white transition-all duration-300 ${
                           isSelected 
-                            ? 'bg-background ring-4 ring-primary shadow-lg shadow-primary/30' 
-                            : 'bg-card ring-2 ring-border group-hover:ring-primary/50'
+                            ? 'ring-4 ring-primary shadow-lg shadow-primary/30' 
+                            : 'ring-2 ring-border group-hover:ring-primary/50'
                         }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
