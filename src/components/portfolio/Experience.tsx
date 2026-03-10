@@ -7,7 +7,7 @@ import { experience } from '@/data/portfolio';
 import prodaptLogo from '@/assets/logos/prodapt-logo.png';
 import iiitdmLogo from '@/assets/logos/iiitdm-logo.png';
 import suvidhaLogo from '@/assets/logos/suvidha-logo.png';
-import logitechLogo from '@/assets/logos/logitech-logo.png';
+import logitechLogo from '@/assets/logos/logitech-logo.svg';
 
 // Map company names to logos
 const companyLogos: Record<string, string> = {
