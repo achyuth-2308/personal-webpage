@@ -167,7 +167,7 @@ export function Experience() {
                   <div className="flex items-start gap-4">
                     {/* Company logo */}
                     {companyLogos[selectedExp.company] && (
-                      <div className="w-16 h-16 rounded-xl bg-background border border-border p-2 flex items-center justify-center shadow-md">
+                      <div className="w-16 h-16 rounded-xl bg-white border border-border p-2 flex items-center justify-center shadow-md">
                         <img 
                           src={companyLogos[selectedExp.company]} 
                           alt={selectedExp.company}
