@@ -1,13 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { MapPin, Calendar, ChevronRight } from 'lucide-react';
+import { MapPin, Calendar, ChevronRight, X } from 'lucide-react';
 import { experience } from '@/data/portfolio';
 
 // Import company logos
 import prodaptLogo from '@/assets/logos/prodapt-logo.png';
 import iiitdmLogo from '@/assets/logos/iiitdm-logo.png';
 import suvidhaLogo from '@/assets/logos/suvidha-logo.png';
-import logitechLogo from '@/assets/logos/logitech-logo.svg';
+import logitechLogo from '@/assets/logos/logitech-logo.png';
 
 // Map company names to logos
 const companyLogos: Record<string, string> = {
@@ -28,6 +28,7 @@ const getShortCompanyName = (company: string) => {
 
 export function Experience() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [zoomedLogo, setZoomedLogo] = useState<{ src: string; alt: string } | null>(null);
   const selectedExp = experience[selectedIndex];
 
   return (
@@ -70,13 +71,19 @@ export function Experience() {
                     <div className="flex items-center gap-4">
                       {/* Logo circle node */}
                       <motion.div 
-                        className={`relative w-14 h-14 rounded-full flex items-center justify-center overflow-hidden bg-white transition-all duration-300 ${
+                        className={`relative w-14 h-14 rounded-full flex items-center justify-center overflow-hidden bg-white transition-all duration-300 cursor-pointer ${
                           isSelected 
                             ? 'ring-4 ring-primary shadow-lg shadow-primary/30' 
                             : 'ring-2 ring-border group-hover:ring-primary/50'
                         }`}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.15 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={(e) => {
+                          if (logo) {
+                            e.stopPropagation();
+                            setZoomedLogo({ src: logo, alt: exp.company });
+                          }
+                        }}
                       >
                         {logo ? (
                           <img 
@@ -165,15 +172,20 @@ export function Experience() {
                 {/* Header */}
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-6 relative">
                   <div className="flex items-start gap-4">
-                    {/* Company logo */}
+                    {/* Company logo - clickable */}
                     {companyLogos[selectedExp.company] && (
-                      <div className="w-16 h-16 rounded-xl bg-white border border-border p-2 flex items-center justify-center shadow-md">
+                      <motion.div
+                        className="w-16 h-16 rounded-xl bg-white border border-border p-2 flex items-center justify-center shadow-md cursor-pointer"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setZoomedLogo({ src: companyLogos[selectedExp.company], alt: selectedExp.company })}
+                      >
                         <img 
                           src={companyLogos[selectedExp.company]} 
                           alt={selectedExp.company}
                           className="w-12 h-12 object-contain"
                         />
-                      </div>
+                      </motion.div>
                     )}
                     <div>
                       <h3 className="text-2xl font-bold text-foreground mb-1">{selectedExp.role}</h3>
@@ -246,6 +258,43 @@ export function Experience() {
           </div>
         </div>
       </div>
+
+      {/* Logo Zoom Modal */}
+      <AnimatePresence>
+        {zoomedLogo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+            onClick={() => setZoomedLogo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative bg-white rounded-2xl p-8 shadow-2xl max-w-sm w-full mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setZoomedLogo(null)}
+                className="absolute top-3 right-3 p-1.5 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+              >
+                <X className="w-4 h-4 text-muted-foreground" />
+              </button>
+              <img
+                src={zoomedLogo.src}
+                alt={zoomedLogo.alt}
+                className="w-full h-auto object-contain max-h-64"
+              />
+              <p className="text-center text-sm text-muted-foreground mt-4 font-medium">
+                {getShortCompanyName(zoomedLogo.alt)}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
