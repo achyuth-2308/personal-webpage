@@ -115,7 +115,7 @@ export function About() {
               Beyond coding, I'm an avid <span className="text-foreground font-semibold">musician</span>{' '}
               (keyboardist who's performed at multiple gigs), a{' '}
               <span className="text-foreground font-semibold">cricket enthusiast</span>{' '}
-              (pace bowler & batsman), and an active contributor to campus leadership through MUN societies and cultural initiatives. I believe in building technology with purpose and creativity.
+              (right arm - medium pace bowler and batsman), and an active contributor to campus leadership through MUN societies and cultural initiatives. I believe in building technology with purpose and creativity.
             </p>
           </motion.div>
         </div>
