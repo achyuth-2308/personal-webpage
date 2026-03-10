@@ -106,9 +106,18 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55 }}
-          className="text-muted-foreground mb-10"
+          className="text-muted-foreground mb-4"
         >
           Pursuing B.Tech in CSE (IoT) at Shiv Nadar University & BS in Data Science at IIT Madras.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-muted-foreground mb-10"
+        >
+          This is my personal portfolio where I showcase my academic, professional, and personal interests.
         </motion.p>
 
         {/* CTA Buttons */}
