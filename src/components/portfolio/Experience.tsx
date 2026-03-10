@@ -19,6 +19,7 @@ const companyLogos: Record<string, string> = {
 
 // Get short company name for display
 const getShortCompanyName = (company: string) => {
+  if (company.includes('Logitech')) return 'Logitech';
   if (company.includes('Prodapt')) return 'Prodapt';
   if (company.includes('IIIT')) return 'IIIT-D&M';
   if (company.includes('Suvidha')) return 'Suvidha Foundation';
