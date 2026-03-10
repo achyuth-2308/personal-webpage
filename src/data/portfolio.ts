@@ -59,6 +59,18 @@ export const certifications = [
 
 export const experience = [
   {
+    role: "DevOps and Test Automation Intern",
+    company: "Logitech",
+    type: "Internship",
+    duration: "Feb 2026 - Present",
+    location: "Chennai, Tamil Nadu",
+    highlights: [
+      "Working on automating CI failure analysis during NPI runs. Building and integrating a log processing pipeline into GitHub Actions that reads test logs, extracts failure details, summarizes them using LLMs, and groups similar issues to reduce duplicate debugging effort.",
+      "Focusing on making the system stable under real workloads - handling large log sizes, token limits, API rate limits, parallel execution, and clustering accuracy. The goal is to reduce manual log reading time and make failure triage faster and more structured for engineering teams."
+    ],
+    technologies: ["GitHub Actions", "CI/CD", "LLMs", "Python", "Log Processing", "DevOps"]
+  },
+  {
     role: "GenAI Intern",
     company: "Prodapt Solutions Pvt. Ltd.",
     type: "Internship",

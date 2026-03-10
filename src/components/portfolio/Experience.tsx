@@ -7,9 +7,11 @@ import { experience } from '@/data/portfolio';
 import prodaptLogo from '@/assets/logos/prodapt-logo.png';
 import iiitdmLogo from '@/assets/logos/iiitdm-logo.png';
 import suvidhaLogo from '@/assets/logos/suvidha-logo.png';
+import logitechLogo from '@/assets/logos/logitech-logo.svg';
 
 // Map company names to logos
 const companyLogos: Record<string, string> = {
+  'Logitech': logitechLogo,
   'Prodapt Solutions Pvt. Ltd.': prodaptLogo,
   'Indian Institute of Information Technology, Design and Manufacturing (IIIT-D&M), Kancheepuram': iiitdmLogo,
   'Suvidha Foundation': suvidhaLogo,
@@ -17,6 +19,7 @@ const companyLogos: Record<string, string> = {
 
 // Get short company name for display
 const getShortCompanyName = (company: string) => {
+  if (company.includes('Logitech')) return 'Logitech';
   if (company.includes('Prodapt')) return 'Prodapt';
   if (company.includes('IIIT')) return 'IIIT-D&M';
   if (company.includes('Suvidha')) return 'Suvidha Foundation';
