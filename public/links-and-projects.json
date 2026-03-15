@@ -65,8 +65,8 @@
     {
       "title": "Invisible Influences: Investigating Implicit Intersectional Biases through Persona Engineering in Large Language Models",
       "authors": "Nandini Arimanda, Achyuth Mukund, Dr. Sathi Balan Muthiah, Dr. Rajesh Sharma",
-      "year": "2025",
-      "doi": null,
+      "year": "2026",
+      "doi": "https://doi.org/10.1145/3795766.3799772",
       "image_space": "placeholder",
       "abstract_preview": "A persona-induced bias study introducing the BADx metric for dynamic intersectional bias measurement and explainability across 5 LLMs."
     }
