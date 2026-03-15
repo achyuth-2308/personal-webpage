@@ -101,6 +101,12 @@ function getStatusBadge(status: string) {
           ✓ Published
         </span>
       );
+    case 'accepted':
+      return (
+        <span className="px-3 py-1 rounded-full text-xs font-medium bg-violet-500/10 text-violet-500 border border-violet-500/20 animate-pulse">
+          🎉 Accepted
+        </span>
+      );
     case 'in-press':
       return (
         <span className="px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-500 border border-amber-500/20">
