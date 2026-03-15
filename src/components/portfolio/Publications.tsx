@@ -436,8 +436,8 @@ export function Publications() {
               <p className="text-xs text-muted-foreground">In Press</p>
             </div>
             <div className="text-center p-4 rounded-xl bg-background/50">
-              <p className="text-2xl font-bold text-primary">1</p>
-              <p className="text-xs text-muted-foreground">Under Review</p>
+              <p className="text-2xl font-bold text-violet-500">1</p>
+              <p className="text-xs text-muted-foreground">Accepted</p>
             </div>
           </div>
         </motion.div>
