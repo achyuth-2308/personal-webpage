@@ -256,11 +256,13 @@ export const publications = [
     title: "Invisible Influences: Investigating Implicit Intersectional Biases through Persona Engineering in Large Language Models",
     authors: "Nandini Arimanda, Achyuth Mukund, Dr. Sathi Balan Muthiah, Dr. Rajesh Sharma",
     year: "2025",
-    venue: "Under Review",
-    publisher: null,
+    venue: "18th ACM Web Science Conference (WebSci '25)",
+    publisher: "ACM",
     doi: null,
     linkedinPost: null,
-    status: "under-review",
+    status: "accepted",
+    conferenceDate: "May 26–29, 2026",
+    conferenceLocation: "Braunschweig, Germany",
     abstract: "A persona-induced bias study introducing the BADx metric for dynamic intersectional bias measurement and explainability. We systematically analyze how implicit biases manifest across 5 state-of-the-art LLMs when prompted with various persona configurations, revealing hidden patterns of intersectional discrimination."
   }
 ];
