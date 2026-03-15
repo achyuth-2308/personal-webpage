@@ -101,6 +101,12 @@ function getStatusBadge(status: string) {
           ✓ Published
         </span>
       );
+    case 'accepted':
+      return (
+        <span className="px-3 py-1 rounded-full text-xs font-medium bg-violet-500/10 text-violet-500 border border-violet-500/20 animate-pulse">
+          🎉 Accepted
+        </span>
+      );
     case 'in-press':
       return (
         <span className="px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-500 border border-amber-500/20">
@@ -140,6 +146,8 @@ interface PublicationData {
   status: string;
   images?: string[];
   abstract: string;
+  conferenceDate?: string;
+  conferenceLocation?: string;
 }
 
 interface PublicationCardProps {
@@ -181,8 +189,38 @@ function PublicationCard({ pub, index }: PublicationCardProps) {
         </div>
       )}
 
+      {/* Conference Acceptance Banner */}
+      {pub.status === 'accepted' && pub.conferenceDate && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-4 p-4 rounded-2xl bg-gradient-to-r from-violet-500/10 via-primary/10 to-amber-500/10 border border-violet-500/30 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-24 h-24 bg-violet-500/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-16 h-16 bg-amber-500/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+          <div className="relative flex flex-col sm:flex-row sm:items-center gap-3">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">🏛️</span>
+              <div>
+                <p className="text-xs font-semibold text-violet-500 uppercase tracking-wider">Accepted at</p>
+                <p className="text-sm font-bold text-foreground">{pub.venue}</p>
+              </div>
+            </div>
+            <div className="sm:ml-auto flex flex-wrap gap-3 text-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/80 border border-border text-muted-foreground">
+                📅 {pub.conferenceDate}
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/80 border border-border text-muted-foreground">
+                📍 {pub.conferenceLocation}
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
       {/* Publication Card */}
-      <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
+      <div className={`p-6 rounded-2xl bg-card border transition-all hover:shadow-xl hover:shadow-primary/5 ${pub.status === 'accepted' ? 'border-violet-500/30 hover:border-violet-500/50 ring-1 ring-violet-500/10' : 'border-border hover:border-primary/30'}`}>
         <div className="flex items-start justify-between gap-3 mb-3">
           <span className="text-xs font-mono text-muted-foreground bg-muted px-2 py-1 rounded shrink-0">
             #{pub.number}
@@ -398,8 +436,8 @@ export function Publications() {
               <p className="text-xs text-muted-foreground">In Press</p>
             </div>
             <div className="text-center p-4 rounded-xl bg-background/50">
-              <p className="text-2xl font-bold text-primary">1</p>
-              <p className="text-xs text-muted-foreground">Under Review</p>
+              <p className="text-2xl font-bold text-violet-500">1</p>
+              <p className="text-xs text-muted-foreground">Accepted</p>
             </div>
           </div>
         </motion.div>
