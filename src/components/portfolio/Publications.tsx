@@ -146,6 +146,8 @@ interface PublicationData {
   status: string;
   images?: string[];
   abstract: string;
+  conferenceDate?: string;
+  conferenceLocation?: string;
 }
 
 interface PublicationCardProps {
