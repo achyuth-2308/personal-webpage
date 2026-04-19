@@ -4,9 +4,18 @@ import {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake,
   type LucideIcon
 } from 'lucide-react';
+import snuLogo from '@/assets/snu-chennai-logo.png';
+import centralPerk from '@/assets/central-perk-cafe.jpg';
+import munVP from '@/assets/snu-mun-vp.jpg';
 
 const iconMap: Record<string, LucideIcon> = {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
+};
+
+// Map activity titles to feature images (only certain tiles get photos)
+const activityImages: Record<string, string> = {
+  'Central Perk Café': centralPerk,
+  'SNUC MUN Society': munVP,
 };
 
 interface Activity {
