@@ -1,8 +1,16 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { GraduationCap, Calendar, MapPin, Award, BookOpen, Languages } from 'lucide-react';
+import {
+  GraduationCap, Calendar, MapPin, Award, BookOpen, Languages,
+  Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake,
+  type LucideIcon
+} from 'lucide-react';
 import { about, certifications } from '@/data/portfolio';
+
+const activityIconMap: Record<string, LucideIcon> = {
+  Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
+};
 
 // Animation variants
 const containerVariants = {
