@@ -1,10 +1,9 @@
-import { Education } from '@/components/portfolio/Education';
+import { Education, EducationCertifications } from '@/components/portfolio/Education';
 import { CampusLife } from '@/components/portfolio/CampusLife';
 import { Footer } from '@/components/portfolio/Footer';
 import { about } from '@/data/portfolio';
 
 export default function EducationPage() {
-  // Find the SNU entry that has activities/coursework
   const snu = about.education.find(e => e.activities?.length || e.coursework?.length);
 
   return (
@@ -17,6 +16,7 @@ export default function EducationPage() {
           institution={snu.institution}
         />
       )}
+      <EducationCertifications />
       <Footer />
     </>
   );
