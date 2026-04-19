@@ -3,14 +3,9 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
   GraduationCap, Calendar, MapPin, Award, BookOpen, Languages,
-  Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake,
-  type LucideIcon
 } from 'lucide-react';
 import { about, certifications } from '@/data/portfolio';
-
-const activityIconMap: Record<string, LucideIcon> = {
-  Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
-};
+import { CampusLife } from './CampusLife';
 
 // Animation variants
 const containerVariants = {
@@ -184,73 +179,6 @@ export function Education() {
                       <Award className="w-4 h-4" />
                       {edu.grade}
                     </div>
-
-                    {/* Activities & Coursework — only when present */}
-                    {(edu.activities?.length || edu.coursework?.length) && (
-                      <div className="mt-6 space-y-6">
-                        {edu.activities?.length ? (
-                          <div>
-                            <div className="flex items-center gap-2 mb-3">
-                              <span className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
-                              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-primary">
-                                Activities & Societies
-                              </span>
-                              <span className="h-px flex-1 bg-gradient-to-l from-primary/40 to-transparent" />
-                            </div>
-                            <div className="grid sm:grid-cols-2 gap-3">
-                              {edu.activities.map((act) => {
-                                const Icon = activityIconMap[act.icon] ?? Sparkles;
-                                return (
-                                  <motion.div
-                                    key={act.title}
-                                    whileHover={{ y: -2 }}
-                                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                                    className="group/act relative p-4 rounded-xl bg-background/60 border border-border hover:border-primary/40 hover:bg-background transition-all overflow-hidden"
-                                  >
-                                    <div className="absolute -top-6 -right-6 w-20 h-20 rounded-full bg-primary/5 group-hover/act:bg-primary/10 transition-colors" />
-                                    <div className="relative flex items-start gap-3">
-                                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover/act:bg-primary/20 transition-colors">
-                                        <Icon className="w-4 h-4 text-primary" />
-                                      </div>
-                                      <div className="min-w-0">
-                                        <h4 className="text-sm font-semibold text-foreground leading-snug mb-1">
-                                          {act.title}
-                                        </h4>
-                                        <p className="text-xs text-muted-foreground leading-relaxed">
-                                          {act.description}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </motion.div>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        ) : null}
-
-                        {edu.coursework?.length ? (
-                          <div>
-                            <div className="flex items-center gap-2 mb-3">
-                              <span className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
-                              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-primary">
-                                Relevant Coursework
-                              </span>
-                              <span className="h-px flex-1 bg-gradient-to-l from-primary/40 to-transparent" />
-                            </div>
-                            <div className="flex flex-wrap gap-2">
-                              {edu.coursework.map((course) => (
-                                <span
-                                  key={course}
-                                  className="px-3 py-1.5 rounded-full bg-secondary/70 text-foreground text-xs font-medium border border-border hover:border-primary/40 hover:text-primary transition-colors cursor-default"
-                                >
-                                  {course}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        ) : null}
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>
