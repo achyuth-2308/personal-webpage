@@ -287,58 +287,6 @@ export function Education() {
           </div>
         </motion.div>
 
-        {/* Certifications Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Professional Development
-            </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Certifications
-            </h3>
-            <p className="text-muted-foreground max-w-xl mx-auto text-sm">
-              Industry-recognized certifications in cloud computing, AI/ML, API development, and software engineering
-            </p>
-          </div>
-
-          {/* Certifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certifications.map((cert, index) => (
-              <CertificationCard
-                key={cert.name}
-                name={cert.name}
-                issuer={cert.issuer}
-                index={index}
-              />
-            ))}
-          </div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 flex flex-wrap justify-center gap-8"
-          >
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">{certifications.length}+</div>
-              <div className="text-xs text-muted-foreground">Certifications</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">5+</div>
-              <div className="text-xs text-muted-foreground">Organizations</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">4+</div>
-              <div className="text-xs text-muted-foreground">Domains</div>
-            </div>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
