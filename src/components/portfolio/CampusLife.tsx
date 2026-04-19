@@ -4,9 +4,18 @@ import {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake,
   type LucideIcon
 } from 'lucide-react';
+import snuLogo from '@/assets/snu-chennai-logo.png';
+import centralPerk from '@/assets/central-perk-cafe.jpg';
+import munVP from '@/assets/snu-mun-vp.jpg';
 
 const iconMap: Record<string, LucideIcon> = {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
+};
+
+// Map activity titles to feature images (only certain tiles get photos)
+const activityImages: Record<string, string> = {
+  'Founder — Central Perk Café': centralPerk,
+  'Vice President — SNUC MUN Society': munVP,
 };
 
 interface Activity {
@@ -93,9 +102,15 @@ export function CampusLife({ activities, coursework, institution }: CampusLifePr
               and showing up.
             </h2>
           </div>
-          <div className="lg:col-span-5 lg:pl-8 lg:border-l border-border">
+          <div className="lg:col-span-5 lg:pl-8 lg:border-l border-border relative">
+            <img
+              src={snuLogo}
+              alt="Shiv Nadar University Chennai"
+              className="h-14 md:h-16 w-auto mb-5 opacity-90 dark:invert dark:brightness-200"
+              loading="lazy"
+            />
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              At Shiv Nadar University Chennai, my education extended far beyond lectures —
+              At <span className="text-foreground font-medium">Shiv Nadar University Chennai</span>, my education extended far beyond lectures —
               into <span className="text-foreground font-medium">cafés, conferences, cricket pitches, design studios,</span> and
               service hours. Here's the chapter list.
             </p>
@@ -107,6 +122,7 @@ export function CampusLife({ activities, coursework, institution }: CampusLifePr
           {activities.map((act, i) => {
             const Icon = iconMap[act.icon] ?? Sparkles;
             const isFeatured = i === 0;
+            const image = activityImages[act.title];
             return (
               <motion.article
                 key={act.title}
@@ -116,16 +132,31 @@ export function CampusLife({ activities, coursework, institution }: CampusLifePr
                 whileHover={{ y: -4 }}
                 className={`group relative overflow-hidden rounded-2xl border border-border bg-card hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all ${bentoSpans[i] ?? ''}`}
               >
+                {/* Background image (when available) */}
+                {image && (
+                  <>
+                    <img
+                      src={image}
+                      alt={act.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/85 to-card/30" />
+                  </>
+                )}
+
                 {/* Decorative number — editorial */}
-                <span className="absolute top-4 right-5 text-[11px] font-mono text-muted-foreground/50 tracking-wider">
+                <span className="absolute top-4 right-5 text-[11px] font-mono text-muted-foreground/70 tracking-wider z-10">
                   {String(i + 1).padStart(2, '0')}
                 </span>
 
                 {/* Glow blob */}
-                <div className="absolute -bottom-16 -right-16 w-40 h-40 rounded-full bg-primary/10 blur-2xl group-hover:bg-primary/20 transition-colors" />
+                {!image && (
+                  <div className="absolute -bottom-16 -right-16 w-40 h-40 rounded-full bg-primary/10 blur-2xl group-hover:bg-primary/20 transition-colors" />
+                )}
 
                 <div className={`relative h-full flex flex-col ${isFeatured ? 'p-7 justify-between' : 'p-5 justify-between'}`}>
-                  <div className={`rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all ${isFeatured ? 'w-14 h-14' : 'w-11 h-11'}`}>
+                  <div className={`rounded-xl bg-primary/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/25 group-hover:scale-110 transition-all ${isFeatured ? 'w-14 h-14' : 'w-11 h-11'}`}>
                     <Icon className={`text-primary ${isFeatured ? 'w-7 h-7' : 'w-5 h-5'}`} />
                   </div>
 
