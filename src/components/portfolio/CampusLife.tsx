@@ -102,9 +102,15 @@ export function CampusLife({ activities, coursework, institution }: CampusLifePr
               and showing up.
             </h2>
           </div>
-          <div className="lg:col-span-5 lg:pl-8 lg:border-l border-border">
+          <div className="lg:col-span-5 lg:pl-8 lg:border-l border-border relative">
+            <img
+              src={snuLogo}
+              alt="Shiv Nadar University Chennai"
+              className="h-14 md:h-16 w-auto mb-5 opacity-90 dark:invert dark:brightness-200"
+              loading="lazy"
+            />
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              At Shiv Nadar University Chennai, my education extended far beyond lectures —
+              At <span className="text-foreground font-medium">Shiv Nadar University Chennai</span>, my education extended far beyond lectures —
               into <span className="text-foreground font-medium">cafés, conferences, cricket pitches, design studios,</span> and
               service hours. Here's the chapter list.
             </p>
