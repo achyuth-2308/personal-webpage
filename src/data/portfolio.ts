@@ -259,6 +259,7 @@ export const publications = [
     venue: "18th ACM Web Science Conference (WebSci '26)",
     publisher: "ACM",
     doi: "https://doi.org/10.1145/3795766.3799772",
+    arxiv: "https://arxiv.org/abs/2604.06213",
     linkedinPost: null,
     status: "accepted",
     conferenceDate: "May 26–29, 2026",

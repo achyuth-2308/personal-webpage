@@ -141,6 +141,7 @@ interface PublicationData {
   venue: string;
   publisher: string | null;
   doi: string | null;
+  arxiv?: string | null;
   linkedinPost: string | null;
   mediumPost?: string | null;
   status: string;
@@ -282,6 +283,17 @@ function PublicationCard({ pub, index }: PublicationCardProps) {
             >
               <BookOpen className="w-3.5 h-3.5" />
               DOI: {pub.doi}
+            </a>
+          )}
+          {pub.arxiv && (
+            <a
+              href={pub.arxiv}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-600 dark:text-amber-400 hover:underline bg-amber-500/5 px-3 py-1.5 rounded-full hover:bg-amber-500/10 transition-colors"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              arXiv
             </a>
           )}
           {pub.linkedinPost && (
