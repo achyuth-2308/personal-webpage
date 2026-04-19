@@ -27,7 +27,62 @@ export const about = {
       specialization: "Internet of Things (IoT)",
       institution: "Shiv Nadar University Chennai",
       duration: "2022 - 2026",
-      grade: "CGPA: 7.62/10"
+      grade: "CGPA: 7.62/10",
+      coursework: [
+        "Data Structures",
+        "Design and Analysis of Algorithms",
+        "Artificial Intelligence",
+        "Operating Systems",
+        "Web Technologies",
+        "Computer Networks",
+        "Sensor Technologies",
+        "Internet of Things",
+        "Machine Learning Technologies and Algorithms",
+        "Cryptography",
+        "Blockchain Development"
+      ],
+      activities: [
+        {
+          icon: "Coffee",
+          title: "Founder — Central Perk Café",
+          description: "Kickstarted the university's first ever student-run entrepreneurial venture on campus."
+        },
+        {
+          icon: "FlaskConical",
+          title: "STIRS Researcher",
+          description: "Stimuli for Technological Innovation & Research by Students — university research initiative."
+        },
+        {
+          icon: "Users",
+          title: "Vice President — SNUC MUN Society",
+          description: "Led the Model United Nations society driving debate, diplomacy, and global affairs on campus."
+        },
+        {
+          icon: "Sparkles",
+          title: "Overall Cultural & Club Coordinator",
+          description: "Coordinated cultural events and student clubs across the university calendar."
+        },
+        {
+          icon: "Trophy",
+          title: "University Cricket Team",
+          description: "Part of the prestigious SNUC cricket team — right-arm medium pacer & batsman."
+        },
+        {
+          icon: "Megaphone",
+          title: "Student Ambassador — SNUC",
+          description: "Represented the university to prospective students, guests, and external stakeholders."
+        },
+        {
+          icon: "Palette",
+          title: "Designer — Aura, SNUC Design Club",
+          description: "Designed posters and creatives for various flagship events across campus."
+        },
+        {
+          icon: "HeartHandshake",
+          title: "NSO Volunteer (70+ hours)",
+          description: "Volunteered at the National Sports Organization wing of the university."
+        }
+      ]
     },
     {
       degree: "B.S, Data Science and Applications",
