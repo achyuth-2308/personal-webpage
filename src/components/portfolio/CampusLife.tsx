@@ -14,8 +14,8 @@ const iconMap: Record<string, LucideIcon> = {
 
 // Map activity titles to feature images (only certain tiles get photos)
 const activityImages: Record<string, string> = {
-  'Central Perk Café': centralPerk,
-  'SNUC MUN Society': munVP,
+  'Founder — Central Perk Café': centralPerk,
+  'Vice President — SNUC MUN Society': munVP,
 };
 
 interface Activity {
