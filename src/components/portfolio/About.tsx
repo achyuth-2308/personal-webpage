@@ -102,7 +102,7 @@ export function About() {
               <span className="text-primary font-medium">AI Engineer</span> currently pursuing a dual degree —{' '}
               <span className="text-foreground font-semibold">B.Tech in Computer Science & Engineering (IoT)</span>{' '}
               at Shiv Nadar University Chennai and{' '}
-              <span className="text-foreground font-semibold">BS in Data Science</span> at IIT Madras.
+              <span className="text-foreground font-semibold">B.S. in Data Science and Applications</span> at IIT Madras.
             </p>
 
             <p className="text-lg leading-relaxed text-muted-foreground">
