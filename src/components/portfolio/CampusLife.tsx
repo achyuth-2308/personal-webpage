@@ -8,16 +8,29 @@ import {
 import snuLogo from '@/assets/snu-chennai-logo.png';
 import centralPerk from '@/assets/central-perk-cafe.jpg';
 import munVP from '@/assets/snu-mun-vp.jpg';
+import stirsAward from '@/assets/stirs-award.jpg';
+import airssPresentation from '@/assets/airss-presentation.jpg';
+import airssBadge from '@/assets/airss-iitm-badge.jpg';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 const iconMap: Record<string, LucideIcon> = {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
 };
 
-// Map activity titles to feature images (only certain tiles get photos)
+// Hero cover image shown on the bento tile
 const activityImages: Record<string, string> = {
   'Founder — Central Perk Café': centralPerk,
   'Vice President — SNUC MUN Society': munVP,
+  'STIRS Researcher — Stimuli for Technological Innovation and Research by Students': stirsAward,
+};
+
+// Full gallery shown inside the activity dialog
+const activityGalleries: Record<string, { src: string; caption: string }[]> = {
+  'STIRS Researcher — Stimuli for Technological Innovation and Research by Students': [
+    { src: stirsAward, caption: 'STIRS Award 2023–24 — Project STIR2023_IIMSEH, ₹10,000 grant from SNUC' },
+    { src: airssPresentation, caption: 'Presenting EcoSphereX (OP106) at AIRSS 2025, IIT Madras' },
+    { src: airssBadge, caption: "Presenter badge — All India Research Scholars' Summit, IIT Madras (Mar 2025)" },
+  ],
 };
 
 interface Activity {
