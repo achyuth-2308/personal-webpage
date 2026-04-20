@@ -58,15 +58,18 @@ export const about = {
         },
         {
           icon: "FlaskConical",
-          title: "STIRS Researcher",
-          description: "Stimuli for Technological Innovation & Research by Students — university research initiative.",
+          title: "STIRS Researcher — Stimuli for Technological Innovation and Research by Students",
+          description: "Awarded the STIRS 2023–24 grant for EcoSphereX — an IoT-based environmental health monitoring system.",
           tag: "Research",
           year: "2023 — 2025",
-          story: "STIRS is SNUC's flagship student research initiative. As a researcher, I worked on problems at the intersection of GenAI, IoT, and privacy — turning curiosity into peer-reviewed work and conference submissions.",
+          story: "STIRS (Stimuli for Technological Innovation and Research by Students) is Shiv Nadar University Chennai's flagship student-led research grant programme, run by the Office of the Vice Chancellor. Our team — Achyuth Mukund, M. Muhammad Farhaan, and B.A. Saran — was awarded the STIRS 2023–24 grant of ₹10,000 under project code STIR2023_IIMSEH for EcoSphereX: an IoT-Based Integrated Monitoring System for Environmental Health, mentored by Dr. Surya K and Mr. Madankumar (Dept. of CSE, School of Engineering). The system fuses NodeMCU ESP8266, DHT-11, MQ-135 air quality, sound, soil moisture and pH sensors over MQTT to deliver real-time, location-aware readings of air, noise, water and soil health — turning a campus into a living, queryable environmental dataset. The work was later selected and presented at the All India Research Scholars' Summit (AIRSS) 2025 at IIT Madras (27–30 March 2025) as paper OP106.",
           highlights: [
-            "Contributed to multiple research tracks across AI and IoT",
-            "Co-authored work later submitted to international venues",
-            "Mentored juniors entering the research pipeline"
+            "STIRS 2023–24 Grant Awardee — ₹10,000, Project STIR2023_IIMSEH",
+            "Presented as paper OP106 at AIRSS 2025, IIT Madras",
+            "Built end-to-end IoT stack: ESP8266 + DHT-11 + MQ-135 + sound/soil/pH sensors over MQTT",
+            "Real-time environmental dashboard for air, noise, water and soil health",
+            "Mentored by Dr. Surya K and Mr. Madankumar, Dept. of CSE, SNUC",
+            "Open-sourced on GitHub: EcoSphereX repository"
           ]
         },
         {
