@@ -87,6 +87,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const active = activeIndex !== null ? activities[activeIndex] : null;
   const activeImage = active ? activityImages[active.title] : undefined;
+  const activeGallery = active ? activityGalleries[active.title] : undefined;
   const ActiveIcon = active ? (iconMap[active.icon] ?? Sparkles) : null;
 
   const groups = courseworkGroups
@@ -342,7 +343,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
 
       {/* Activity detail dialog */}
       <Dialog open={activeIndex !== null} onOpenChange={(open) => !open && setActiveIndex(null)}>
-        <DialogContent className="max-w-2xl p-0 overflow-hidden border-border bg-card">
+        <DialogContent className="max-w-3xl p-0 overflow-hidden border-border bg-card max-h-[90vh] overflow-y-auto">
           {active && ActiveIcon && (
             <div>
               {activeImage ? (
@@ -409,6 +410,34 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
                         </li>
                       ))}
                     </ul>
+                  </div>
+                )}
+
+                {activeGallery && activeGallery.length > 0 && (
+                  <div className="border-t border-border pt-5 mt-5">
+                    <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-primary mb-3">
+                      Gallery
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {activeGallery.map((g) => (
+                        <figure
+                          key={g.src}
+                          className="group rounded-xl overflow-hidden border border-border bg-secondary/30"
+                        >
+                          <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-background via-secondary/40 to-background overflow-hidden">
+                            <img
+                              src={g.src}
+                              alt={g.caption}
+                              loading="lazy"
+                              className="absolute inset-0 w-full h-full object-contain p-2 group-hover:scale-[1.02] transition-transform duration-500"
+                            />
+                          </div>
+                          <figcaption className="px-3 py-2 text-[11px] leading-snug text-muted-foreground border-t border-border">
+                            {g.caption}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
