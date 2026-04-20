@@ -191,56 +191,71 @@ export function Education() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="relative max-w-3xl mx-auto mb-20"
+          className="relative max-w-5xl mx-auto mb-20"
         >
           {/* Timeline line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-border hidden md:block" />
 
-          {about.education.map((edu, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="relative flex gap-6 mb-8 last:mb-0"
-            >
-              {/* Timeline dot */}
-              <div className="hidden md:flex w-16 flex-shrink-0 justify-center">
-                <div className="w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg shadow-primary/20" />
-              </div>
-
-              {/* Card */}
-              <div className="flex-1 p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-foreground mb-1">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-primary text-sm font-medium mb-3">
-                      {edu.specialization}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-3">
-                      <span className="inline-flex items-center gap-1.5">
-                        <MapPin className="w-4 h-4" />
-                        {edu.institution}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <Calendar className="w-4 h-4" />
-                        {edu.duration}
-                      </span>
-                    </div>
-
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-                      <Award className="w-4 h-4" />
-                      {edu.grade}
-                    </div>
-                  </div>
+          {about.education.map((edu, index) => {
+            const hasCampus = (edu.activities?.length ?? 0) > 0 || (edu.coursework?.length ?? 0) > 0;
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="relative flex gap-6 mb-8 last:mb-0"
+              >
+                {/* Timeline dot */}
+                <div className="hidden md:flex w-16 flex-shrink-0 justify-center">
+                  <div className="w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg shadow-primary/20 mt-6" />
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Card */}
+                <div className="flex-1 p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <GraduationCap className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-foreground mb-1">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-primary text-sm font-medium mb-3">
+                        {edu.specialization}
+                      </p>
+
+                      <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-3">
+                        <span className="inline-flex items-center gap-1.5">
+                          <MapPin className="w-4 h-4" />
+                          {edu.institution}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4" />
+                          {edu.duration}
+                        </span>
+                      </div>
+
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
+                        <Award className="w-4 h-4" />
+                        {edu.grade}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Embedded Campus Life — nested under the institution */}
+                  {hasCampus && (
+                    <div className="mt-8 pt-8 border-t border-border">
+                      <CampusLife
+                        activities={edu.activities ?? []}
+                        coursework={edu.coursework ?? []}
+                        institution={edu.institution}
+                        embedded
+                      />
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* Academic Focus & Languages Row */}

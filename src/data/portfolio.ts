@@ -45,42 +45,108 @@ export const about = {
         {
           icon: "Coffee",
           title: "Founder — Central Perk Café",
-          description: "Kickstarted the university's first ever student-run entrepreneurial venture on campus."
+          description: "Kickstarted the university's first ever student-run entrepreneurial venture on campus.",
+          tag: "Entrepreneurship",
+          year: "2023 — Present",
+          story: "Central Perk Café is the first ever student-run entrepreneurial venture at Shiv Nadar University Chennai. We pitched it as more than a coffee spot — a third place on campus where students, faculty, and visitors could collide over good coffee and better conversations. As a co-founder, I helped shape the brand, the menu, the operating model, and the day-one team.",
+          highlights: [
+            "Co-founded and launched the first student-run café on campus",
+            "Built the brand identity, menu architecture, and pricing strategy",
+            "Hired and trained the founding student-staff team",
+            "Designed the in-store experience — from playlist to packaging"
+          ]
         },
         {
           icon: "FlaskConical",
           title: "STIRS Researcher",
-          description: "Stimuli for Technological Innovation & Research by Students — university research initiative."
+          description: "Stimuli for Technological Innovation & Research by Students — university research initiative.",
+          tag: "Research",
+          year: "2023 — 2025",
+          story: "STIRS is SNUC's flagship student research initiative. As a researcher, I worked on problems at the intersection of GenAI, IoT, and privacy — turning curiosity into peer-reviewed work and conference submissions.",
+          highlights: [
+            "Contributed to multiple research tracks across AI and IoT",
+            "Co-authored work later submitted to international venues",
+            "Mentored juniors entering the research pipeline"
+          ]
         },
         {
           icon: "Users",
           title: "Vice President — SNUC MUN Society",
-          description: "Led the Model United Nations society driving debate, diplomacy, and global affairs on campus."
+          description: "Led the Model United Nations society driving debate, diplomacy, and global affairs on campus.",
+          tag: "Leadership",
+          year: "2023 — 2024",
+          story: "As Vice President of the SNUC Model United Nations Society, I helped lead one of the most active intellectual communities on campus — running internal MUNs, training first-time delegates, and representing the university at external conferences.",
+          highlights: [
+            "Led society operations alongside the President and core team",
+            "Organised and chaired multiple internal MUN conferences",
+            "Trained delegates on research, rules of procedure, and diplomacy",
+            "Grew active membership and external participation"
+          ]
         },
         {
           icon: "Sparkles",
           title: "Overall Cultural & Club Coordinator",
-          description: "Coordinated cultural events and student clubs across the university calendar."
+          description: "Coordinated cultural events and student clubs across the university calendar.",
+          tag: "Leadership",
+          year: "2024 — 2025",
+          story: "Owned the end-to-end coordination of cultural programming and club activity across the academic year — working with every club head, the student council, and the administration to ship events on time and on brand.",
+          highlights: [
+            "Orchestrated the cultural calendar across all student clubs",
+            "Single point of contact between clubs and the administration",
+            "Drove cross-club collaboration on flagship events"
+          ]
         },
         {
           icon: "Trophy",
           title: "University Cricket Team",
-          description: "Part of the prestigious SNUC cricket team — right-arm medium pacer & batsman."
+          description: "Part of the prestigious SNUC cricket team — right-arm medium pacer & batsman.",
+          tag: "Sports",
+          year: "2022 — Present",
+          story: "Represented Shiv Nadar University Chennai's cricket team across inter-collegiate fixtures. Cricket has been my longest-running discipline — and the place I learned that consistency beats intensity.",
+          highlights: [
+            "Right-arm medium pacer and middle-order batsman",
+            "Represented the university in inter-collegiate tournaments",
+            "Year-round training and selection cycles"
+          ]
         },
         {
           icon: "Megaphone",
           title: "Student Ambassador — SNUC",
-          description: "Represented the university to prospective students, guests, and external stakeholders."
+          description: "Represented the university to prospective students, guests, and external stakeholders.",
+          tag: "Outreach",
+          year: "2023 — 2025",
+          story: "As a Student Ambassador, I was one of the faces of the university for prospective students, parents, alumni, and visiting dignitaries — running campus tours, panels, and Q&A sessions.",
+          highlights: [
+            "Conducted campus tours for prospective students and families",
+            "Spoke on student panels during open days and admissions events",
+            "Hosted visiting industry and academic guests"
+          ]
         },
         {
           icon: "Palette",
           title: "Designer — Aura, SNUC Design Club",
-          description: "Designed posters and creatives for various flagship events across campus."
+          description: "Designed posters and creatives for various flagship events across campus.",
+          tag: "Design",
+          year: "2022 — 2024",
+          story: "As part of Aura, the official design club, I designed posters, social creatives, and event collateral for flagship cultural, technical, and academic events on campus.",
+          highlights: [
+            "Designed event identity systems and posters",
+            "Shipped social media creatives for campus-wide events",
+            "Collaborated with event teams on visual direction"
+          ]
         },
         {
           icon: "HeartHandshake",
           title: "NSO Volunteer (70+ hours)",
-          description: "Volunteered at the National Sports Organization wing of the university."
+          description: "Volunteered at the National Sports Organization wing of the university.",
+          tag: "Service",
+          year: "2022 — 2024",
+          story: "Logged 70+ volunteer hours with the National Sports Organization wing — supporting tournaments, training camps, and community sports outreach run by the university.",
+          highlights: [
+            "70+ verified volunteer hours with the NSO wing",
+            "Supported tournament logistics and on-ground operations",
+            "Contributed to community sports outreach"
+          ]
         }
       ]
     },
