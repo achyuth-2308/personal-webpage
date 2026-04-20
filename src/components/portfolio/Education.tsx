@@ -191,7 +191,7 @@ export function Education() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="relative max-w-3xl mx-auto mb-20"
+          className="relative max-w-5xl mx-auto mb-20"
         >
           {/* Timeline line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-border hidden md:block" />
