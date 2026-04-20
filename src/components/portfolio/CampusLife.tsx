@@ -232,7 +232,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
               );
             }
 
-            // Text tiles: original treatment with cleaner icon placement
+            // Text tiles: icon + title sit together at top-left, description fills remaining space.
             return (
               <motion.button
                 key={act.title}
@@ -250,16 +250,23 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
                   {String(i + 1).padStart(2, '0')}
                 </span>
 
-                <div className="relative h-full flex flex-col p-5 justify-between">
-                  <div className="rounded-xl bg-primary/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/25 group-hover:scale-110 transition-all w-11 h-11">
-                    <Icon className="text-primary w-5 h-5" />
+                <div className="relative h-full flex flex-col p-5 gap-4">
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-xl bg-primary/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/25 group-hover:scale-110 transition-all w-10 h-10 flex-shrink-0">
+                      <Icon className="text-primary w-5 h-5" />
+                    </div>
+                    {act.tag && (
+                      <span className="mt-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-primary/80">
+                        {act.tag}
+                      </span>
+                    )}
                   </div>
 
-                  <div>
+                  <div className="flex-1 flex flex-col justify-end">
                     <h3 className="font-bold text-foreground mb-2 leading-tight text-base">
                       {act.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-xs">
+                    <p className="text-muted-foreground leading-relaxed text-xs line-clamp-3">
                       {act.description}
                     </p>
                     <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-medium text-primary/0 group-hover:text-primary transition-colors">
