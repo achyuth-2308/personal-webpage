@@ -149,11 +149,77 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
         )}
 
         {/* Bento mosaic — full width activities */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-[180px] gap-4 ${embedded ? 'mb-12' : 'mb-24'}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-[200px] gap-4 ${embedded ? 'mb-12' : 'mb-24'}`}>
           {activities.map((act, i) => {
             const Icon = iconMap[act.icon] ?? Sparkles;
             const isFeatured = i === 0;
             const image = activityImages[act.title];
+            const hasPhoto = Boolean(image);
+
+            // Photo tiles: image dominates the top, content sits in a clean caption strip below.
+            if (hasPhoto) {
+              return (
+                <motion.button
+                  key={act.title}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.15 + i * 0.06 }}
+                  whileHover={{ y: -4 }}
+                  aria-label={`Read more about ${act.title}`}
+                  className={`group relative overflow-hidden rounded-2xl border border-border bg-card text-left hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all focus:outline-none focus:ring-2 focus:ring-primary/50 ${bentoSpans[i] ?? ''}`}
+                >
+                  {/* Full image, no heavy overlay — photo is the hero */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <img
+                      src={image}
+                      alt={act.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                    />
+                    {/* Gradient only at the bottom, where caption sits */}
+                    <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/85 to-transparent" />
+                  </div>
+
+                  {/* Top-right meta chip */}
+                  <div className="absolute top-4 right-4 flex items-center gap-2 z-10">
+                    {act.tag && (
+                      <span className="px-2.5 py-1 rounded-full bg-background/85 backdrop-blur-md border border-border/60 text-[10px] font-semibold tracking-[0.15em] uppercase text-primary">
+                        {act.tag}
+                      </span>
+                    )}
+                    <span className="text-[11px] font-mono text-foreground/70 tracking-wider bg-background/70 backdrop-blur-md px-2 py-1 rounded-md">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  {/* Caption strip pinned to bottom */}
+                  <div className={`relative h-full flex flex-col justify-end ${isFeatured ? 'p-6 md:p-7' : 'p-5'}`}>
+                    <div className="flex items-end gap-3">
+                      <div className={`rounded-lg bg-primary/90 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/30 ${isFeatured ? 'w-11 h-11' : 'w-9 h-9'}`}>
+                        <Icon className={`text-primary-foreground ${isFeatured ? 'w-5 h-5' : 'w-4 h-4'}`} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h3 className={`font-bold text-foreground leading-tight ${isFeatured ? 'text-xl md:text-2xl' : 'text-base'}`}>
+                          {act.title}
+                        </h3>
+                        <p className={`text-muted-foreground leading-snug mt-1 ${isFeatured ? 'text-sm line-clamp-2' : 'text-xs line-clamp-1'}`}>
+                          {act.description}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-primary opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+                      Read the story <ArrowUpRight className="w-3 h-3" />
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-primary/30 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                </motion.button>
+              );
+            }
+
+            // Text tiles: original treatment with cleaner icon placement
             return (
               <motion.button
                 key={act.title}
@@ -166,36 +232,21 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
                 aria-label={`Read more about ${act.title}`}
                 className={`group relative overflow-hidden rounded-2xl border border-border bg-card text-left hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all focus:outline-none focus:ring-2 focus:ring-primary/50 ${bentoSpans[i] ?? ''}`}
               >
-                {image && (
-                  <>
-                    <img
-                      src={image}
-                      alt={act.title}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/85 to-card/30" />
-                  </>
-                )}
-
+                <div className="absolute -bottom-16 -right-16 w-40 h-40 rounded-full bg-primary/10 blur-2xl group-hover:bg-primary/20 transition-colors" />
                 <span className="absolute top-4 right-5 text-[11px] font-mono text-muted-foreground/70 tracking-wider z-10">
                   {String(i + 1).padStart(2, '0')}
                 </span>
 
-                {!image && (
-                  <div className="absolute -bottom-16 -right-16 w-40 h-40 rounded-full bg-primary/10 blur-2xl group-hover:bg-primary/20 transition-colors" />
-                )}
-
-                <div className={`relative h-full flex flex-col ${isFeatured ? 'p-7 justify-between' : 'p-5 justify-between'}`}>
-                  <div className={`rounded-xl bg-primary/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/25 group-hover:scale-110 transition-all ${isFeatured ? 'w-14 h-14' : 'w-11 h-11'}`}>
-                    <Icon className={`text-primary ${isFeatured ? 'w-7 h-7' : 'w-5 h-5'}`} />
+                <div className="relative h-full flex flex-col p-5 justify-between">
+                  <div className="rounded-xl bg-primary/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/25 group-hover:scale-110 transition-all w-11 h-11">
+                    <Icon className="text-primary w-5 h-5" />
                   </div>
 
                   <div>
-                    <h3 className={`font-bold text-foreground mb-2 leading-tight ${isFeatured ? 'text-2xl md:text-3xl' : 'text-base'}`}>
+                    <h3 className="font-bold text-foreground mb-2 leading-tight text-base">
                       {act.title}
                     </h3>
-                    <p className={`text-muted-foreground leading-relaxed ${isFeatured ? 'text-sm md:text-base max-w-md' : 'text-xs'}`}>
+                    <p className="text-muted-foreground leading-relaxed text-xs">
                       {act.description}
                     </p>
                     <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-medium text-primary/0 group-hover:text-primary transition-colors">
