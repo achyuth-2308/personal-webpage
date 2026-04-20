@@ -1,12 +1,14 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
 import {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake,
+  X, ArrowUpRight, Calendar,
   type LucideIcon
 } from 'lucide-react';
 import snuLogo from '@/assets/snu-chennai-logo.png';
 import centralPerk from '@/assets/central-perk-cafe.jpg';
 import munVP from '@/assets/snu-mun-vp.jpg';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 const iconMap: Record<string, LucideIcon> = {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
@@ -22,12 +24,17 @@ interface Activity {
   icon: string;
   title: string;
   description: string;
+  tag?: string;
+  year?: string;
+  story?: string;
+  highlights?: string[];
 }
 
 interface CampusLifeProps {
   activities: Activity[];
   coursework: string[];
   institution: string;
+  embedded?: boolean;
 }
 
 // Bento-style spans for visual rhythm across the full width
