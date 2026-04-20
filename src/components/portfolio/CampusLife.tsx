@@ -8,16 +8,29 @@ import {
 import snuLogo from '@/assets/snu-chennai-logo.png';
 import centralPerk from '@/assets/central-perk-cafe.jpg';
 import munVP from '@/assets/snu-mun-vp.jpg';
+import stirsAward from '@/assets/stirs-award.jpg';
+import airssPresentation from '@/assets/airss-presentation.jpg';
+import airssBadge from '@/assets/airss-iitm-badge.jpg';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 const iconMap: Record<string, LucideIcon> = {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
 };
 
-// Map activity titles to feature images (only certain tiles get photos)
+// Hero cover image shown on the bento tile
 const activityImages: Record<string, string> = {
   'Founder — Central Perk Café': centralPerk,
   'Vice President — SNUC MUN Society': munVP,
+  'STIRS Researcher — Stimuli for Technological Innovation and Research by Students': stirsAward,
+};
+
+// Full gallery shown inside the activity dialog
+const activityGalleries: Record<string, { src: string; caption: string }[]> = {
+  'STIRS Researcher — Stimuli for Technological Innovation and Research by Students': [
+    { src: stirsAward, caption: 'STIRS Award 2023–24 — Project STIR2023_IIMSEH, ₹10,000 grant from SNUC' },
+    { src: airssPresentation, caption: 'Presenting EcoSphereX (OP106) at AIRSS 2025, IIT Madras' },
+    { src: airssBadge, caption: "Presenter badge — All India Research Scholars' Summit, IIT Madras (Mar 2025)" },
+  ],
 };
 
 interface Activity {
@@ -74,6 +87,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const active = activeIndex !== null ? activities[activeIndex] : null;
   const activeImage = active ? activityImages[active.title] : undefined;
+  const activeGallery = active ? activityGalleries[active.title] : undefined;
   const ActiveIcon = active ? (iconMap[active.icon] ?? Sparkles) : null;
 
   const groups = courseworkGroups
@@ -219,7 +233,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
               );
             }
 
-            // Text tiles: original treatment with cleaner icon placement
+            // Text tiles: icon + title sit together at top-left, description fills remaining space.
             return (
               <motion.button
                 key={act.title}
@@ -237,16 +251,23 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
                   {String(i + 1).padStart(2, '0')}
                 </span>
 
-                <div className="relative h-full flex flex-col p-5 justify-between">
-                  <div className="rounded-xl bg-primary/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/25 group-hover:scale-110 transition-all w-11 h-11">
-                    <Icon className="text-primary w-5 h-5" />
+                <div className="relative h-full flex flex-col p-5 gap-4">
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-xl bg-primary/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/25 group-hover:scale-110 transition-all w-10 h-10 flex-shrink-0">
+                      <Icon className="text-primary w-5 h-5" />
+                    </div>
+                    {act.tag && (
+                      <span className="mt-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-primary/80">
+                        {act.tag}
+                      </span>
+                    )}
                   </div>
 
-                  <div>
+                  <div className="flex-1 flex flex-col justify-end">
                     <h3 className="font-bold text-foreground mb-2 leading-tight text-base">
                       {act.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-xs">
+                    <p className="text-muted-foreground leading-relaxed text-xs line-clamp-3">
                       {act.description}
                     </p>
                     <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-medium text-primary/0 group-hover:text-primary transition-colors">
@@ -322,7 +343,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
 
       {/* Activity detail dialog */}
       <Dialog open={activeIndex !== null} onOpenChange={(open) => !open && setActiveIndex(null)}>
-        <DialogContent className="max-w-2xl p-0 overflow-hidden border-border bg-card">
+        <DialogContent className="max-w-3xl p-0 overflow-hidden border-border bg-card max-h-[90vh] overflow-y-auto">
           {active && ActiveIcon && (
             <div>
               {activeImage ? (
@@ -389,6 +410,34 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
                         </li>
                       ))}
                     </ul>
+                  </div>
+                )}
+
+                {activeGallery && activeGallery.length > 0 && (
+                  <div className="border-t border-border pt-5 mt-5">
+                    <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-primary mb-3">
+                      Gallery
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {activeGallery.map((g) => (
+                        <figure
+                          key={g.src}
+                          className="group rounded-xl overflow-hidden border border-border bg-secondary/30"
+                        >
+                          <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-background via-secondary/40 to-background overflow-hidden">
+                            <img
+                              src={g.src}
+                              alt={g.caption}
+                              loading="lazy"
+                              className="absolute inset-0 w-full h-full object-contain p-2 group-hover:scale-[1.02] transition-transform duration-500"
+                            />
+                          </div>
+                          <figcaption className="px-3 py-2 text-[11px] leading-snug text-muted-foreground border-t border-border">
+                            {g.caption}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
