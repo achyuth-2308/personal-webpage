@@ -326,16 +326,16 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
           {active && ActiveIcon && (
             <div>
               {activeImage ? (
-                <div className="relative h-56 md:h-64 w-full overflow-hidden">
+                <div className="relative h-72 md:h-80 w-full overflow-hidden bg-gradient-to-br from-background via-secondary/40 to-background">
                   <img
                     src={activeImage}
                     alt={active.title}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent pointer-events-none" />
                   <div className="absolute top-4 left-4 flex items-center gap-2">
                     {active.tag && (
-                      <span className="px-2.5 py-1 rounded-full bg-background/80 backdrop-blur text-[10px] font-semibold tracking-wider uppercase text-primary">
+                      <span className="px-2.5 py-1 rounded-full bg-background/85 backdrop-blur border border-border/60 text-[10px] font-semibold tracking-wider uppercase text-primary">
                         {active.tag}
                       </span>
                     )}
