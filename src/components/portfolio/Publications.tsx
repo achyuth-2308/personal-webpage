@@ -333,29 +333,45 @@ export function Publications() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
       
-      <div className="max-w-5xl mx-auto relative">
-        {/* Hero Image */}
+      <div className="max-w-6xl mx-auto relative px-2">
+        {/* Editorial header */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8 }}
-          className="relative mb-12 rounded-2xl overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-16"
         >
-          <img
-            src={researchHero}
-            alt="Neural network visualization representing AI research"
-            className="w-full h-48 md:h-64 object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 }}
-              className="text-3xl md:text-4xl font-bold text-foreground"
-            >
-              Research & Publications
-            </motion.h2>
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-12 bg-primary" />
+              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-primary">
+                Chapter 03 — Published Work
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight mb-6">
+              Research, <br />
+              <span className="text-primary italic">in print.</span>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-xl">
+              A growing body of peer-reviewed work at the intersection of
+              privacy-preserving ML, generative AI and human-centred systems.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 lg:pt-2">
+            <div className="relative rounded-2xl overflow-hidden border border-border h-full min-h-[180px]">
+              <img
+                src={researchHero}
+                alt="Neural network visualization representing AI research"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-background/90 via-background/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-foreground/90">
+                <span className="px-2.5 py-1 rounded-full bg-background/70 backdrop-blur border border-border">Privacy-Preserving ML</span>
+                <span className="px-2.5 py-1 rounded-full bg-background/70 backdrop-blur border border-border">GenAI · LLMs</span>
+                <span className="px-2.5 py-1 rounded-full bg-background/70 backdrop-blur border border-border">IoT</span>
+              </div>
+            </div>
           </div>
         </motion.div>
 
