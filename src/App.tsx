@@ -16,6 +16,7 @@ import ExperiencePage from '@/pages/ExperiencePage';
 import ProjectsPage from '@/pages/ProjectsPage';
 import SkillsPage from '@/pages/SkillsPage';
 import ContactPage from '@/pages/ContactPage';
+import AwardsPage from '@/pages/AwardsPage';
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const App = () => (
                   <Route path="/experience" element={<PageWrapper><ExperiencePage /></PageWrapper>} />
                   <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
                   <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />
+                  <Route path="/awards" element={<PageWrapper><AwardsPage /></PageWrapper>} />
                   <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
                 </Routes>
               </AnimatePresence>
