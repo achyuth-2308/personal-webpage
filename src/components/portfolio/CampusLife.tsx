@@ -469,6 +469,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
             src: g.src,
             alt: g.caption,
             caption: g.caption,
+            aspectRatio: 'landscape' as const,
           }))}
         />
       )}
