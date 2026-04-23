@@ -2,7 +2,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 import {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake,
-  X, ArrowUpRight, Calendar,
+  X, ArrowUpRight, Calendar, ZoomIn,
   type LucideIcon
 } from 'lucide-react';
 import snuLogo from '@/assets/snu-chennai-logo.png';
@@ -12,6 +12,7 @@ import stirsAward from '@/assets/stirs-award.jpg';
 import airssPresentation from '@/assets/airss-presentation.jpg';
 import airssBadge from '@/assets/airss-iitm-badge.jpg';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Lightbox } from './Lightbox';
 
 const iconMap: Record<string, LucideIcon> = {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
@@ -85,6 +86,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const active = activeIndex !== null ? activities[activeIndex] : null;
   const activeImage = active ? activityImages[active.title] : undefined;
   const activeGallery = active ? activityGalleries[active.title] : undefined;
@@ -419,23 +421,32 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
                       Gallery
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {activeGallery.map((g) => (
-                        <figure
+                      {activeGallery.map((g, gi) => (
+                        <button
                           key={g.src}
-                          className="group rounded-xl overflow-hidden border border-border bg-secondary/30"
+                          type="button"
+                          onClick={() => setLightboxIndex(gi)}
+                          className="group/img text-left rounded-xl overflow-hidden border border-border bg-secondary/30 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/60"
+                          aria-label={`Open image: ${g.caption}`}
                         >
                           <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-background via-secondary/40 to-background overflow-hidden">
                             <img
                               src={g.src}
                               alt={g.caption}
                               loading="lazy"
-                              className="absolute inset-0 w-full h-full object-contain p-2 group-hover:scale-[1.02] transition-transform duration-500"
+                              className="absolute inset-0 w-full h-full object-contain p-2 transition-transform duration-700 ease-out group-hover/img:scale-110"
                             />
+                            <div className="absolute inset-0 bg-background/0 group-hover/img:bg-background/30 transition-colors duration-300 flex items-center justify-center">
+                              <span className="opacity-0 group-hover/img:opacity-100 translate-y-2 group-hover/img:translate-y-0 transition-all duration-300 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur border border-border text-[11px] font-medium text-foreground">
+                                <ZoomIn className="w-3.5 h-3.5 text-primary" />
+                                Click to expand
+                              </span>
+                            </div>
                           </div>
                           <figcaption className="px-3 py-2 text-[11px] leading-snug text-muted-foreground border-t border-border">
                             {g.caption}
                           </figcaption>
-                        </figure>
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -445,6 +456,23 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Full-screen lightbox for gallery images */}
+      {activeGallery && activeGallery.length > 0 && (
+        <Lightbox
+          isOpen={lightboxIndex !== null}
+          currentIndex={lightboxIndex ?? 0}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(i) => setLightboxIndex(i)}
+          images={activeGallery.map((g, i) => ({
+            id: `${active?.title ?? 'gallery'}-${i}`,
+            src: g.src,
+            alt: g.caption,
+            caption: g.caption,
+            aspectRatio: 'landscape' as const,
+          }))}
+        />
+      )}
     </section>
   );
 }
