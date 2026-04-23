@@ -168,22 +168,37 @@ export function Education() {
       </div>
 
       <div className="max-w-6xl mx-auto" ref={ref}>
-        {/* Section Header */}
+        {/* Editorial Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Academic Background
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Education
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Building a strong foundation in Computer Science, IoT, and Data Science
-          </p>
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-12 bg-primary" />
+              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-primary">
+                Chapter 01 — Academia
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight">
+              The classroom, <br />
+              <span className="text-primary italic">reframed.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:pt-6">
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-xl">
+              A foundation in Computer Science, IoT and Data Science — but more
+              importantly, the people, projects and questions that turned a
+              syllabus into a worldview.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="px-2.5 py-1 rounded-full border border-border">B.Tech</span>
+              <span className="px-2.5 py-1 rounded-full border border-border">CSE · IoT</span>
+              <span className="px-2.5 py-1 rounded-full border border-border">2022 — 2026</span>
+            </div>
+          </div>
         </motion.div>
 
         {/* Education Timeline */}
