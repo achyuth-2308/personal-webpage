@@ -2,7 +2,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 import {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake,
-  X, ArrowUpRight, Calendar,
+  X, ArrowUpRight, Calendar, ZoomIn,
   type LucideIcon
 } from 'lucide-react';
 import snuLogo from '@/assets/snu-chennai-logo.png';
@@ -12,6 +12,7 @@ import stirsAward from '@/assets/stirs-award.jpg';
 import airssPresentation from '@/assets/airss-presentation.jpg';
 import airssBadge from '@/assets/airss-iitm-badge.jpg';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Lightbox } from './Lightbox';
 
 const iconMap: Record<string, LucideIcon> = {
   Coffee, FlaskConical, Users, Sparkles, Trophy, Megaphone, Palette, HeartHandshake
