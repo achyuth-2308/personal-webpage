@@ -456,6 +456,22 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Full-screen lightbox for gallery images */}
+      {activeGallery && activeGallery.length > 0 && (
+        <Lightbox
+          isOpen={lightboxIndex !== null}
+          currentIndex={lightboxIndex ?? 0}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(i) => setLightboxIndex(i)}
+          images={activeGallery.map((g, i) => ({
+            id: `${active?.title ?? 'gallery'}-${i}`,
+            src: g.src,
+            alt: g.caption,
+            caption: g.caption,
+          }))}
+        />
+      )}
     </section>
   );
 }
