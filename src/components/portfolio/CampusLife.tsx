@@ -86,6 +86,7 @@ export function CampusLife({ activities, coursework, institution, embedded = fal
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const active = activeIndex !== null ? activities[activeIndex] : null;
   const activeImage = active ? activityImages[active.title] : undefined;
   const activeGallery = active ? activityGalleries[active.title] : undefined;
