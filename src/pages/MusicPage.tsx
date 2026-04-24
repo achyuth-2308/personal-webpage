@@ -59,27 +59,29 @@ function MusicHero() {
             className="lg:col-span-7"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-[0.98] tracking-tight">
-              Twelve notes,
+              Sixteen swarasthanas,
               <br />
               <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-rose-300 bg-clip-text text-transparent italic">
-                a lifetime
-              </span>{' '}
-              of phrasing.
+                one keyboard.
+              </span>
             </h1>
             <p className="mt-8 text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl">
-              The story behind the engineer — a keyboardist's lineage that runs
-              from a school of music in Chennai, through a Guinness-record
-              ensemble of 229 players, into the café and corporate stages of
-              the city, and lands today at the feet of{' '}
+              A parallel practice to the engineering work — South Indian
+              Carnatic music on the electronic keyboard. The training began at
+              the Harish Raghavendra School of Music in Chennai, took in a
+              Guinness-record ensemble of 229 keyboardists in 2014, and
+              continues today under{' '}
               <a
                 href="https://www.keyboardsathya.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground underline decoration-amber-400/60 underline-offset-4 hover:decoration-amber-400 transition-colors"
               >
-                Keyboard Sathya
+                Kalaimaamani Shri Sathyanarayanan
               </a>{' '}
-              and KBS Inculcation.
+              ("Keyboard Sathya") at KBS Inculcation, with regular Navarathri
+              concerts across Chennai as part of a Carnatic instrumental
+              troupe.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-2">
@@ -365,9 +367,10 @@ export default function MusicPage() {
           </div>
           <div className="lg:col-span-7 lg:pt-6">
             <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-xl">
-              A keyboardist isn't made in a year — they are pieced together by
-              the gurus they sit under, the stages they show up to, and the
-              records they get caught up in along the way. These are mine.
+              Four chapters that mark the practice — early training in Chennai,
+              the 2014 Guinness ensemble, a steady run of café and corporate
+              gigs with On the Streets of Chennai, and ongoing Carnatic
+              keyboard training under Keyboard Sathya at KBSI.
             </p>
           </div>
         </div>
@@ -390,12 +393,11 @@ export default function MusicPage() {
       <section className="px-4 py-20 border-t border-border bg-gradient-to-b from-background to-amber-400/[0.02]">
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-amber-400/70 mb-4">
-            With gratitude
+            Gurus
           </p>
-          <p className="text-lg md:text-2xl text-foreground/90 leading-relaxed font-light italic">
-            Shri Raghavendra Udayakumar · Isaimaamani M. S. Martin ·
-            Kalaimaamani Shri Sathyanarayanan — and every room that ever
-            stayed silent for the first note.
+          <p className="text-lg md:text-2xl text-foreground/90 leading-relaxed font-light">
+            Shri Raghavendra Udayakumar &nbsp;·&nbsp; Isaimaamani M. S. Martin
+            &nbsp;·&nbsp; Kalaimaamani Shri Sathyanarayanan
           </p>
         </div>
       </section>
