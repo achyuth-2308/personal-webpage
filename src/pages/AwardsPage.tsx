@@ -56,14 +56,14 @@ function FeaturedAward({ award }: { award: Award }) {
           <div className="flex items-center gap-3 mb-6">
             <span className="h-px w-12 bg-amber-400" />
             <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-amber-400">
-              Marquee Honour
+              Featured Honour
             </span>
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.02] tracking-tight mb-6">
-            A record <br />
+            Largest Keyboard <br />
             <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200 bg-clip-text text-transparent italic">
-              held in hand.
+              Ensemble — 2014.
             </span>
           </h1>
 
@@ -88,7 +88,7 @@ function FeaturedAward({ award }: { award: Award }) {
               {award.category}
             </span>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/60 backdrop-blur border border-border text-muted-foreground text-xs font-mono uppercase tracking-[0.2em]">
-              {award.issuer}
+              {award.issuer} · {award.year}
             </span>
           </div>
         </motion.div>

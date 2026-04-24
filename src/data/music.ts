@@ -1,5 +1,5 @@
 // Music journey data — Achyuth Mukund
-// A keyboardist's lineage, milestones and stages.
+// A keyboardist's training, milestones and the stages he plays on.
 
 import gwrCertificate from '@/assets/music/gwr-certificate.jpg';
 import gwrFolder from '@/assets/music/gwr-folder.jpg';
@@ -30,26 +30,26 @@ export const musicChapters: MusicChapter[] = [
     id: 'harish-raghavendra',
     era: 'Foundations',
     year: 'Early years',
-    title: 'Where the first scale was learned',
+    title: 'Where the first swara was learned',
     subtitle: 'Harish Raghavendra School of Music',
     guru: 'Shri Raghavendra Udayakumar',
     body: [
-      "Every keyboardist remembers the first room they sat in — the smell of foam, the buzz of an old amplifier, the patient guru tapping out a beat on the side of the instrument. Mine was at the Harish Raghavendra School of Music, under the tutelage of Shri Raghavendra Udayakumar.",
-      "The lessons were strict, the practice non-negotiable, and the affection unmistakable. Sa, ri, ga, ma — long before they became chords, they were a discipline.",
+      'My training on the keyboard began at the Harish Raghavendra School of Music in Chennai, under Shri Raghavendra Udayakumar.',
+      'The early years were spent on the fundamentals — sarali, jantai and dhatu varisais, the seven basic swaras and, in time, the sixteen swarasthanas that South Indian Carnatic music actually uses. Those years built the ear and the hand discipline that everything since has rested on.',
     ],
-    pull: 'Before it was a craft, it was a habit.',
+    pull: 'Sa, Ri, Ga, Ma — first as a discipline, then as a language.',
   },
   {
     id: 'samarpan-gwr',
     era: 'World Record',
-    year: '16 Jan 2014',
+    year: '16 January 2014',
     title: 'Samarpan — Music for World Peace',
     subtitle: '“Mellifluous Melodies on Keyboard” · Star Performer',
-    guru: 'Isaimaamani M. S. Martin',
+    guru: 'Conducted by Isaimaamani M. S. Martin',
     venue: 'Chennai Trade Centre, Nandambakkam',
     body: [
-      "On 16 January 2014, 229 keyboardists assembled at the Chennai Trade Centre under Isaimaamani M. S. Martin to play together as one ensemble — and entered the Guinness Book of World Records as the largest keyboard ensemble ever assembled.",
-      "I was one of those 229 — billed as a Star Performer of Samarpan: Music for World Peace, conducted by Mellifluous Melodies on Keyboard. The certificate, the plaque and the memory still sit on the same shelf.",
+      'On 16 January 2014, 229 keyboardists assembled at the Chennai Trade Centre under Isaimaamani M. S. Martin and performed together as a single ensemble — entering the Guinness Book of World Records for the largest keyboard ensemble.',
+      'I was one of the 229, billed as a Star Performer of Samarpan: Music for World Peace, organised by Mellifluous Melodies on Keyboard. The certificate of participation, the record-holder folder and the memory of that hall sit on the same shelf at home.',
     ],
     pull: 'One ensemble. 229 keyboards. One world record.',
   },
@@ -60,10 +60,10 @@ export const musicChapters: MusicChapter[] = [
     title: 'On the Streets of Chennai',
     subtitle: 'Keyboardist · Café & Corporate Circuit',
     body: [
-      "On the Streets of Chennai is the city's open-mic, busking-meets-living-room music collective — a space where Carnatic riffs sit next to film classics and singer-songwriter sets.",
-      "I came on board as a keyboardist, and the residency quickly spilled outward — a steady run of gigs across Chennai's café circuit and a string of corporate showcases. Different rooms, different crowds, the same instrument.",
+      'On the Streets of Chennai is a city-based music collective that runs gigs across cafés, public spaces and private events — an open, genre-agnostic stage where Carnatic-leaning keyboard work sits alongside film and contemporary music.',
+      'I joined the collective as a keyboardist, and the residency has since extended into a regular run of café shows and corporate engagements across Chennai. Different rooms, different audiences, the same instrument.',
     ],
-    pull: 'A keyboard, a wire, and whoever showed up that evening.',
+    pull: 'A keyboard, a wire, and whoever the room turned out to be.',
   },
   {
     id: 'keyboard-sathya-kbsi',
@@ -73,14 +73,15 @@ export const musicChapters: MusicChapter[] = [
     subtitle: 'Disciple · KBSI — KBS Inculcation',
     guru: 'Kalaimaamani Shri Sathyanarayanan ("Keyboard Sathya")',
     body: [
-      "Today I train under Kalaimaamani Shri Sathyanarayanan — globally known as Keyboard Sathya — a musician who reformed and adapted the keyboard for Indian Classical Music, and the founder of KBS Inculcation (KBSI).",
-      "KBSI is less a class and more a school of thought: how to make a Western instrument speak fluent Carnatic, how to phrase a gamaka with weighted keys, how to listen before you play. It is, by some distance, the most demanding chapter of this journey — and the one I am most grateful for.",
+      'I currently train under Kalaimaamani Shri Sathyanarayanan — known across the field as "Keyboard Sathya" — the musician most widely credited with adapting the electronic keyboard for South Indian Carnatic music, and the founder of KBS Inculcation (KBSI).',
+      'KBSI works on a specific problem: making a fixed-pitch Western instrument speak fluent Carnatic — the sixteen swarasthanas, the gamaka inflections that carry a raga, the alapana, niraval and kalpanaswara phrasing of a kutcheri. It is the most demanding part of this journey, and the part I am most grateful to be in.',
+      'As part of this training, our Carnatic instrumental troupe continues to perform every evening through Navarathri at sabhas, temples and private gatherings across Chennai — a nine-night season that remains one of the steadiest commitments of the year.',
     ],
     link: {
       label: 'keyboardsathya.in',
       url: 'https://www.keyboardsathya.in/',
     },
-    pull: 'Carnatic on keyboard — note, gamaka, breath.',
+    pull: 'Carnatic on keyboard — swara, gamaka, sruti, breath.',
   },
 ];
 
@@ -106,7 +107,7 @@ export const musicGallery: MusicImage[] = [
     id: 'gwr-certificate',
     src: gwrCertificate,
     alt: 'Guinness World Records certificate of participation — Achyuth Mukund',
-    caption: 'Guinness World Records — Certificate of Participation · Largest keyboard ensemble (229 participants).',
+    caption: 'Guinness World Records · Certificate of Participation — largest keyboard ensemble (229 participants).',
     chapter: 'samarpan-gwr',
     aspect: 'portrait',
   },
@@ -114,7 +115,7 @@ export const musicGallery: MusicImage[] = [
     id: 'gwr-folder',
     src: gwrFolder,
     alt: 'Guinness World Records — Record Holder presentation folder',
-    caption: 'Guinness World Records · “Record Holder” presentation folder.',
+    caption: 'Guinness World Records · "Record Holder" presentation folder.',
     chapter: 'samarpan-gwr',
     aspect: 'portrait',
   },
@@ -122,8 +123,8 @@ export const musicGallery: MusicImage[] = [
     id: 'otsoc-performance',
     src: otsocPerformance,
     alt: 'Achyuth Mukund performing on keyboard at On the Streets of Chennai',
-    caption: 'On the Streets of Chennai · live set — Yamaha PSR-S970, vocals shared with the crowd.',
+    caption: 'On the Streets of Chennai · live set on Yamaha PSR-S970.',
     chapter: 'on-the-streets-of-chennai',
-    aspect: 'square',
+    aspect: 'landscape',
   },
 ];
