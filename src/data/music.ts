@@ -4,7 +4,6 @@
 import gwrCertificate from '@/assets/music/gwr-certificate.jpg';
 import gwrFolder from '@/assets/music/gwr-folder.jpg';
 import samarpanPoster from '@/assets/music/samarpan-poster.jpg';
-import otsocLogo from '@/assets/music/otsoc-logo.jpg';
 import otsocPerformance from '@/assets/music/otsoc-performance.jpg';
 
 export type MusicEra =
@@ -124,14 +123,6 @@ export const musicGallery: MusicImage[] = [
     src: otsocPerformance,
     alt: 'Achyuth Mukund performing on keyboard at On the Streets of Chennai',
     caption: 'On the Streets of Chennai · live set — Yamaha PSR-S970, vocals shared with the crowd.',
-    chapter: 'on-the-streets-of-chennai',
-    aspect: 'square',
-  },
-  {
-    id: 'otsoc-logo',
-    src: otsocLogo,
-    alt: 'On the Streets of Chennai — collective logo',
-    caption: 'On the Streets of Chennai — the collective.',
     chapter: 'on-the-streets-of-chennai',
     aspect: 'square',
   },
