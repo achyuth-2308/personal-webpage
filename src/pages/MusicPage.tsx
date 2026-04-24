@@ -330,10 +330,11 @@ export default function MusicPage() {
       src: g.src,
       alt: g.alt,
       caption: g.caption,
-      aspectRatio: g.aspect === 'portrait' ? '3/4'
-        : g.aspect === 'wide' ? '2/1'
-        : g.aspect === 'square' ? '1/1'
-        : '4/3',
+      aspectRatio: (g.aspect === 'portrait'
+        ? 'portrait'
+        : g.aspect === 'square'
+        ? 'square'
+        : 'landscape') as 'portrait' | 'landscape' | 'square',
     })),
     []
   );
