@@ -24,17 +24,17 @@ export interface Award {
 export const awards: Award[] = [
   {
     id: 'guinness-keyboard',
-    title: 'Guinness World Record — Keyboard',
+    title: 'Guinness World Record — Largest Keyboard Ensemble',
     issuer: 'Guinness World Records',
-    year: '—',
+    year: '2014',
     category: 'World Record',
     featured: true,
     description:
-      "An officially adjudicated Guinness World Record set on a keyboard — a milestone that blends precision, muscle memory and relentless practice.",
+      'Star Performer in Samarpan — Music for World Peace, an ensemble of 229 keyboardists conducted by Isaimaamani M. S. Martin and organised by Mellifluous Melodies on Keyboard at the Chennai Trade Centre on 16 January 2014. The ensemble was officially recognised by Guinness World Records as the largest keyboard ensemble.',
     highlights: [
-      'Officially recognised by Guinness World Records',
-      'Years of practice distilled into a single attempt',
-      'A reminder that craft compounds — keystroke by keystroke',
+      '229-member keyboard ensemble · Chennai Trade Centre, Nandambakkam',
+      'Conducted by Isaimaamani M. S. Martin',
+      'Officially adjudicated and certified by Guinness World Records',
     ],
   },
   {
