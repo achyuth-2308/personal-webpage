@@ -11,6 +11,7 @@ const navItems = [
   { label: 'Projects', href: '/projects' },
   { label: 'Research & Publications', href: '/research' },
   { label: 'Awards', href: '/awards' },
+  { label: 'Music', href: '/music' },
   { label: 'Contact', href: '/contact' },
 ];
 
