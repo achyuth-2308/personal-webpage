@@ -17,6 +17,7 @@ import ProjectsPage from '@/pages/ProjectsPage';
 import SkillsPage from '@/pages/SkillsPage';
 import ContactPage from '@/pages/ContactPage';
 import AwardsPage from '@/pages/AwardsPage';
+import MusicPage from '@/pages/MusicPage';
 
 const queryClient = new QueryClient();
 
@@ -65,6 +66,7 @@ const App = () => (
                   <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
                   <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />
                   <Route path="/awards" element={<PageWrapper><AwardsPage /></PageWrapper>} />
+                  <Route path="/music" element={<PageWrapper><MusicPage /></PageWrapper>} />
                   <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
                 </Routes>
               </AnimatePresence>
