@@ -9,9 +9,10 @@ import crest from '@/assets/ncc/ncc-crest.jpg';
 const kickerIcon: Record<string, typeof Star> = {
   'Enrolment': Shield,
   'First Camp Wins': Award,
-  'Sergeant': Star,
+  'Sergeant & Parade Commander': Star,
   'Best Cadet — Twice Over': Award,
   'Camps & Weapon Training': Crosshair,
+  "A Certificate · A Grade": Shield,
 };
 
 function NccHero() {
@@ -64,10 +65,10 @@ function NccHero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="lg:col-span-7"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-[0.98] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold text-foreground leading-[1.05] tracking-tight pb-2">
               Sergeant.
               <br />
-              <span className="bg-gradient-to-r from-emerald-300 via-emerald-400 to-amber-300 bg-clip-text text-transparent italic">
+              <span className="inline-block bg-gradient-to-r from-emerald-300 via-emerald-400 to-amber-300 bg-clip-text text-transparent italic pr-2 pb-2">
                 One (TN) Battalion.
               </span>
             </h1>
@@ -76,10 +77,11 @@ function NccHero() {
               <span className="text-foreground">D.A.V. Boys Senior Secondary School, Gopalapuram</span>{' '}
               — a school contingent affiliated to{' '}
               <span className="text-foreground">1 (Tamil Nadu) Battalion NCC</span>, under Madras "A"
-              Group of the TN, P & A&N Directorate. Promoted to Sergeant. Awarded
-              Best NCC Cadet by both the school and the battalion. Seven Republic
-              Day Camps. Range time on the SLR and the full series of 0.22 mm
-              calibre rifles.
+              Group of the TN, P & A&N Directorate. Promoted to Sergeant and
+              Parade Commander, leading 75 cadets. Awarded Best NCC Cadet by both
+              the school and the battalion. Seven Republic Day Camps. Range time
+              on the 7.62 mm SLR and the full series of 0.22 mm calibre rifles.
+              NCC 'A' Certificate · A Grading.
             </p>
 
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
@@ -198,6 +200,17 @@ function NccChapterBlock({ chapter, index, onOpenImage, image }: {
           {chapter.body.map((p, i) => <p key={i}>{p}</p>)}
         </div>
 
+        {chapter.bullets && chapter.bullets.length > 0 && (
+          <ul className="mt-8 space-y-2.5 max-w-2xl">
+            {chapter.bullets.map((b, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm md:text-[15px] text-foreground/85 leading-relaxed">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
         {chapter.pull && (
           <blockquote className="mt-8 pl-5 border-l-2 border-emerald-400/60">
             <Quote className="w-4 h-4 text-emerald-400/70 mb-2" />
@@ -269,11 +282,12 @@ export function NccSection({ withHero = true }: { withHero?: boolean } = {}) {
 
   // Pair each chapter with a contextually relevant image
   const chapterImageMap: Record<string, string> = {
-    'enrolment': 'crest',
+    'enrolment': 'uniform-kit',
     'inter-group': 'inter-group',
     'sergeant': 'best-cadet-close',
     'best-cadet': 'citation',
-    'camps-rifles': 'rifle-range',
+    'camps-rifles': 'rifles-lineup',
+    'a-certificate': 'cert-2',
   };
 
   // Images NOT paired with chapters → shown in the contact-sheet gallery below
