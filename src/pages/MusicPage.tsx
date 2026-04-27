@@ -323,7 +323,7 @@ function Chapter({ chapter, index, onOpenImage }: {
 // ──────────────────────────────────────────────────────────────────────────────
 // PAGE
 // ──────────────────────────────────────────────────────────────────────────────
-export default function MusicPage() {
+export function MusicSection({ withHero = true }: { withHero?: boolean } = {}) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const lightboxImages = useMemo(
