@@ -187,7 +187,7 @@ function AwardCard({ award, index }: { award: Award; index: number }) {
   );
 }
 
-export default function AwardsPage() {
+export function AwardsSection({ withFeatured = true }: { withFeatured?: boolean } = {}) {
   const [filter, setFilter] = useState<'All' | AwardCategory>('All');
   const featured = awards.find(a => a.featured) ?? awards[0];
   const rest = awards.filter(a => a.id !== featured.id);
@@ -195,7 +195,7 @@ export default function AwardsPage() {
 
   return (
     <>
-      <FeaturedAward award={featured} />
+      {withFeatured && <FeaturedAward award={featured} />}
 
       {/* Editorial header */}
       <section className="pt-24 pb-12 px-4">
@@ -204,7 +204,7 @@ export default function AwardsPage() {
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-12 bg-primary" />
               <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-primary">
-                Chapter 02 — The Shelf
+                The Shelf
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight">
@@ -250,8 +250,16 @@ export default function AwardsPage() {
           </div>
         )}
       </section>
+    </>
+  );
+}
 
+export default function AwardsPage() {
+  return (
+    <>
+      <AwardsSection />
       <Footer />
     </>
   );
 }
+
