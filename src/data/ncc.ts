@@ -203,5 +203,5 @@ export const nccFacts = [
   { value: '75', label: 'Cadets led · Parade Commander' },
   { value: '7', label: 'Republic Day Training Camps' },
   { value: '2×', label: 'Best Cadet · School + Battalion' },
-  { value: "A'A'", label: "NCC 'A' Cert · A Grading" },
+  { value: 'A', label: "NCC 'A' Certificate · A Grade" },
 ];
