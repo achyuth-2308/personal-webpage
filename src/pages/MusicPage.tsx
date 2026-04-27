@@ -348,7 +348,7 @@ export function MusicSection({ withHero = true }: { withHero?: boolean } = {}) {
 
   return (
     <>
-      <MusicHero />
+      {withHero && <MusicHero />}
 
       {/* Editorial intro to chapters */}
       <section className="px-4 pt-24 pb-4">
@@ -402,8 +402,6 @@ export function MusicSection({ withHero = true }: { withHero?: boolean } = {}) {
         </div>
       </section>
 
-      <Footer />
-
       {lightboxIndex !== null && (
         <Lightbox
           images={lightboxImages}
@@ -416,3 +414,13 @@ export function MusicSection({ withHero = true }: { withHero?: boolean } = {}) {
     </>
   );
 }
+
+export default function MusicPage() {
+  return (
+    <>
+      <MusicSection />
+      <Footer />
+    </>
+  );
+}
+
