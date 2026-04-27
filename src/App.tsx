@@ -16,8 +16,7 @@ import ExperiencePage from '@/pages/ExperiencePage';
 import ProjectsPage from '@/pages/ProjectsPage';
 import SkillsPage from '@/pages/SkillsPage';
 import ContactPage from '@/pages/ContactPage';
-import AwardsPage from '@/pages/AwardsPage';
-import MusicPage from '@/pages/MusicPage';
+import OffTheClockPage from '@/pages/OffTheClockPage';
 
 const queryClient = new QueryClient();
 
@@ -65,8 +64,10 @@ const App = () => (
                   <Route path="/experience" element={<PageWrapper><ExperiencePage /></PageWrapper>} />
                   <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
                   <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />
-                  <Route path="/awards" element={<PageWrapper><AwardsPage /></PageWrapper>} />
-                  <Route path="/music" element={<PageWrapper><MusicPage /></PageWrapper>} />
+                  <Route path="/off-the-clock" element={<PageWrapper><OffTheClockPage /></PageWrapper>} />
+                  {/* Legacy redirects */}
+                  <Route path="/awards" element={<PageWrapper><OffTheClockPage /></PageWrapper>} />
+                  <Route path="/music" element={<PageWrapper><OffTheClockPage /></PageWrapper>} />
                   <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
                 </Routes>
               </AnimatePresence>
