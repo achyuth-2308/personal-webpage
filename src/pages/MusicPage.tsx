@@ -323,7 +323,7 @@ function Chapter({ chapter, index, onOpenImage }: {
 // ──────────────────────────────────────────────────────────────────────────────
 // PAGE
 // ──────────────────────────────────────────────────────────────────────────────
-export default function MusicPage() {
+export function MusicSection({ withHero = true }: { withHero?: boolean } = {}) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const lightboxImages = useMemo(
@@ -348,7 +348,7 @@ export default function MusicPage() {
 
   return (
     <>
-      <MusicHero />
+      {withHero && <MusicHero />}
 
       {/* Editorial intro to chapters */}
       <section className="px-4 pt-24 pb-4">
@@ -402,8 +402,6 @@ export default function MusicPage() {
         </div>
       </section>
 
-      <Footer />
-
       {lightboxIndex !== null && (
         <Lightbox
           images={lightboxImages}
@@ -416,3 +414,13 @@ export default function MusicPage() {
     </>
   );
 }
+
+export default function MusicPage() {
+  return (
+    <>
+      <MusicSection />
+      <Footer />
+    </>
+  );
+}
+

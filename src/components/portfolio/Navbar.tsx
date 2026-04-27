@@ -12,8 +12,7 @@ const navItems = [
   { label: 'Skills', href: '/skills' },
   { label: 'Projects', href: '/projects' },
   { label: 'Research & Publications', href: '/research' },
-  { label: 'Awards', href: '/awards' },
-  { label: 'Music', href: '/music' },
+  { label: 'Off the Clock', href: '/off-the-clock' },
   { label: 'Contact', href: '/contact' },
 ];
 
