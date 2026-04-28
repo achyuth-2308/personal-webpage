@@ -457,20 +457,23 @@ export function NccSection({ withHero = true }: { withHero?: boolean } = {}) {
   // Pair each chapter with a contextually relevant image
   const chapterImageMap: Record<string, string> = {
     'enrolment': 'uniform-kit',
-    'inter-group': 'inter-group',
+    'inter-group': 'igc-trophies-pair',
     'sergeant': 'best-cadet-close',
-    'best-cadet': 'citation',
-    'camps-rifles': 'rifles-lineup',
+    'best-cadet': 'best-cadet-wide',
+    'camps-rifles': 'rifle-range',
     'a-certificate': 'cert-2',
   };
 
   // Images NOT paired with chapters → shown in the contact-sheet gallery below
   const pairedIds = new Set(Object.values(chapterImageMap));
-  const remaining = nccGallery.filter((g) => !pairedIds.has(g.id));
+  const remaining = nccGallery.filter((g) => !pairedIds.has(g.id) && g.id !== 'portrait' && g.id !== 'crest-large');
 
   return (
     <>
       {withHero && <NccHero />}
+
+      {/* Vertical Timeline — parade card */}
+      <NccTimeline />
 
       {/* Editorial intro */}
       <section className="px-4 pt-24 pb-4">
@@ -483,15 +486,16 @@ export function NccSection({ withHero = true }: { withHero?: boolean } = {}) {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight">
-              Five marks <br />
+              Six marks <br />
               <span className="text-emerald-400 italic">on the parade card.</span>
             </h2>
           </div>
           <div className="lg:col-span-7 lg:pt-6">
             <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-xl">
               Read in order: enrolment, the first inter-group camp at Coimbatore,
-              the Sergeant appointment, the two Best Cadet recognitions, and the
-              long line of camps and range days that ran underneath all of it.
+              the Sergeant appointment, the two Best Cadet recognitions, the long
+              line of camps and range days that ran underneath all of it, and the
+              certificate that closed the file.
             </p>
           </div>
         </div>
@@ -511,6 +515,9 @@ export function NccSection({ withHero = true }: { withHero?: boolean } = {}) {
           ))}
         </div>
       </section>
+
+      {/* Parade footage */}
+      <NccParadeVideo />
 
       {/* Contact-sheet gallery — remaining images */}
       {remaining.length > 0 && (
