@@ -15,6 +15,17 @@ import officer from '@/assets/ncc/officer-portrait.jpg';
 import rifleRange from '@/assets/ncc/rifle-range.jpg';
 import uniformKit from '@/assets/ncc/uniform-kit.jpg';
 import riflesLineup from '@/assets/ncc/rifles-lineup.jpg';
+// New from collage
+import withRedBeretOfficer from '@/assets/ncc/collage-officer-red-beret.jpg';
+import igcTrophiesPair from '@/assets/ncc/collage-igc-trophies-pair.jpg';
+import withFemaleCadets from '@/assets/ncc/collage-with-female-cadets.jpg';
+import withCamoOfficer1 from '@/assets/ncc/collage-with-camo-officer-1.jpg';
+import crestLarge from '@/assets/ncc/collage-crest-large.jpg';
+import withCamoOfficer2 from '@/assets/ncc/collage-with-camo-officer-2.jpg';
+import blazerMedal from '@/assets/ncc/collage-blazer-medal.jpg';
+import rdcParade from '@/assets/ncc/collage-rdc-parade.jpg';
+
+export const nccParadeVideo = '/ncc/ncc-parade.mp4';
 
 export interface NccChapter {
   id: string;
@@ -104,6 +115,69 @@ export const nccChapters: NccChapter[] = [
   },
 ];
 
+// ─────────────────────────────────────────────────────────────
+// Vertical timeline — concise, parade-card style
+// ─────────────────────────────────────────────────────────────
+export interface NccTimelineEntry {
+  year: string;
+  rank: string;
+  headline: string;
+  detail: string;
+  tag: 'enrolment' | 'camp' | 'rank' | 'award' | 'training' | 'certificate';
+}
+
+export const nccTimeline: NccTimelineEntry[] = [
+  {
+    year: '2017',
+    rank: 'Cadet',
+    headline: 'Enrolled · 1 (TN) Battalion NCC',
+    detail: 'D.A.V. Boys Sr. Sec. School, Gopalapuram · Madras "A" Group · TN, P & A&N Directorate.',
+    tag: 'enrolment',
+  },
+  {
+    year: '2018',
+    rank: 'Cadet',
+    headline: 'IGC Camp · Coimbatore',
+    detail: 'Best Cadet (Junior Div.), Group Song winners and runner-up in PM\'s Rally March Past — three results from one camp.',
+    tag: 'camp',
+  },
+  {
+    year: '2019',
+    rank: 'Sergeant',
+    headline: 'Promoted Sergeant · appointed Parade Commander',
+    detail: 'Senior-most cadet appointment in the school unit. Led a contingent of 75 cadets across drill, ceremonial and competition.',
+    tag: 'rank',
+  },
+  {
+    year: '2019',
+    rank: 'Sergeant',
+    headline: 'Best NCC Cadet — Junior Division',
+    detail: 'Awarded by 1 (TN) Battalion NCC and, separately, by D.A.V. Boys Gopalapuram at Annual Day 2019 — 20.',
+    tag: 'award',
+  },
+  {
+    year: '2017 — 2020',
+    rank: 'Sergeant',
+    headline: '7 Republic Day Training Camps',
+    detail: 'Across Tamil Nadu · 10 days each · drill, PT, ceremonial, weapon training and competitions.',
+    tag: 'camp',
+  },
+  {
+    year: '2019 — 20',
+    rank: 'Sergeant',
+    headline: 'Weapon training — SLR + .22 calibre',
+    detail: '7.62 mm SLR (Self Loading Rifle) and the full series of 0.22 mm calibre NCC rifles · live firing on multiple service ranges.',
+    tag: 'training',
+  },
+  {
+    year: '2020',
+    rank: 'Sergeant',
+    headline: "NCC 'A' Certificate · A Grade",
+    detail: 'Highest grade · awarded by Directorate General NCC, Ministry of Defence on completion of the junior-division programme.',
+    tag: 'certificate',
+  },
+];
+
 export interface NccImage {
   id: string;
   src: string;
@@ -121,6 +195,13 @@ export const nccGallery: NccImage[] = [
     aspect: 'portrait',
   },
   {
+    id: 'igc-trophies-pair',
+    src: igcTrophiesPair,
+    alt: 'Two cadets holding the Best Cadet plaque, Group Song winners plaque and PM Rally trophy from IGC Camp Coimbatore',
+    caption: 'IGC Camp, Coimbatore · Best Cadet plaque, Group Song winners and PM\'s Rally runner-up — held by the school contingent.',
+    aspect: 'wide',
+  },
+  {
     id: 'best-cadet-wide',
     src: bestCadetWide,
     alt: 'Best NCC Cadet award presentation at D.A.V. Boys Gopalapuram Annual Day 2019-20',
@@ -131,35 +212,77 @@ export const nccGallery: NccImage[] = [
     id: 'best-cadet-close',
     src: bestCadetClose,
     alt: 'Award For Best NCC Cadet — Achyuth Mukund, X-A, on stage at D.A.V. Boys Gopalapuram',
-    caption: '"Award for Best NCC Cadet" · Achyuth Mukund, X-A · D.A.V. Boys Gopalapuram.',
+    caption: 'On stage · receiving the Best NCC Cadet trophy as a Class X cadet.',
     aspect: 'landscape',
   },
   {
     id: 'inter-group',
     src: interGroup,
-    alt: 'Inter Group Competition RDC 2019 — Best Cadet, Group Song winners and PM\'s Rally March Past runner-up trophies',
-    caption: 'Inter Group Competition (RDC 2019) · Best Cadet, Group Song & PM\'s Rally March Past.',
+    alt: 'Inter Group Competition RDC 2019 trophies — Best Cadet, Group Song winners and PM\'s Rally March Past runner-up',
+    caption: 'IGC trophy table · Best Cadet, Group Song and PM\'s Rally March Past plaques.',
     aspect: 'wide',
+  },
+  {
+    id: 'rdc-parade',
+    src: rdcParade,
+    alt: 'NCC Republic Day contingent marching in ceremonial dress',
+    caption: 'Republic Day contingent · ceremonial march past in full dress.',
+    aspect: 'wide',
+  },
+  {
+    id: 'with-red-beret-officer',
+    src: withRedBeretOfficer,
+    alt: 'Cadet Achyuth Mukund alongside a senior army officer in maroon beret',
+    caption: 'With a visiting paratroop officer · post-camp at unit lines.',
+    aspect: 'square',
+  },
+  {
+    id: 'with-female-cadets',
+    src: withFemaleCadets,
+    alt: 'Three NCC cadets in full ceremonial dress with hackles and lanyards',
+    caption: 'Mixed contingent · ceremonial turnout before a parade.',
+    aspect: 'square',
+  },
+  {
+    id: 'with-camo-officer-1',
+    src: withCamoOfficer1,
+    alt: 'Cadet Achyuth Mukund with a senior NCC instructor in combat dress',
+    caption: 'With the troop instructor · battalion lines.',
+    aspect: 'portrait',
+  },
+  {
+    id: 'with-camo-officer-2',
+    src: withCamoOfficer2,
+    alt: 'Cadet Achyuth Mukund alongside an NCC officer in field uniform',
+    caption: 'With the camp ANO · end of a Republic Day Training Camp.',
+    aspect: 'portrait',
+  },
+  {
+    id: 'blazer-medal',
+    src: blazerMedal,
+    alt: 'School blazer with the 1 TN P&AN Republic Day Camp 2019 contingent commander medal',
+    caption: 'TN, P & A&N · Republic Day Camp 2019 contingent badge on the school blazer.',
+    aspect: 'square',
   },
   {
     id: 'rifles-lineup',
     src: riflesLineup,
     alt: 'Row of 0.22 mm calibre NCC training rifles laid out on a groundsheet, stencilled 1 TN BN',
-    caption: 'Armoury line · 0.22 mm calibre rifles · stencilled 1 TN BN.',
+    caption: 'Armoury line · 0.22 mm calibre NCC rifles · stencilled 1 TN BN.',
     aspect: 'wide',
   },
   {
     id: 'rifle-range',
     src: rifleRange,
-    alt: 'NCC cadets at the rifle firing range, prone position with .22 calibre rifles',
-    caption: 'Range day · prone position · 0.22 mm calibre, single rounds, 25-metre line.',
+    alt: 'NCC cadets at the rifle range, prone position with .22 calibre rifles, beret with red hackle on the ground',
+    caption: 'Range day · prone position · 0.22 mm calibre · 25-metre line.',
     aspect: 'landscape',
   },
   {
     id: 'uniform-kit',
     src: uniformKit,
     alt: 'NCC kit packed for camp — full khakis with name tape Achyuth Mukund and the NCC certificate',
-    caption: 'Kit packed for camp · name tape, full khakis, certificate folder.',
+    caption: 'Kit ready for camp · name tape, full khakis, certificate folder.',
     aspect: 'landscape',
   },
   {
@@ -195,6 +318,13 @@ export const nccGallery: NccImage[] = [
     src: crest,
     alt: 'NCC cap badge — एकता और अनुशासन (Unity and Discipline)',
     caption: 'NCC cap badge · "एकता और अनुशासन" — Unity and Discipline.',
+    aspect: 'square',
+  },
+  {
+    id: 'crest-large',
+    src: crestLarge,
+    alt: 'NCC bullion crest — रा.कै.को / NCC with motto एकता और अनुशासन',
+    caption: 'Bullion crest · रा.कै.को NCC · "एकता और अनुशासन".',
     aspect: 'square',
   },
 ];
