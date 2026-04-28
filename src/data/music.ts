@@ -5,6 +5,7 @@ import gwrCertificate from '@/assets/music/gwr-certificate.jpg';
 import gwrFolder from '@/assets/music/gwr-folder.jpg';
 import samarpanPoster from '@/assets/music/samarpan-poster.jpg';
 import otsocPerformance from '@/assets/music/otsoc-performance.jpg';
+import kbsLogo from '@/assets/music/kbs-inculcation-logo.png';
 
 export type MusicEra =
   | 'Foundations'
@@ -126,5 +127,13 @@ export const musicGallery: MusicImage[] = [
     caption: 'On the Streets of Chennai · live set on Yamaha PSR-S970.',
     chapter: 'on-the-streets-of-chennai',
     aspect: 'landscape',
+  },
+  {
+    id: 'kbs-inculcation-logo',
+    src: kbsLogo,
+    alt: 'KBS Inculcation — emblem of the school founded by Kalaimaamani Shri Sathyanarayanan',
+    caption: 'KBS Inculcation · the school founded by Kalaimaamani Shri Sathyanarayanan ("Keyboard Sathya").',
+    chapter: 'keyboard-sathya-kbsi',
+    aspect: 'square',
   },
 ];
