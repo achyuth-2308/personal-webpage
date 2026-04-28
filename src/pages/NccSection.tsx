@@ -406,7 +406,7 @@ function NccChapterBlock({ chapter, index, onOpenImage, image }: {
             whileTap={{ scale: 0.98 }}
             className={`group relative w-full overflow-hidden rounded-xl border border-border bg-card cursor-zoom-in ${
               image.aspect === 'portrait' ? 'aspect-[3/4]' :
-              image.aspect === 'wide' ? 'aspect-[2/1]' :
+              image.aspect === 'wide' ? 'aspect-[16/9]' :
               image.aspect === 'square' ? 'aspect-square' :
               'aspect-[4/3]'
             }`}
