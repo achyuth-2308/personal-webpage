@@ -1,10 +1,184 @@
 import { useRef, useState, useMemo } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { Quote, Crosshair, Award, Tent, Star, Shield } from 'lucide-react';
-import { nccChapters, nccGallery, nccFacts } from '@/data/ncc';
+import { Quote, Crosshair, Award, Tent, Star, Shield, Flag, Target, ScrollText, Play } from 'lucide-react';
+import { nccChapters, nccGallery, nccFacts, nccTimeline, nccParadeVideo, type NccTimelineEntry } from '@/data/ncc';
 import { Lightbox } from '@/components/portfolio/Lightbox';
 import portrait from '@/assets/ncc/full-uniform-portrait.jpg';
 import crest from '@/assets/ncc/ncc-crest.jpg';
+
+const tagIcon: Record<NccTimelineEntry['tag'], typeof Star> = {
+  enrolment: Shield,
+  camp: Tent,
+  rank: Star,
+  award: Award,
+  training: Crosshair,
+  certificate: ScrollText,
+};
+
+const tagLabel: Record<NccTimelineEntry['tag'], string> = {
+  enrolment: 'Enrolment',
+  camp: 'Camp',
+  rank: 'Rank',
+  award: 'Award',
+  training: 'Training',
+  certificate: 'Certificate',
+};
+
+function NccTimeline() {
+  return (
+    <section className="px-4 py-16 md:py-24 border-t border-border">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-12 bg-emerald-500" />
+              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-emerald-400">
+                The Parade Card
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight">
+              Three years, <br />
+              <span className="text-emerald-400 italic">one timeline.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:pt-6">
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-xl">
+              Years, ranks, camps and the awards that arrived between them — the
+              service record at a glance.
+            </p>
+          </div>
+        </div>
+
+        <ol className="relative max-w-4xl mx-auto">
+          {/* Vertical rail */}
+          <span className="absolute left-4 md:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-emerald-500/0 via-emerald-500/40 to-emerald-500/0 md:-translate-x-px" />
+
+          {nccTimeline.map((t, i) => {
+            const Icon = tagIcon[t.tag];
+            const onLeft = i % 2 === 0;
+            return (
+              <motion.li
+                key={`${t.year}-${t.headline}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.55, delay: i * 0.05 }}
+                className={`relative grid md:grid-cols-2 gap-3 md:gap-10 pl-12 md:pl-0 pb-10 md:pb-12 last:pb-0`}
+              >
+                {/* Node */}
+                <span className="absolute left-4 md:left-1/2 top-1.5 -translate-x-1/2 w-7 h-7 rounded-full bg-background border-2 border-emerald-400/70 flex items-center justify-center shadow-[0_0_0_4px_hsl(var(--background))]">
+                  <Icon className="w-3.5 h-3.5 text-emerald-400" />
+                </span>
+
+                {/* Card — alternates left/right on desktop */}
+                <div
+                  className={`md:col-span-1 ${
+                    onLeft
+                      ? 'md:pr-10 md:text-right md:col-start-1'
+                      : 'md:pl-10 md:col-start-2'
+                  }`}
+                >
+                  <div
+                    className={`group inline-block w-full max-w-md ${
+                      onLeft ? 'md:ml-auto' : ''
+                    }`}
+                  >
+                    <div
+                      className={`flex items-center gap-2 mb-2 ${
+                        onLeft ? 'md:justify-end' : ''
+                      }`}
+                    >
+                      <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-emerald-400">
+                        {t.year}
+                      </span>
+                      <span className="h-px w-6 bg-border" />
+                      <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+                        {tagLabel[t.tag]} · {t.rank}
+                      </span>
+                    </div>
+                    <p className="text-lg md:text-xl font-semibold text-foreground leading-snug">
+                      {t.headline}
+                    </p>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                      {t.detail}
+                    </p>
+                  </div>
+                </div>
+              </motion.li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function NccParadeVideo() {
+  const [playing, setPlaying] = useState(false);
+  const ref = useRef<HTMLVideoElement>(null);
+
+  const toggle = () => {
+    const v = ref.current;
+    if (!v) return;
+    if (v.paused) { v.play(); setPlaying(true); } else { v.pause(); setPlaying(false); }
+  };
+
+  return (
+    <section className="px-4 py-16 md:py-24 border-t border-border">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-10">
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-4">
+              <Flag className="w-4 h-4 text-emerald-400" />
+              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-emerald-400">
+                On the Square
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight">
+              Drill, in <br />
+              <span className="text-emerald-400 italic">motion.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:pt-6">
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-xl">
+              Footage from a parade rehearsal — twenty-odd cadets, one cadence,
+              and the part of the discipline that no still photograph can hold.
+            </p>
+          </div>
+        </div>
+
+        <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-border bg-card shadow-2xl shadow-emerald-500/10">
+          <video
+            ref={ref}
+            src={nccParadeVideo}
+            className="w-full h-auto block"
+            playsInline
+            muted
+            loop
+            preload="metadata"
+            controls={playing}
+            onClick={() => !playing && toggle()}
+          />
+          {!playing && (
+            <button
+              onClick={toggle}
+              aria-label="Play parade footage"
+              className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/70 via-black/20 to-black/40 group"
+            >
+              <span className="flex items-center justify-center w-20 h-20 rounded-full bg-emerald-400/95 text-background shadow-2xl shadow-emerald-400/40 group-hover:scale-110 transition-transform">
+                <Play className="w-8 h-8 ml-1" fill="currentColor" />
+              </span>
+              <span className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 font-mono text-[10px] tracking-[0.3em] uppercase text-white/90">
+                <span>1 (TN) BN NCC · Parade rehearsal</span>
+                <span className="hidden sm:inline">Press play</span>
+              </span>
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const kickerIcon: Record<string, typeof Star> = {
   'Enrolment': Shield,
@@ -232,7 +406,7 @@ function NccChapterBlock({ chapter, index, onOpenImage, image }: {
             whileTap={{ scale: 0.98 }}
             className={`group relative w-full overflow-hidden rounded-xl border border-border bg-card cursor-zoom-in ${
               image.aspect === 'portrait' ? 'aspect-[3/4]' :
-              image.aspect === 'wide' ? 'aspect-[2/1]' :
+              image.aspect === 'wide' ? 'aspect-[16/9]' :
               image.aspect === 'square' ? 'aspect-square' :
               'aspect-[4/3]'
             }`}
@@ -283,20 +457,23 @@ export function NccSection({ withHero = true }: { withHero?: boolean } = {}) {
   // Pair each chapter with a contextually relevant image
   const chapterImageMap: Record<string, string> = {
     'enrolment': 'uniform-kit',
-    'inter-group': 'inter-group',
+    'inter-group': 'igc-trophies-pair',
     'sergeant': 'best-cadet-close',
-    'best-cadet': 'citation',
-    'camps-rifles': 'rifles-lineup',
+    'best-cadet': 'best-cadet-wide',
+    'camps-rifles': 'rifle-range',
     'a-certificate': 'cert-2',
   };
 
   // Images NOT paired with chapters → shown in the contact-sheet gallery below
   const pairedIds = new Set(Object.values(chapterImageMap));
-  const remaining = nccGallery.filter((g) => !pairedIds.has(g.id));
+  const remaining = nccGallery.filter((g) => !pairedIds.has(g.id) && g.id !== 'portrait' && g.id !== 'crest-large');
 
   return (
     <>
       {withHero && <NccHero />}
+
+      {/* Vertical Timeline — parade card */}
+      <NccTimeline />
 
       {/* Editorial intro */}
       <section className="px-4 pt-24 pb-4">
@@ -309,15 +486,16 @@ export function NccSection({ withHero = true }: { withHero?: boolean } = {}) {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight">
-              Five marks <br />
+              Six marks <br />
               <span className="text-emerald-400 italic">on the parade card.</span>
             </h2>
           </div>
           <div className="lg:col-span-7 lg:pt-6">
             <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-xl">
               Read in order: enrolment, the first inter-group camp at Coimbatore,
-              the Sergeant appointment, the two Best Cadet recognitions, and the
-              long line of camps and range days that ran underneath all of it.
+              the Sergeant appointment, the two Best Cadet recognitions, the long
+              line of camps and range days that ran underneath all of it, and the
+              certificate that closed the file.
             </p>
           </div>
         </div>
@@ -337,6 +515,9 @@ export function NccSection({ withHero = true }: { withHero?: boolean } = {}) {
           ))}
         </div>
       </section>
+
+      {/* Parade footage */}
+      <NccParadeVideo />
 
       {/* Contact-sheet gallery — remaining images */}
       {remaining.length > 0 && (
