@@ -171,14 +171,14 @@ function OffTheClockHero() {
                         onClick={() => scrollTo(c.id)}
                         className="group w-full flex items-center gap-3 text-left py-1.5 -mx-1 px-1 rounded-md hover:bg-foreground/[0.03] transition-colors"
                       >
-                        <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground w-6">
+                        <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground w-6 shrink-0">
                           {c.no}
                         </span>
                         <Icon className={`w-4 h-4 ${c.tint} shrink-0`} />
-                        <span className="text-sm font-semibold text-foreground group-hover:translate-x-0.5 transition-transform">
+                        <span className="text-sm font-semibold text-foreground group-hover:translate-x-0.5 transition-transform truncate">
                           {c.long}
                         </span>
-                        <span className="ml-auto font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+                        <span className="ml-auto hidden sm:inline font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground whitespace-nowrap">
                           {c.sub}
                         </span>
                       </button>
