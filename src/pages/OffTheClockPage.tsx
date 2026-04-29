@@ -285,13 +285,13 @@ function ChapterDivider({
 }) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-      <div className="flex items-center gap-4">
-        <span className={`font-mono text-xs tracking-[0.3em] uppercase ${tint}`}>
+      <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
+        <span className={`font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase ${tint} whitespace-nowrap`}>
           Chapter {number}
         </span>
-        <span className={`h-px w-10 ${line} opacity-70`} />
-        <span className="h-px flex-1 bg-border" />
-        <span className="font-mono text-xs tracking-[0.3em] uppercase text-muted-foreground">
+        <span className={`h-px w-8 sm:w-10 ${line} opacity-70 shrink-0`} />
+        <span className="h-px flex-1 min-w-[1rem] bg-border" />
+        <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground whitespace-nowrap">
           {label}
         </span>
       </div>
