@@ -417,8 +417,8 @@ export const achievements = [
   {
     title: "ACM WebSci 2026 — International Presenter",
     year: "2026",
-    description: "Travelled to Germany to present 'Invisible Influences' at the 18th ACM Web Science Conference, TU Braunschweig — in Session 5: Framing, Fairness, and Privacy.",
-    organization: "ACM · TU Braunschweig, Germany"
+    description: "Travelled to Germany to present 'Invisible Influences' at the 18th ACM Web Science Conference, Technische Universität Braunschweig — in Session 5: Framing, Fairness, and Privacy.",
+    organization: "ACM · Technische Universität Braunschweig, Germany"
   },
   {
     title: "STIRS Grant Award",
