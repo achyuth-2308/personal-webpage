@@ -400,7 +400,7 @@ export const publications = [
 ];
 
 export const timeline = [
-  { year: "2026", event: "Presented at ACM WebSci 2026, TU Braunschweig, Germany" },
+  { year: "2026", event: "Presented at ACM WebSci 2026, Technische Universität Braunschweig, Germany" },
   { year: "2026", event: "DevOps & Test Automation Intern at Logitech" },
   { year: "2025", event: "GenAI Intern at Prodapt" },
   { year: "2025", event: "Published in IGI Global" },
