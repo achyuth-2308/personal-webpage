@@ -388,8 +388,8 @@ export const publications = [
     status: "published",
     featured: true,
     conferenceDate: "May 26–29, 2026",
-    conferenceLocation: "TU Braunschweig, Germany",
-    sessionInfo: "Session 5 — Framing, Fairness, and Privacy · Chaired by Prof. Eelco Herder",
+    conferenceLocation: "Technische Universität Braunschweig, Germany",
+    sessionInfo: "Session 5 — Framing, Fairness, and Privacy · Chaired by Dr. Eelco Herder",
     images: [
       "publications/websci/websci-presenting-1.jpg",
       "publications/websci/websci-presenting-2.jpg",
