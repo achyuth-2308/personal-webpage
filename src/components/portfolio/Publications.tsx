@@ -193,14 +193,14 @@ function FeaturedPublicationSpotlight({ pub }: { pub: PublicationData }) {
             <div className="md:col-span-3 relative aspect-[4/3] md:aspect-auto md:min-h-[420px] overflow-hidden rounded-2xl group">
               <img
                 src={hero}
-                alt="Achyuth Mukund presenting at ACM WebSci 2026, TU Braunschweig, Germany"
+                alt="Achyuth Mukund presenting at ACM WebSci 2026, Technische Universität Braunschweig, Germany"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/85 backdrop-blur text-xs font-semibold text-foreground border border-border">
                   <MapPin className="w-3.5 h-3.5 text-primary" />
-                  TU Braunschweig, Germany
+                  Technische Universität Braunschweig, Germany
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/85 backdrop-blur text-xs font-medium text-muted-foreground border border-border">
                   <Calendar className="w-3.5 h-3.5" />

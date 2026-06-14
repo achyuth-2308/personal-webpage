@@ -388,8 +388,8 @@ export const publications = [
     status: "published",
     featured: true,
     conferenceDate: "May 26–29, 2026",
-    conferenceLocation: "TU Braunschweig, Germany",
-    sessionInfo: "Session 5 — Framing, Fairness, and Privacy · Chaired by Prof. Eelco Herder",
+    conferenceLocation: "Technische Universität Braunschweig, Germany",
+    sessionInfo: "Session 5 — Framing, Fairness, and Privacy · Chaired by Dr. Eelco Herder",
     images: [
       "publications/websci/websci-presenting-1.jpg",
       "publications/websci/websci-presenting-2.jpg",
@@ -400,7 +400,7 @@ export const publications = [
 ];
 
 export const timeline = [
-  { year: "2026", event: "Presented at ACM WebSci 2026, TU Braunschweig, Germany" },
+  { year: "2026", event: "Presented at ACM WebSci 2026, Technische Universität Braunschweig, Germany" },
   { year: "2026", event: "DevOps & Test Automation Intern at Logitech" },
   { year: "2025", event: "GenAI Intern at Prodapt" },
   { year: "2025", event: "Published in IGI Global" },
@@ -417,8 +417,8 @@ export const achievements = [
   {
     title: "ACM WebSci 2026 — International Presenter",
     year: "2026",
-    description: "Travelled to Germany to present 'Invisible Influences' at the 18th ACM Web Science Conference, TU Braunschweig — in Session 5: Framing, Fairness, and Privacy.",
-    organization: "ACM · TU Braunschweig, Germany"
+    description: "Travelled to Germany to present 'Invisible Influences' at the 18th ACM Web Science Conference, Technische Universität Braunschweig — in Session 5: Framing, Fairness, and Privacy.",
+    organization: "ACM · Technische Universität Braunschweig, Germany"
   },
   {
     title: "STIRS Grant Award",
