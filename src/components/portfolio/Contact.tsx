@@ -48,18 +48,29 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      toast({
+        title: 'Please check your message',
+        description: result.error.issues[0]?.message ?? 'Invalid input',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-    
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     toast({
       title: "Message sent!",
       description: "Thanks for reaching out. I'll get back to you soon!",
     });
-    
+
     setFormData({ name: '', email: '', subject: '', message: '' });
     setIsSubmitting(false);
   };
+
 
   return (
     <section id="contact" className="py-24 px-4 relative" ref={ref}>
