@@ -562,11 +562,20 @@ export function Publications() {
             <FileText className="w-5 h-5 text-primary" />
             Publications
           </h3>
-          
-          <div className="space-y-10">
-            {publications.map((pub, i) => (
-              <PublicationCard key={pub.title} pub={pub as PublicationData} index={i} />
+
+          {/* Featured spotlight (WebSci '26) */}
+          {(publications as PublicationData[])
+            .filter(p => p.featured)
+            .map(pub => (
+              <FeaturedPublicationSpotlight key={pub.title} pub={pub} />
             ))}
+
+          <div className="space-y-10">
+            {(publications as PublicationData[])
+              .filter(p => !p.featured)
+              .map((pub, i) => (
+                <PublicationCard key={pub.title} pub={pub} index={i} />
+              ))}
           </div>
         </motion.div>
 
@@ -587,7 +596,7 @@ export function Publications() {
               <p className="text-xs text-muted-foreground">Publications</p>
             </div>
             <div className="text-center p-4 rounded-xl bg-background/50">
-              <p className="text-2xl font-bold text-primary">2</p>
+              <p className="text-2xl font-bold text-primary">3</p>
               <p className="text-xs text-muted-foreground">Published</p>
             </div>
             <div className="text-center p-4 rounded-xl bg-background/50">
@@ -595,11 +604,12 @@ export function Publications() {
               <p className="text-xs text-muted-foreground">In Press</p>
             </div>
             <div className="text-center p-4 rounded-xl bg-background/50">
-              <p className="text-2xl font-bold text-violet-500">1</p>
-              <p className="text-xs text-muted-foreground">Accepted</p>
+              <p className="text-2xl font-bold text-primary">1</p>
+              <p className="text-xs text-muted-foreground">Int'l Conference</p>
             </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
