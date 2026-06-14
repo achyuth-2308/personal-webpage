@@ -1,8 +1,17 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import { z } from 'zod';
 import { Send, Mail, MapPin, Github, Linkedin } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 import { useToast } from '@/hooks/use-toast';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2, 'Name must be at least 2 characters').max(100, 'Name must be 100 characters or fewer'),
+  email: z.string().trim().email('Please enter a valid email').max(255, 'Email must be 255 characters or fewer'),
+  subject: z.string().trim().min(2, 'Subject must be at least 2 characters').max(200, 'Subject must be 200 characters or fewer'),
+  message: z.string().trim().min(10, 'Message must be at least 10 characters').max(2000, 'Message must be 2000 characters or fewer'),
+});
+
 
 // Custom YouTube icon component
 const YouTubeIcon = ({ className }: { className?: string }) => (
@@ -39,18 +48,29 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      toast({
+        title: 'Please check your message',
+        description: result.error.issues[0]?.message ?? 'Invalid input',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-    
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     toast({
       title: "Message sent!",
       description: "Thanks for reaching out. I'll get back to you soon!",
     });
-    
+
     setFormData({ name: '', email: '', subject: '', message: '' });
     setIsSubmitting(false);
   };
+
 
   return (
     <section id="contact" className="py-24 px-4 relative" ref={ref}>
@@ -150,6 +170,7 @@ export function Contact() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
+                  maxLength={100}
                   className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                   placeholder="Your name"
                 />
@@ -162,6 +183,7 @@ export function Contact() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
+                  maxLength={255}
                   className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                   placeholder="you@example.com"
                 />
@@ -174,6 +196,7 @@ export function Contact() {
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   required
+                  maxLength={200}
                   className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
                   placeholder="What's this about?"
                 />
@@ -186,8 +209,10 @@ export function Contact() {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                   rows={5}
+                  maxLength={2000}
                   className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
                   placeholder="Tell me about your project..."
+
                 />
               </div>
               
