@@ -378,21 +378,30 @@ export const publications = [
   {
     number: "04",
     title: "Invisible Influences: Investigating Implicit Intersectional Biases through Persona Engineering in Large Language Models",
-    authors: "Nandini Arimanda, Achyuth Mukund, Dr. Sathi Balan Muthiah, Dr. Rajesh Sharma",
+    authors: "Nandini Arimanda, Achyuth Mukund, Dr. Sakthi Balan Muthiah, Dr. Rajesh Sharma",
     year: "2026",
     venue: "18th ACM Web Science Conference (WebSci '26)",
     publisher: "ACM",
-    doi: "https://doi.org/10.1145/3795766.3799772",
-    arxiv: "https://arxiv.org/abs/2604.06213",
-    linkedinPost: null,
-    status: "accepted",
+    doi: "10.1145/3795766.3799772",
+    linkedinPost: "https://www.linkedin.com/posts/achyuth-mukund_websci2026-acmwebsci-research-ugcPost-7466625351813640193-hrlK/",
+    newsArticle: "https://www.snuchennai.edu.in/from-snu-chennai-to-germany-cse-students-present-ai-research-at-acm-websci-2026/",
+    status: "published",
+    featured: true,
     conferenceDate: "May 26–29, 2026",
-    conferenceLocation: "Braunschweig, Germany",
-    abstract: "A persona-induced bias study introducing the BADx metric for dynamic intersectional bias measurement and explainability. We systematically analyze how implicit biases manifest across 5 state-of-the-art LLMs when prompted with various persona configurations, revealing hidden patterns of intersectional discrimination."
+    conferenceLocation: "TU Braunschweig, Germany",
+    sessionInfo: "Session 5 — Framing, Fairness, and Privacy · Chaired by Prof. Eelco Herder",
+    images: [
+      "publications/websci/websci-presenting-1.jpg",
+      "publications/websci/websci-presenting-2.jpg",
+      "publications/websci/websci-presenting-3.jpg"
+    ],
+    abstract: "Presented in person at the 18th ACM Web Science Conference at Technische Universität Braunschweig, Germany — celebrating 20 Years of Web Science. The paper introduces BADx (Bias Amplification Differential and Explainability Score), a novel framework that quantifies how bias in large language models shifts when the model is prompted to adopt different social personas and intersectional identities. Moving beyond static, single-axis benchmarks, BADx delivers a dynamic, context-sensitive lens on implicit bias across five state-of-the-art LLMs, paired with an explainability layer that surfaces why a model drifts. The work, co-authored with Nandini Arimanda, Dr. Sakthi Balan Muthiah (SNU Chennai) and Dr. Rajesh Sharma (Plaksha University), was accepted into the official WebSci '26 proceedings and presented in Session 5 — Framing, Fairness, and Privacy."
   }
 ];
 
 export const timeline = [
+  { year: "2026", event: "Presented at ACM WebSci 2026, TU Braunschweig, Germany" },
+  { year: "2026", event: "DevOps & Test Automation Intern at Logitech" },
   { year: "2025", event: "GenAI Intern at Prodapt" },
   { year: "2025", event: "Published in IGI Global" },
   { year: "2025", event: "AIRSS 2025 Presentation at IIT Madras" },
@@ -405,6 +414,12 @@ export const timeline = [
 ];
 
 export const achievements = [
+  {
+    title: "ACM WebSci 2026 — International Presenter",
+    year: "2026",
+    description: "Travelled to Germany to present 'Invisible Influences' at the 18th ACM Web Science Conference, TU Braunschweig — in Session 5: Framing, Fairness, and Privacy.",
+    organization: "ACM · TU Braunschweig, Germany"
+  },
   {
     title: "STIRS Grant Award",
     year: "2024",
