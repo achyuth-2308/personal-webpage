@@ -1,8 +1,17 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import { z } from 'zod';
 import { Send, Mail, MapPin, Github, Linkedin } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 import { useToast } from '@/hooks/use-toast';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2, 'Name must be at least 2 characters').max(100, 'Name must be 100 characters or fewer'),
+  email: z.string().trim().email('Please enter a valid email').max(255, 'Email must be 255 characters or fewer'),
+  subject: z.string().trim().min(2, 'Subject must be at least 2 characters').max(200, 'Subject must be 200 characters or fewer'),
+  message: z.string().trim().min(10, 'Message must be at least 10 characters').max(2000, 'Message must be 2000 characters or fewer'),
+});
+
 
 // Custom YouTube icon component
 const YouTubeIcon = ({ className }: { className?: string }) => (
