@@ -1,6 +1,6 @@
 import { motion, useInView, Variants } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ExternalLink, BookOpen, FileText, Linkedin, ChevronDown, ChevronUp } from 'lucide-react';
+import { ExternalLink, BookOpen, FileText, Linkedin, ChevronDown, ChevronUp, MapPin, Calendar, Newspaper, Sparkles, Plane } from 'lucide-react';
 import { publications, researchPhilosophy, researchProfiles } from '@/data/portfolio';
 import researchHero from '@/assets/research-hero.png';
 import researchGateLogo from '@/assets/icons/researchgate-logo.png';
@@ -9,11 +9,17 @@ import researchGateLogo from '@/assets/icons/researchgate-logo.png';
 import iccidsPresentation from '@/assets/publications/iccids-presentation.png';
 import iccidsCertificate from '@/assets/publications/iccids-certificate.png';
 import igiGlobalWearable from '@/assets/publications/igi-global-wearable.png';
+import websci1 from '@/assets/publications/websci/websci-presenting-1.jpg';
+import websci2 from '@/assets/publications/websci/websci-presenting-2.jpg';
+import websci3 from '@/assets/publications/websci/websci-presenting-3.jpg';
 
 const imageMap: Record<string, string> = {
   'publications/iccids-presentation.png': iccidsPresentation,
   'publications/iccids-certificate.png': iccidsCertificate,
   'publications/igi-global-wearable.png': igiGlobalWearable,
+  'publications/websci/websci-presenting-1.jpg': websci1,
+  'publications/websci/websci-presenting-2.jpg': websci2,
+  'publications/websci/websci-presenting-3.jpg': websci3,
 };
 
 const containerVariants: Variants = {
@@ -144,11 +150,136 @@ interface PublicationData {
   arxiv?: string | null;
   linkedinPost: string | null;
   mediumPost?: string | null;
+  newsArticle?: string | null;
   status: string;
+  featured?: boolean;
   images?: string[];
   abstract: string;
   conferenceDate?: string;
   conferenceLocation?: string;
+  sessionInfo?: string;
+}
+
+// ============================================================
+// FEATURED SPOTLIGHT — for the WebSci '26 Germany presentation
+// ============================================================
+function FeaturedPublicationSpotlight({ pub }: { pub: PublicationData }) {
+  const imgs = (pub.images ?? []).map(p => imageMap[p]).filter(Boolean);
+  const [hero, side1, side2] = [imgs[0], imgs[1], imgs[2]];
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="mb-16 relative"
+    >
+      {/* Marquee label */}
+      <div className="flex items-center gap-3 mb-5">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold tracking-[0.2em] uppercase shadow-md">
+          <Sparkles className="w-3 h-3" />
+          Featured · International Presentation
+        </span>
+        <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
+          <Plane className="w-3 h-3" /> Chennai → Braunschweig
+        </span>
+      </div>
+
+      <div className="relative rounded-3xl overflow-hidden border border-primary/30 bg-gradient-to-br from-card via-card to-primary/5 shadow-2xl shadow-primary/10">
+        {/* Image collage */}
+        {hero && (
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-1.5 p-1.5 bg-border/40">
+            <div className="md:col-span-3 relative aspect-[4/3] md:aspect-auto md:min-h-[420px] overflow-hidden rounded-2xl group">
+              <img
+                src={hero}
+                alt="Achyuth Mukund presenting at ACM WebSci 2026, TU Braunschweig, Germany"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/85 backdrop-blur text-xs font-semibold text-foreground border border-border">
+                  <MapPin className="w-3.5 h-3.5 text-primary" />
+                  TU Braunschweig, Germany
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/85 backdrop-blur text-xs font-medium text-muted-foreground border border-border">
+                  <Calendar className="w-3.5 h-3.5" />
+                  {pub.conferenceDate}
+                </span>
+              </div>
+            </div>
+            <div className="md:col-span-2 grid grid-rows-2 gap-1.5">
+              {side1 && (
+                <div className="relative aspect-[4/3] md:aspect-auto overflow-hidden rounded-2xl group">
+                  <img src={side1} alt="At the WebSci '26 podium" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                </div>
+              )}
+              {side2 && (
+                <div className="relative aspect-[4/3] md:aspect-auto overflow-hidden rounded-2xl group">
+                  <img src={side2} alt="Presenting alongside co-author at WebSci '26" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Body */}
+        <div className="p-6 md:p-10">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <span className="text-[10px] font-mono text-muted-foreground bg-muted px-2 py-1 rounded">#{pub.number}</span>
+            <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+              ✓ Published in WebSci '26 Proceedings
+            </span>
+            <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-primary/10 text-primary border border-primary/20">
+              ACM · 20 Years of Web Science
+            </span>
+          </div>
+
+          <h3 className="text-2xl md:text-[28px] lg:text-3xl font-bold text-foreground leading-[1.15] tracking-tight mb-4">
+            {pub.title}
+          </h3>
+
+          <p className="text-sm md:text-base text-muted-foreground mb-3">
+            {highlightAuthor(pub.authors)}
+          </p>
+
+          {pub.sessionInfo && (
+            <p className="text-xs md:text-sm text-muted-foreground/90 italic mb-5 border-l-2 border-primary/40 pl-3">
+              {pub.sessionInfo}
+            </p>
+          )}
+
+          <p className="text-sm md:text-base text-foreground/85 leading-relaxed mb-6">
+            {pub.abstract}
+          </p>
+
+          <div className="flex flex-wrap gap-2.5">
+            {pub.doi && (
+              <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/15 px-4 py-2 rounded-full transition-colors border border-primary/20">
+                <BookOpen className="w-3.5 h-3.5" />
+                ACM DOI · {pub.doi}
+              </a>
+            )}
+            {pub.newsArticle && (
+              <a href={pub.newsArticle} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-500/10 hover:bg-amber-500/15 px-4 py-2 rounded-full transition-colors border border-amber-500/20">
+                <Newspaper className="w-3.5 h-3.5" />
+                Featured by SNU Chennai
+              </a>
+            )}
+            {pub.linkedinPost && (
+              <a href={pub.linkedinPost} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-500 bg-blue-500/10 hover:bg-blue-500/15 px-4 py-2 rounded-full transition-colors border border-blue-500/20">
+                <Linkedin className="w-3.5 h-3.5" />
+                LinkedIn Story
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.article>
+  );
 }
 
 interface PublicationCardProps {
