@@ -147,9 +147,9 @@ export function HomeSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="text-muted-foreground mb-10"
+            className="text-muted-foreground mb-10 max-w-3xl mx-auto"
           >
-            Pursuing B.Tech in CSE (IoT) at Shiv Nadar University & BS in Data Science at IIT Madras.
+            Pursuing B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things) at Shiv Nadar University Chennai and B.S. (Bachelor of Science) in Data Science and Applications at Indian Institute of Technology (IIT), Madras.
           </motion.p>
 
           {/* CTA Buttons */}
