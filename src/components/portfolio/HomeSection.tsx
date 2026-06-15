@@ -147,9 +147,9 @@ export function HomeSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="text-muted-foreground mb-10"
+            className="text-muted-foreground mb-10 max-w-3xl mx-auto"
           >
-            Pursuing B.Tech in CSE (IoT) at Shiv Nadar University & BS in Data Science at IIT Madras.
+            Pursuing B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things) at Shiv Nadar University Chennai and B.S. (Bachelor of Science) in Data Science and Applications at Indian Institute of Technology (IIT), Madras.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -275,9 +275,9 @@ export function HomeSection() {
               <p className="text-lg leading-relaxed text-muted-foreground">
                 I'm a passionate <span className="text-primary font-medium">Software Developer</span> and{' '}
                 <span className="text-primary font-medium">AI Engineer</span> currently pursuing a dual degree —{' '}
-                <span className="text-foreground font-semibold">B.Tech in Computer Science & Engineering (IoT)</span>{' '}
+                <span className="text-foreground font-semibold">B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things)</span>{' '}
                 at Shiv Nadar University Chennai and{' '}
-                <span className="text-foreground font-semibold">B.S. in Data Science and Applications</span> at IIT Madras.
+                <span className="text-foreground font-semibold">B.S. (Bachelor of Science) in Data Science and Applications</span> at Indian Institute of Technology (IIT), Madras.
               </p>
 
               <p className="text-lg leading-relaxed text-muted-foreground">
