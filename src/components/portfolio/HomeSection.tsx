@@ -275,9 +275,9 @@ export function HomeSection() {
               <p className="text-lg leading-relaxed text-muted-foreground">
                 I'm a passionate <span className="text-primary font-medium">Software Developer</span> and{' '}
                 <span className="text-primary font-medium">AI Engineer</span> currently pursuing a dual degree —{' '}
-                <span className="text-foreground font-semibold">B.Tech in Computer Science & Engineering (IoT)</span>{' '}
+                <span className="text-foreground font-semibold">B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things)</span>{' '}
                 at Shiv Nadar University Chennai and{' '}
-                <span className="text-foreground font-semibold">B.S. in Data Science and Applications</span> at IIT Madras.
+                <span className="text-foreground font-semibold">B.S. (Bachelor of Science) in Data Science and Applications</span> at Indian Institute of Technology (IIT), Madras.
               </p>
 
               <p className="text-lg leading-relaxed text-muted-foreground">
