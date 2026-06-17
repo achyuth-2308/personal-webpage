@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ArrowRight, Code2, Cpu, Brain, Sparkles, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowRight, Code2, Cpu, Brain, Sparkles, MapPin, Cloud, GitBranch, CircuitBoard } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { personalInfo } from '@/data/portfolio';
 import profileImage from '@/assets/achyuth-photo.jpg';
@@ -58,7 +58,30 @@ const interests = [
 
 const languages = ['English', 'Tamil', 'Hindi', 'Sanskrit'];
 
-const roleTags = ['Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder'];
+const roleTags = ['Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder', 'Firmware Engineer', 'DevOps', 'Cloud Computing'];
+
+const expertiseGroups = [
+  {
+    icon: Code2,
+    label: 'Engineering',
+    items: ['Software Developer', 'Firmware Engineer', 'Full-Stack'],
+  },
+  {
+    icon: CircuitBoard,
+    label: 'Hardware & IoT',
+    items: ['IoT Systems', 'ESP32 / Embedded', 'Sensor Networks'],
+  },
+  {
+    icon: Brain,
+    label: 'AI & Research',
+    items: ['Machine Learning', 'GenAI / LLMs', 'Applied Research'],
+  },
+  {
+    icon: Cloud,
+    label: 'Cloud & DevOps',
+    items: ['Cloud Computing', 'DevOps', 'CI/CD Pipelines'],
+  },
+];
 
 export function HomeSection() {
   const navigate = useNavigate();
@@ -105,10 +128,14 @@ export function HomeSection() {
                 className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground mb-6"
               >
                 <span className="h-px w-8 bg-border" />
-                <span>Portfolio · 2026</span>
-                <span className="inline-flex items-center gap-1.5 text-muted-foreground/80">
+                <span className="inline-flex items-center gap-1.5">
                   <MapPin className="w-3 h-3" />
                   Chennai, India
+                </span>
+                <span className="text-muted-foreground/60">·</span>
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground/80">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                  Available for 2026
                 </span>
               </motion.div>
 
@@ -214,35 +241,60 @@ export function HomeSection() {
               </motion.div>
             </div>
 
-            {/* Right column — portrait card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
+            {/* Right column — expertise card (editorial, no portrait) */}
+            <motion.aside
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="relative hidden lg:block"
             >
-              <div className="relative aspect-[4/5] w-full max-w-sm ml-auto">
-                {/* Frame offset */}
-                <div className="absolute -inset-3 rounded-[28px] border border-border" />
-                <div className="relative h-full w-full overflow-hidden rounded-[24px] bg-card">
-                  <img
-                    src={profileImage}
-                    alt="Achyuth Mukund"
-                    className="h-full w-full object-cover"
-                  />
-                  {/* Caption strip */}
-                  <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-background/90 via-background/60 to-transparent">
-                    <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-foreground/80">
-                      <span>Est. Chennai</span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                        Available
-                      </span>
-                    </div>
+              <div className="relative w-full max-w-sm ml-auto">
+                {/* Offset frame */}
+                <div className="absolute -inset-3 rounded-[28px] border border-border/70" />
+
+                <div className="relative rounded-[24px] bg-card/80 backdrop-blur-sm border border-border p-6">
+                  {/* Header row */}
+                  <div className="flex items-center justify-between pb-4 border-b border-border">
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                      What I Build
+                    </span>
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                      / 04
+                    </span>
+                  </div>
+
+                  {/* Expertise list */}
+                  <ul className="mt-2 divide-y divide-border">
+                    {expertiseGroups.map((group) => (
+                      <li
+                        key={group.label}
+                        className="py-3.5 flex items-start gap-3 group"
+                      >
+                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-secondary/60 text-foreground/80 group-hover:text-primary transition-colors">
+                          <group.icon className="w-4 h-4" />
+                        </span>
+                        <div className="min-w-0">
+                          <div className="text-sm font-medium text-foreground">
+                            {group.label}
+                          </div>
+                          <div className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
+                            {group.items.join(' · ')}
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Footer signature */}
+                  <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                    <span>Chennai → Anywhere</span>
+                    <span className="font-mono normal-case tracking-normal text-foreground/70">
+                      AM.
+                    </span>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.aside>
           </div>
         </div>
       </section>
