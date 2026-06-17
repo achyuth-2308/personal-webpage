@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ArrowRight, Code2, Cpu, Brain, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowRight, Code2, Cpu, Brain, Sparkles, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { personalInfo } from '@/data/portfolio';
 import profileImage from '@/assets/achyuth-photo.jpg';
