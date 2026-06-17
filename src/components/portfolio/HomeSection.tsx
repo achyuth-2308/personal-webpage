@@ -4,13 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { personalInfo } from '@/data/portfolio';
 import profileImage from '@/assets/achyuth-photo.jpg';
 
-const roles = [
-  "Software Developer",
-  "IoT Engineer", 
-  "ML Researcher",
-  "GenAI Builder"
-];
-
 // Custom YouTube icon component
 const YouTubeIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -65,158 +58,195 @@ const interests = [
 
 const languages = ['English', 'Tamil', 'Hindi', 'Sanskrit'];
 
+const roleTags = ['Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder'];
+
 export function HomeSection() {
   const navigate = useNavigate();
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
 
-  useEffect(() => {
-    const currentRole = roles[roleIndex];
-    
-    if (isTyping) {
-      if (displayText.length < currentRole.length) {
-        const timeout = setTimeout(() => {
-          setDisplayText(currentRole.slice(0, displayText.length + 1));
-        }, 100);
-        return () => clearTimeout(timeout);
-      } else {
-        const timeout = setTimeout(() => setIsTyping(false), 2000);
-        return () => clearTimeout(timeout);
-      }
-    } else {
-      if (displayText.length > 0) {
-        const timeout = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, 50);
-        return () => clearTimeout(timeout);
-      } else {
-        setRoleIndex((prev) => (prev + 1) % roles.length);
-        setIsTyping(true);
-      }
-    }
-  }, [displayText, isTyping, roleIndex]);
+  const socials = [
+    { icon: Github, href: personalInfo.social.github, label: 'GitHub' },
+    { icon: Linkedin, href: personalInfo.social.linkedin, label: 'LinkedIn' },
+    { icon: YouTubeIcon, href: personalInfo.social.youtube, label: 'YouTube' },
+    { icon: InstagramIcon, href: personalInfo.social.instagram, label: 'Instagram' },
+    { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email' }
+  ];
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(20,184,166,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(20,184,166,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      {/* Hero Section — editorial split layout */}
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+        {/* Soft ambient backdrop (hero-only theme accent) */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 50% at 18% 30%, hsl(var(--primary) / 0.10), transparent 60%), radial-gradient(ellipse 50% 40% at 85% 75%, hsl(var(--accent) / 0.08), transparent 65%)',
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 opacity-[0.35] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
+          }}
+        />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          {/* Main Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-6"
-          >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-              <span className="text-foreground">Achyuth </span>
-              <span className="text-primary">Mukund</span>
-            </h1>
-          </motion.div>
-
-          {/* Typing Role */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-2xl sm:text-3xl text-primary font-medium mb-8 h-10"
-          >
-            <span>{displayText}</span>
-            <span className="inline-block w-0.5 h-7 bg-primary ml-1 animate-blink" />
-          </motion.div>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed"
-          >
-            Building intelligent systems at the intersection of{' '}
-            <span className="text-primary font-medium">IoT</span>,{' '}
-            <span className="text-primary font-medium">Machine Learning</span>, and{' '}
-            <span className="text-primary font-medium">Generative AI</span>.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-            className="text-muted-foreground mb-10 max-w-3xl mx-auto"
-          >
-            Pursuing B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things) at Shiv Nadar University Chennai and B.S. (Bachelor of Science) in Data Science and Applications at Indian Institute of Technology (IIT), Madras.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
-          >
-            <motion.button
-              onClick={() => navigate('/projects')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 30px -5px hsl(var(--primary))' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Projects
-              <ArrowRight className="w-4 h-4" />
-            </motion.button>
-            
-            <motion.a
-              href="/resume.pdf"
-              target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-transparent border border-border text-foreground rounded-lg font-medium hover:bg-secondary/50 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download className="w-4 h-4" />
-              Download Resume
-            </motion.a>
-            
-            <motion.button
-              onClick={() => navigate('/contact')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-secondary text-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Me
-            </motion.button>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="flex justify-center gap-4"
-          >
-            {[
-              { icon: Github, href: personalInfo.social.github, label: 'GitHub' },
-              { icon: Linkedin, href: personalInfo.social.linkedin, label: 'LinkedIn' },
-              { icon: YouTubeIcon, href: personalInfo.social.youtube, label: 'YouTube' },
-              { icon: InstagramIcon, href: personalInfo.social.instagram, label: 'Instagram' },
-              { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email' }
-            ].map((item) => (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                target={item.label === 'Email' ? undefined : '_blank'}
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary/50 border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
-                whileHover={{ scale: 1.1, y: -2 }}
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-[1.25fr_1fr] gap-12 lg:gap-16 items-center">
+            {/* Left column — text */}
+            <div className="text-left">
+              {/* Kicker */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground mb-6"
               >
-                <item.icon className="w-5 h-5" />
-              </motion.a>
-            ))}
-          </motion.div>
+                <span className="h-px w-8 bg-border" />
+                <span>Portfolio · 2026</span>
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground/80">
+                  <MapPin className="w-3 h-3" />
+                  Chennai, India
+                </span>
+              </motion.div>
+
+              {/* Name — single color, generous tracking */}
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="font-display font-semibold text-foreground leading-[0.95] tracking-tight text-[clamp(2.75rem,7.2vw,5.75rem)]"
+              >
+                Achyuth Mukund
+              </motion.h1>
+
+              {/* Subtitle line */}
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="mt-5 text-lg sm:text-xl text-foreground/80 max-w-xl"
+              >
+                Engineer, researcher and occasional keyboardist —
+                building systems where hardware, data and language models actually have to work together.
+              </motion.p>
+
+              {/* Role pills */}
+              <motion.ul
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="mt-6 flex flex-wrap gap-2"
+              >
+                {roleTags.map((role) => (
+                  <li
+                    key={role}
+                    className="px-3 py-1 rounded-full border border-border text-xs text-muted-foreground"
+                  >
+                    {role}
+                  </li>
+                ))}
+              </motion.ul>
+
+              {/* Education line — quieter, no rainbow highlights */}
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="mt-8 text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed border-l-2 border-border pl-4"
+              >
+                Currently pursuing a <span className="text-foreground">B. Tech in Computer Science &amp; Engineering (IoT)</span>{' '}
+                at Shiv Nadar University Chennai, alongside a <span className="text-foreground">B.S. in Data Science &amp; Applications</span>{' '}
+                from IIT Madras.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="mt-9 flex flex-wrap items-center gap-3"
+              >
+                <button
+                  onClick={() => navigate('/projects')}
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 bg-foreground text-background rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  View Projects
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                </button>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border border-border text-foreground hover:bg-secondary/60 transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  Resume
+                </a>
+                <button
+                  onClick={() => navigate('/contact')}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
+                >
+                  Get in touch →
+                </button>
+              </motion.div>
+
+              {/* Socials */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="mt-10 flex items-center gap-5 text-muted-foreground"
+              >
+                {socials.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.label === 'Email' ? undefined : '_blank'}
+                    rel="noopener noreferrer"
+                    aria-label={item.label}
+                    className="hover:text-foreground transition-colors"
+                  >
+                    <item.icon className="w-[18px] h-[18px]" />
+                  </a>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right column — portrait card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative hidden lg:block"
+            >
+              <div className="relative aspect-[4/5] w-full max-w-sm ml-auto">
+                {/* Frame offset */}
+                <div className="absolute -inset-3 rounded-[28px] border border-border" />
+                <div className="relative h-full w-full overflow-hidden rounded-[24px] bg-card">
+                  <img
+                    src={profileImage}
+                    alt="Achyuth Mukund"
+                    className="h-full w-full object-cover"
+                  />
+                  {/* Caption strip */}
+                  <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-background/90 via-background/60 to-transparent">
+                    <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-foreground/80">
+                      <span>Est. Chennai</span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                        Available
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
+
 
       {/* About Section (Merged) */}
       <section className="py-24 px-4">
