@@ -128,10 +128,14 @@ export function HomeSection() {
                 className="flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground mb-6"
               >
                 <span className="h-px w-8 bg-border" />
-                <span>Portfolio · 2026</span>
-                <span className="inline-flex items-center gap-1.5 text-muted-foreground/80">
+                <span className="inline-flex items-center gap-1.5">
                   <MapPin className="w-3 h-3" />
                   Chennai, India
+                </span>
+                <span className="text-muted-foreground/60">·</span>
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground/80">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                  Available for 2026
                 </span>
               </motion.div>
 
