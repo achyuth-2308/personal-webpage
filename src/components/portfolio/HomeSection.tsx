@@ -58,7 +58,30 @@ const interests = [
 
 const languages = ['English', 'Tamil', 'Hindi', 'Sanskrit'];
 
-const roleTags = ['Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder'];
+const roleTags = ['Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder', 'Firmware Engineer', 'DevOps', 'Cloud Computing'];
+
+const expertiseGroups = [
+  {
+    icon: Code2,
+    label: 'Engineering',
+    items: ['Software Developer', 'Firmware Engineer', 'Full-Stack'],
+  },
+  {
+    icon: CircuitBoard,
+    label: 'Hardware & IoT',
+    items: ['IoT Systems', 'ESP32 / Embedded', 'Sensor Networks'],
+  },
+  {
+    icon: Brain,
+    label: 'AI & Research',
+    items: ['Machine Learning', 'GenAI / LLMs', 'Applied Research'],
+  },
+  {
+    icon: Cloud,
+    label: 'Cloud & DevOps',
+    items: ['Cloud Computing', 'DevOps', 'CI/CD Pipelines'],
+  },
+];
 
 export function HomeSection() {
   const navigate = useNavigate();
