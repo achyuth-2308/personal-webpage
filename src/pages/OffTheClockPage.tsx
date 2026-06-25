@@ -1,10 +1,11 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { Music2, Shield, Award as AwardIcon, ArrowDown } from 'lucide-react';
+import { Music2, Shield, Award as AwardIcon, ArrowDown, Disc as CricketIcon } from 'lucide-react';
 import { Footer } from '@/components/portfolio/Footer';
 import { MusicSection } from './MusicPage';
 import { NccSection } from './NccSection';
 import { AwardsSection } from './AwardsPage';
+import { CricketSection } from './CricketSection';
 
 const chapters = [
   {
@@ -32,8 +33,20 @@ const chapters = [
     line: 'bg-emerald-400',
   },
   {
-    id: 'awards',
+    id: 'cricket',
     no: '03',
+    label: 'Cricket',
+    sub: 'Right-arm medium pace',
+    long: 'The Pitch',
+    icon: CricketIcon,
+    tint: 'text-emerald-300',
+    accent: 'emerald',
+    glow: 'bg-emerald-300/[0.08]',
+    line: 'bg-emerald-300',
+  },
+  {
+    id: 'awards',
+    no: '04',
     label: 'Honours',
     sub: 'World record & shelf',
     long: 'The Shelf',
