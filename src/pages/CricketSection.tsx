@@ -364,6 +364,7 @@ export function CricketSection({ withHero = true }: { withHero?: boolean } = {})
       <CricHeroesCTA />
       {lightboxIndex !== null && (
         <Lightbox
+          isOpen={lightboxIndex !== null}
           images={lightboxImages}
           currentIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
