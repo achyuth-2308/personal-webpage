@@ -1,10 +1,11 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { Music2, Shield, Award as AwardIcon, ArrowDown } from 'lucide-react';
+import { Music2, Shield, Award as AwardIcon, ArrowDown, Disc as CricketIcon } from 'lucide-react';
 import { Footer } from '@/components/portfolio/Footer';
 import { MusicSection } from './MusicPage';
 import { NccSection } from './NccSection';
 import { AwardsSection } from './AwardsPage';
+import { CricketSection } from './CricketSection';
 
 const chapters = [
   {
@@ -32,8 +33,20 @@ const chapters = [
     line: 'bg-emerald-400',
   },
   {
-    id: 'awards',
+    id: 'cricket',
     no: '03',
+    label: 'Cricket',
+    sub: 'Right-arm medium pace',
+    long: 'The Pitch',
+    icon: CricketIcon,
+    tint: 'text-emerald-300',
+    accent: 'emerald',
+    glow: 'bg-emerald-300/[0.08]',
+    line: 'bg-emerald-300',
+  },
+  {
+    id: 'awards',
+    no: '04',
     label: 'Honours',
     sub: 'World record & shelf',
     long: 'The Shelf',
@@ -105,10 +118,10 @@ function OffTheClockHero() {
             </span>
           </div>
           <span className="hidden sm:inline text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground">
-            Vol. III · Music · Service · Honours
+            Vol. IV · Music · Service · Cricket · Honours
           </span>
           <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground">
-            Three Chapters
+            Four Chapters
           </span>
         </motion.div>
 
@@ -139,10 +152,11 @@ function OffTheClockHero() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-8 text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl"
             >
-              Three threads have run in parallel to the engineering work — South
+              Four threads have run in parallel to the engineering work — South
               Indian Carnatic music on the keyboard, three years in khakis with
-              the National Cadet Corps, and a quiet shelf of awards picked up
-              along the way. Each one is its own chapter below.
+              the National Cadet Corps, weekend cricket as a right-arm medium
+              pacer, and a quiet shelf of awards picked up along the way. Each
+              one is its own chapter below.
             </motion.p>
           </div>
 
@@ -159,7 +173,7 @@ function OffTheClockHero() {
                   Index
                 </span>
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-                  Pg. 1 — 3
+                  Pg. 1 — 4
                 </span>
               </div>
               <ul className="space-y-3">
@@ -195,7 +209,7 @@ function OffTheClockHero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5"
+          className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
         >
           {chapters.map((c, i) => {
             const Icon = c.icon;
@@ -316,9 +330,15 @@ export default function OffTheClockPage() {
         <NccSection withHero={true} />
       </div>
 
-      {/* Chapter 03 — Awards / Honours */}
+      {/* Chapter 03 — Cricket */}
+      <div id="cricket" className="scroll-mt-16">
+        <ChapterDivider number="03" label="The Pitch" tint="text-emerald-300" line="bg-emerald-300" />
+        <CricketSection withHero={true} />
+      </div>
+
+      {/* Chapter 04 — Awards / Honours */}
       <div id="awards" className="scroll-mt-16">
-        <ChapterDivider number="03" label="The Shelf" tint="text-primary" line="bg-primary" />
+        <ChapterDivider number="04" label="The Shelf" tint="text-primary" line="bg-primary" />
         <AwardsSection withFeatured={false} />
       </div>
 
