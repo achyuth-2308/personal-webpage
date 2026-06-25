@@ -330,9 +330,15 @@ export default function OffTheClockPage() {
         <NccSection withHero={true} />
       </div>
 
-      {/* Chapter 03 — Awards / Honours */}
+      {/* Chapter 03 — Cricket */}
+      <div id="cricket" className="scroll-mt-16">
+        <ChapterDivider number="03" label="The Pitch" tint="text-emerald-300" line="bg-emerald-300" />
+        <CricketSection withHero={true} />
+      </div>
+
+      {/* Chapter 04 — Awards / Honours */}
       <div id="awards" className="scroll-mt-16">
-        <ChapterDivider number="03" label="The Shelf" tint="text-primary" line="bg-primary" />
+        <ChapterDivider number="04" label="The Shelf" tint="text-primary" line="bg-primary" />
         <AwardsSection withFeatured={false} />
       </div>
 
