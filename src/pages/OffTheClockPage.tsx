@@ -118,10 +118,10 @@ function OffTheClockHero() {
             </span>
           </div>
           <span className="hidden sm:inline text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground">
-            Vol. III · Music · Service · Honours
+            Vol. IV · Music · Service · Cricket · Honours
           </span>
           <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground">
-            Three Chapters
+            Four Chapters
           </span>
         </motion.div>
 
@@ -152,10 +152,11 @@ function OffTheClockHero() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-8 text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl"
             >
-              Three threads have run in parallel to the engineering work — South
+              Four threads have run in parallel to the engineering work — South
               Indian Carnatic music on the keyboard, three years in khakis with
-              the National Cadet Corps, and a quiet shelf of awards picked up
-              along the way. Each one is its own chapter below.
+              the National Cadet Corps, weekend cricket as a right-arm medium
+              pacer, and a quiet shelf of awards picked up along the way. Each
+              one is its own chapter below.
             </motion.p>
           </div>
 
