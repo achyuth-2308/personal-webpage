@@ -173,7 +173,7 @@ function OffTheClockHero() {
                   Index
                 </span>
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-                  Pg. 1 — 3
+                  Pg. 1 — 4
                 </span>
               </div>
               <ul className="space-y-3">
@@ -209,7 +209,7 @@ function OffTheClockHero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5"
+          className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
         >
           {chapters.map((c, i) => {
             const Icon = c.icon;
