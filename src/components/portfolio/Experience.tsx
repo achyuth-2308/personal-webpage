@@ -42,7 +42,7 @@ export function Experience() {
         >
           <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Internships and research roles where I've built real-world systems
+            From internships and research roles to full-time engineering — building real-world systems.
           </p>
         </motion.div>
 
