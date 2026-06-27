@@ -198,9 +198,9 @@ export function HomeSection() {
                 transition={{ delay: 0.4 }}
                 className="mt-8 text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed border-l-2 border-border pl-4"
               >
-                Currently pursuing a <span className="text-foreground">B. Tech in Computer Science &amp; Engineering (IoT)</span>{' '}
-                at Shiv Nadar University Chennai, alongside a <span className="text-foreground">B.S. in Data Science &amp; Applications</span>{' '}
-                from IIT Madras.
+                Currently a <span className="text-foreground">Firmware Automation Engineer at Logitech</span>.
+                Completed my <span className="text-foreground">B. Tech in Computer Science &amp; Engineering (IoT)</span> at Shiv Nadar University Chennai (2022–2026),
+                and currently pursuing a <span className="text-foreground">B.S. in Data Science &amp; Applications</span> from IIT Madras.
               </motion.p>
 
               {/* CTAs */}
