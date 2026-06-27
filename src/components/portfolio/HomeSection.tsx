@@ -58,13 +58,13 @@ const interests = [
 
 const languages = ['English', 'Tamil', 'Hindi', 'Sanskrit'];
 
-const roleTags = ['Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder', 'Firmware Engineer', 'DevOps', 'Cloud Computing'];
+const roleTags = ['Firmware Engineer', 'Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder', 'DevOps', 'Cloud Computing'];
 
 const expertiseGroups = [
   {
-    icon: Code2,
-    label: 'Engineering',
-    items: ['Software Developer', 'Firmware Engineer', 'Full-Stack'],
+    icon: CircuitBoard,
+    label: 'Firmware Engineering',
+    items: ['Embedded C / C++', 'RTOS · Bare-metal', 'Driver & Protocol Design'],
   },
   {
     icon: CircuitBoard,
@@ -132,11 +132,6 @@ export function HomeSection() {
                   <MapPin className="w-3 h-3" />
                   Chennai, India
                 </span>
-                <span className="text-muted-foreground/60">·</span>
-                <span className="inline-flex items-center gap-1.5 text-muted-foreground/80">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                  Available for 2026
-                </span>
               </motion.div>
 
               {/* Name — single color, generous tracking */}
@@ -149,15 +144,29 @@ export function HomeSection() {
                 Achyuth Mukund
               </motion.h1>
 
+              {/* Primary role headline — Firmware Engineer emphasis */}
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.5 }}
+                className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-base sm:text-lg"
+              >
+                <span className="text-foreground font-medium">Firmware Engineer</span>
+                <span className="text-muted-foreground/50">/</span>
+                <span className="text-muted-foreground">IoT &amp; Embedded Systems</span>
+                <span className="text-muted-foreground/50">/</span>
+                <span className="text-muted-foreground">Applied ML Researcher</span>
+              </motion.p>
+
               {/* Subtitle line */}
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="mt-5 text-lg sm:text-xl text-foreground/80 max-w-xl"
+                transition={{ delay: 0.25, duration: 0.5 }}
+                className="mt-5 text-base sm:text-lg text-foreground/80 max-w-xl leading-relaxed"
               >
-                Engineer, researcher and occasional keyboardist —
-                building systems where hardware, data and language models actually have to work together.
+                I write firmware that has to behave when the deadline, the sensor and the network all disagree —
+                then wrap it in data pipelines, ML models and the occasional language model that has to earn its place.
               </motion.p>
 
               {/* Role pills */}
@@ -167,15 +176,20 @@ export function HomeSection() {
                 transition={{ delay: 0.3 }}
                 className="mt-6 flex flex-wrap gap-2"
               >
-                {roleTags.map((role) => (
+                {roleTags.map((role, i) => (
                   <li
                     key={role}
-                    className="px-3 py-1 rounded-full border border-border text-xs text-muted-foreground"
+                    className={
+                      i === 0
+                        ? 'px-3 py-1 rounded-full bg-foreground text-background text-xs font-medium'
+                        : 'px-3 py-1 rounded-full border border-border text-xs text-muted-foreground'
+                    }
                   >
                     {role}
                   </li>
                 ))}
               </motion.ul>
+
 
               {/* Education line — quieter, no rainbow highlights */}
               <motion.p
