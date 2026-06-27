@@ -209,49 +209,116 @@ export function Experience() {
                   </span>
                 </div>
 
-                {/* Highlights */}
-                {selectedExp.highlights.length > 0 && (
-                  <div className="mb-8">
-                    <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4">
-                      Key Contributions
+                {/* Career ladder (multiple roles at same company) */}
+                {Array.isArray((selectedExp as any).roles) && (selectedExp as any).roles.length > 0 ? (
+                  <div className="mb-2">
+                    <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-5">
+                      Career Progression
                     </h4>
-                    <ul className="space-y-4">
-                      {selectedExp.highlights.map((highlight, j) => (
-                        <motion.li 
-                          key={j} 
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: j * 0.1 }}
-                          className="flex gap-3 text-muted-foreground"
-                        >
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                          <span className="leading-relaxed">{highlight}</span>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                    <div className="relative pl-6">
+                      {/* vertical ladder line */}
+                      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-primary via-primary/40 to-primary/10" />
 
-                {/* Technologies */}
-                {selectedExp.technologies.length > 0 && (
-                  <div className="pt-6 border-t border-border/50">
-                    <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4">
-                      Technologies Used
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedExp.technologies.map((tech, idx) => (
-                        <motion.span
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: idx * 0.05 }}
-                          className="px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary font-medium"
-                        >
-                          {tech}
-                        </motion.span>
-                      ))}
+                      <div className="space-y-8">
+                        {(selectedExp as any).roles.map((r: any, ri: number) => (
+                          <motion.div
+                            key={ri}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: ri * 0.1 }}
+                            className="relative"
+                          >
+                            {/* node dot */}
+                            <span
+                              className={`absolute -left-[22px] top-1.5 w-3.5 h-3.5 rounded-full border-2 ${
+                                ri === 0
+                                  ? 'bg-primary border-primary shadow-[0_0_0_4px_hsl(var(--primary)/0.15)]'
+                                  : 'bg-card border-primary/60'
+                              }`}
+                            />
+                            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                              <h5 className="text-base font-semibold text-foreground">{r.role}</h5>
+                              <span className="text-xs px-2 py-0.5 rounded-full border border-border text-muted-foreground bg-secondary/40">
+                                {r.type}
+                              </span>
+                            </div>
+                            <p className="text-xs text-muted-foreground mt-1">{r.duration}</p>
+
+                            {r.highlights?.length > 0 && (
+                              <ul className="mt-3 space-y-2">
+                                {r.highlights.map((h: string, hi: number) => (
+                                  <li key={hi} className="flex gap-2.5 text-sm text-muted-foreground">
+                                    <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                    <span className="leading-relaxed">{h}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+
+                            {r.technologies?.length > 0 && (
+                              <div className="mt-3 flex flex-wrap gap-1.5">
+                                {r.technologies.map((tech: string) => (
+                                  <span
+                                    key={tech}
+                                    className="px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-[11px] text-primary font-medium"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </div>
+                ) : (
+                  <>
+                    {/* Highlights */}
+                    {selectedExp.highlights.length > 0 && (
+                      <div className="mb-8">
+                        <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4">
+                          Key Contributions
+                        </h4>
+                        <ul className="space-y-4">
+                          {selectedExp.highlights.map((highlight, j) => (
+                            <motion.li
+                              key={j}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: j * 0.1 }}
+                              className="flex gap-3 text-muted-foreground"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                              <span className="leading-relaxed">{highlight}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Technologies */}
+                    {selectedExp.technologies.length > 0 && (
+                      <div className="pt-6 border-t border-border/50">
+                        <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4">
+                          Technologies Used
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedExp.technologies.map((tech, idx) => (
+                            <motion.span
+                              key={tech}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: idx * 0.05 }}
+                              className="px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary font-medium"
+                            >
+                              {tech}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
               </motion.div>
             </AnimatePresence>
