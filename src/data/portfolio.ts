@@ -26,7 +26,7 @@ export const about = {
       degree: "B.Tech, Computer Science & Engineering",
       specialization: "Internet of Things (IoT)",
       institution: "Shiv Nadar University Chennai",
-      duration: "2022 - 2026",
+      duration: "2022 - 2026 (Completed)",
       grade: "CGPA: 7.62/10",
       coursework: [
         "Data Structures",
