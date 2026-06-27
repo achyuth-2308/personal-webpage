@@ -368,10 +368,9 @@ export function HomeSection() {
               className="space-y-6"
             >
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm a passionate <span className="text-primary font-medium">Software Developer</span> and{' '}
-                <span className="text-primary font-medium">AI Engineer</span> currently pursuing a dual degree —{' '}
+                I'm a <span className="text-primary font-medium">Firmware Automation Engineer at Logitech</span>, working at the intersection of embedded systems, test automation and applied AI. I completed my{' '}
                 <span className="text-foreground font-semibold">B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things)</span>{' '}
-                at Shiv Nadar University Chennai and{' '}
+                at Shiv Nadar University Chennai (2022–2026), and I'm currently pursuing a{' '}
                 <span className="text-foreground font-semibold">B.S. (Bachelor of Science) in Data Science and Applications</span> at Indian Institute of Technology (IIT), Madras.
               </p>
 
