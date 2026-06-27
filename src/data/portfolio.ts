@@ -183,16 +183,39 @@ export const certifications = [
 
 export const experience = [
   {
-    role: "DevOps and Test Automation Intern",
+    role: "Firmware Automation Engineer",
     company: "Logitech",
-    type: "Internship",
-    duration: "Feb 2026 - Present",
-    location: "Chennai, Tamil Nadu",
+    type: "Full-time",
+    duration: "Feb 2026 - Present · 5 mos",
+    location: "Chennai, Tamil Nadu · On-site",
     highlights: [
-      "Working on automating CI failure analysis during NPI runs. Building and integrating a log processing pipeline into GitHub Actions that reads test logs, extracts failure details, summarizes them using LLMs, and groups similar issues to reduce duplicate debugging effort.",
-      "Focusing on making the system stable under real workloads - handling large log sizes, token limits, API rate limits, parallel execution, and clustering accuracy. The goal is to reduce manual log reading time and make failure triage faster and more structured for engineering teams."
+      "Promoted from intern to full-time after delivering the CI failure-analysis automation work end-to-end during the NPI cycle.",
+      "Owning firmware test automation across NPI builds — designing reliable, reproducible test harnesses for embedded peripherals and shipping them into the production CI pipeline.",
+      "Hardening the LLM-assisted log triage system for daily engineering use: scaling across large log volumes, taming token and rate limits, and tightening clustering so failures land on the right owner the first time."
     ],
-    technologies: ["GitHub Actions", "CI/CD", "LLMs", "Python", "Log Processing", "DevOps"]
+    technologies: ["Embedded C/C++", "Firmware Test Automation", "GitHub Actions", "CI/CD", "Python", "LLMs"],
+    roles: [
+      {
+        role: "Firmware Automation Engineer",
+        type: "Full-time",
+        duration: "Jun 2026 - Present · 1 mo",
+        highlights: [
+          "Owning firmware test automation across NPI builds — designing reliable, reproducible test harnesses for embedded peripherals.",
+          "Productionising the CI failure-analysis pipeline built during the internship and extending it to new product lines."
+        ],
+        technologies: ["Embedded C/C++", "Firmware Test Automation", "GitHub Actions", "Python", "LLMs"]
+      },
+      {
+        role: "DevOps and Test Automation Intern",
+        type: "Internship",
+        duration: "Feb 2026 - May 2026 · 4 mos",
+        highlights: [
+          "Automated CI failure analysis during NPI runs — built a log processing pipeline inside GitHub Actions that reads test logs, extracts failure details, summarises them using LLMs, and clusters similar issues to cut duplicate debugging.",
+          "Made the system stable under real workloads — large log sizes, token limits, API rate limits, parallel execution and clustering accuracy — reducing manual log reading time and structuring failure triage for engineering teams."
+        ],
+        technologies: ["GitHub Actions", "CI/CD", "LLMs", "Python", "Log Processing", "DevOps"]
+      }
+    ]
   },
   {
     role: "GenAI Intern",
