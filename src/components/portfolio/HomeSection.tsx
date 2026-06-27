@@ -58,13 +58,13 @@ const interests = [
 
 const languages = ['English', 'Tamil', 'Hindi', 'Sanskrit'];
 
-const roleTags = ['Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder', 'Firmware Engineer', 'DevOps', 'Cloud Computing'];
+const roleTags = ['Firmware Engineer', 'Software Developer', 'IoT Engineer', 'ML Researcher', 'GenAI Builder', 'DevOps', 'Cloud Computing'];
 
 const expertiseGroups = [
   {
-    icon: Code2,
-    label: 'Engineering',
-    items: ['Software Developer', 'Firmware Engineer', 'Full-Stack'],
+    icon: CircuitBoard,
+    label: 'Firmware Engineering',
+    items: ['Embedded C / C++', 'RTOS · Bare-metal', 'Driver & Protocol Design'],
   },
   {
     icon: CircuitBoard,
