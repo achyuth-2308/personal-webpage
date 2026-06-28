@@ -186,7 +186,7 @@ export const experience = [
     role: "Firmware Automation Engineer",
     company: "Logitech",
     type: "Full-time",
-    duration: "Feb 2026 - Present · 5 mos",
+    duration: "Feb 2026 - Present",
     location: "Chennai, Tamil Nadu · On-site",
     highlights: [
       "Promoted from intern to full-time after delivering the CI failure-analysis automation work end-to-end during the NPI cycle.",
@@ -198,7 +198,7 @@ export const experience = [
       {
         role: "Firmware Automation Engineer",
         type: "Full-time",
-        duration: "Jun 2026 - Present · 1 mo",
+        duration: "Jul 2026 - Present",
         highlights: [
           "Owning firmware test automation across NPI builds — designing reliable, reproducible test harnesses for embedded peripherals.",
           "Productionising the CI failure-analysis pipeline built during the internship and extending it to new product lines."
@@ -208,7 +208,7 @@ export const experience = [
       {
         role: "DevOps and Test Automation Intern",
         type: "Internship",
-        duration: "Feb 2026 - May 2026 · 4 mos",
+        duration: "Feb 2026 - Jun 2026 · 5 mos",
         highlights: [
           "Automated CI failure analysis during NPI runs — built a log processing pipeline inside GitHub Actions that reads test logs, extracts failure details, summarises them using LLMs, and clusters similar issues to cut duplicate debugging.",
           "Made the system stable under real workloads — large log sizes, token limits, API rate limits, parallel execution and clustering accuracy — reducing manual log reading time and structuring failure triage for engineering teams."
