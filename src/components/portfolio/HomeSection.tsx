@@ -165,8 +165,9 @@ export function HomeSection() {
                 transition={{ delay: 0.25, duration: 0.5 }}
                 className="mt-5 text-base sm:text-lg text-foreground/80 max-w-xl leading-relaxed"
               >
-                I write firmware that has to behave when the deadline, the sensor and the network all disagree —
-                then wrap it in data pipelines, ML models and the occasional language model that has to earn its place.
+                Mostly I work on the unglamorous half of a product — the firmware, the test rigs, the CI that
+                catches a regression at 2 a.m. so nobody has to. On the side: a bit of research, a bit of ML,
+                and a long-running argument with my cricket bowling action.
               </motion.p>
 
               {/* Role pills */}
