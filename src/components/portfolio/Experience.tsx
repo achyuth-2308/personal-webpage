@@ -124,6 +124,12 @@ export function Experience() {
                             }`}>
                               {exp.role}
                             </p>
+                            {(exp as any).team && (
+                              <p className="text-xs text-muted-foreground/80 mt-1 inline-flex items-center gap-1.5">
+                                <span className="w-1 h-1 rounded-full bg-primary/70" />
+                                {(exp as any).team}
+                              </p>
+                            )}
                             <p className="text-xs text-muted-foreground mt-1">
                               {exp.duration}
                             </p>
@@ -189,7 +195,13 @@ export function Experience() {
                     )}
                     <div>
                       <h3 className="text-2xl font-bold text-foreground mb-1">{selectedExp.role}</h3>
-                      <p className="text-primary font-medium">{getShortCompanyName(selectedExp.company)}</p>
+                      {(selectedExp as any).team && (
+                        <p className="text-sm text-muted-foreground/90 flex items-center gap-2 mt-0.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary/70" />
+                          {(selectedExp as any).team}
+                        </p>
+                      )}
+                      <p className="text-primary font-medium mt-1">{getShortCompanyName(selectedExp.company)}</p>
                     </div>
                   </div>
                   <span className="px-4 py-1.5 rounded-full border border-border text-sm text-muted-foreground bg-secondary/50">
@@ -242,6 +254,12 @@ export function Experience() {
                                 {r.type}
                               </span>
                             </div>
+                            {r.team && (
+                              <p className="text-xs text-muted-foreground/90 mt-1 flex items-center gap-1.5">
+                                <span className="w-1 h-1 rounded-full bg-primary/70" />
+                                {r.team}
+                              </p>
+                            )}
                             <p className="text-xs text-muted-foreground mt-1">{r.duration}</p>
 
                             {r.highlights?.length > 0 && (

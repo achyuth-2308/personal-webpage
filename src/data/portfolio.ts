@@ -183,7 +183,8 @@ export const certifications = [
 
 export const experience = [
   {
-    role: "Firmware Automation Engineer",
+    role: "Firmware Engineer",
+    team: "Embedded Software (ESW) Group",
     company: "Logitech",
     type: "Full-time",
     duration: "Feb 2026 - Present",
@@ -196,7 +197,8 @@ export const experience = [
     technologies: ["Embedded C/C++", "Firmware Test Automation", "GitHub Actions", "CI/CD", "Python", "LLMs"],
     roles: [
       {
-        role: "Firmware Automation Engineer",
+        role: "Firmware Engineer",
+        team: "Embedded Software (ESW) Group",
         type: "Full-time",
         duration: "Jul 2026 - Present",
         highlights: [

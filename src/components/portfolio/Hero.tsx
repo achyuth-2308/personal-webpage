@@ -108,7 +108,7 @@ export function Hero() {
           transition={{ delay: 0.55 }}
           className="text-muted-foreground mb-4 max-w-3xl mx-auto"
         >
-          Firmware Automation Engineer at Logitech. Completed B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things) at Shiv Nadar University Chennai (2022–2026), and currently pursuing a B.S. (Bachelor of Science) in Data Science and Applications at Indian Institute of Technology (IIT), Madras.
+          Firmware Engineer at Logitech. Completed B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things) at Shiv Nadar University Chennai (2022–2026), and currently pursuing a B.S. (Bachelor of Science) in Data Science and Applications at Indian Institute of Technology (IIT), Madras.
         </motion.p>
 
         <motion.p
