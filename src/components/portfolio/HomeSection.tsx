@@ -339,6 +339,8 @@ export function HomeSection() {
               </div>
             </motion.aside>
           </div>
+        </div>
+
         {/* Scroll prompt — subtle, unobtrusive */}
         <motion.div
           initial={{ opacity: 0 }}
