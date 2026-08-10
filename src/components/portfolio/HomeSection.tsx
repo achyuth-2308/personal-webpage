@@ -158,17 +158,27 @@ export function HomeSection() {
                 <span className="text-muted-foreground">Applied ML Researcher</span>
               </motion.p>
 
-              {/* Subtitle line */}
-              <motion.p
+              {/* Intro — natural voice, generous spacing */}
+              <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25, duration: 0.5 }}
-                className="mt-5 text-base sm:text-lg text-foreground/80 max-w-xl leading-relaxed"
+                className="mt-7 relative max-w-2xl"
               >
-                Mostly I work on the unglamorous half of a product — the firmware, the test rigs, the CI that
-                catches a regression at 2 a.m. so nobody has to. On the side: a bit of research, a bit of ML,
-                and a long-running argument with my cricket bowling action.
-              </motion.p>
+                <span
+                  aria-hidden
+                  className="absolute -left-4 sm:-left-5 top-1 bottom-1 w-px bg-gradient-to-b from-primary/60 via-primary/30 to-transparent"
+                />
+                <p className="text-base sm:text-lg text-foreground/85 leading-[1.75]">
+                  I work across firmware, automation, and AI, building the systems that make products reliable and engineering workflows smarter. I'm particularly interested in the space where software meets hardware — and in solving the problems that don't always make it to the surface.
+                </p>
+                <p className="mt-4 text-base sm:text-lg text-foreground/70 leading-[1.75]">
+                  My interests span embedded systems, AI, machine learning, and research on LLMs. When I'm not building something, I'm probably playing cricket, playing keyboard, or finding an excuse to learn and talk more about aviation and automobiles.
+                </p>
+                <p className="mt-4 text-base sm:text-lg text-foreground/70 leading-[1.75]">
+                  Curiosity has always been the common thread: understand how something works, figure out how to make it better, and then build it.
+                </p>
+              </motion.div>
 
               {/* Role pills */}
               <motion.ul
@@ -264,15 +274,30 @@ export function HomeSection() {
               className="relative hidden lg:block"
             >
               <div className="relative w-full max-w-sm ml-auto">
-                {/* Offset frame */}
+                {/* Offset frame with subtle gradient */}
                 <div className="absolute -inset-3 rounded-[28px] border border-border/70" />
+                <div
+                  aria-hidden
+                  className="absolute -inset-[2px] rounded-[28px] opacity-40 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(var(--primary) / 0.35) 0%, transparent 40%, hsl(var(--accent) / 0.25) 100%)',
+                    maskImage: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskImage: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskComposite: 'xor',
+                    maskComposite: 'exclude',
+                    padding: '1px',
+                  }}
+                />
 
                 <div className="relative rounded-[24px] bg-card/80 backdrop-blur-sm border border-border p-6">
                   {/* Header row */}
                   <div className="flex items-center justify-between pb-4 border-b border-border">
-                    <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                      What I Build
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                        What I Build
+                      </span>
+                    </div>
                     <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                       / 04
                     </span>
@@ -285,7 +310,7 @@ export function HomeSection() {
                         key={group.label}
                         className="py-3.5 flex items-start gap-3 group"
                       >
-                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-secondary/60 text-foreground/80 group-hover:text-primary transition-colors">
+                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-secondary/60 text-foreground/80 group-hover:text-primary group-hover:bg-primary/10 transition-colors">
                           <group.icon className="w-4 h-4" />
                         </span>
                         <div className="min-w-0">
@@ -302,7 +327,10 @@ export function HomeSection() {
 
                   {/* Footer signature */}
                   <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                    <span>Chennai → Anywhere</span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-1 w-1 rounded-full bg-green-500" />
+                      Chennai, India
+                    </span>
                     <span className="font-mono normal-case tracking-normal text-foreground/70">
                       AM.
                     </span>
@@ -312,6 +340,21 @@ export function HomeSection() {
             </motion.aside>
           </div>
         </div>
+
+        {/* Scroll prompt — subtle, unobtrusive */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60"
+        >
+          <span>Scroll</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-px h-8 bg-gradient-to-b from-muted-foreground/40 to-transparent"
+          />
+        </motion.div>
       </section>
 
 
@@ -369,23 +412,18 @@ export function HomeSection() {
               className="space-y-6"
             >
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm a <span className="text-primary font-medium">Firmware Engineer at Logitech</span>, working at the intersection of embedded systems, test automation and applied AI. I completed my{' '}
+                I work across firmware, automation, and AI, building the systems that make products reliable and engineering workflows smarter. I'm particularly interested in the space where software meets hardware — and in solving the problems that don't always make it to the surface. As a <span className="text-primary font-medium">Firmware Engineer at Logitech</span>, I focus on embedded software, test automation, and the quiet reliability work that keeps products working in the real world.
+              </p>
+
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                My interests span embedded systems, AI, machine learning, and research on LLMs. I completed my{' '}
                 <span className="text-foreground font-semibold">B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things)</span>{' '}
                 at Shiv Nadar University Chennai (2022–2026), and I'm currently pursuing a{' '}
                 <span className="text-foreground font-semibold">B.S. (Bachelor of Science) in Data Science and Applications</span> at Indian Institute of Technology (IIT), Madras.
               </p>
 
               <p className="text-lg leading-relaxed text-muted-foreground">
-                My journey in technology is driven by curiosity and a desire to build intelligent systems that solve real-world problems. From developing{' '}
-                <span className="text-primary font-medium">GenAI-powered applications</span> to designing{' '}
-                <span className="text-primary font-medium">IoT environmental monitoring systems</span>, I thrive at the intersection of hardware and software innovation.
-              </p>
-
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Beyond coding, I'm an avid <span className="text-foreground font-semibold">musician</span>{' '}
-                (keyboardist who's performed at multiple gigs), a{' '}
-                <span className="text-foreground font-semibold">cricket enthusiast</span>{' '}
-                (right arm - medium pace bowler and batsman), and an active contributor to campus leadership through MUN societies and cultural initiatives. I believe in building technology with purpose and creativity.
+                Curiosity has always been the common thread: understand how something works, figure out how to make it better, and then build it. When I'm not building something, I'm probably playing cricket, playing keyboard, or finding an excuse to learn and talk more about aviation and automobiles.
               </p>
             </motion.div>
           </div>
