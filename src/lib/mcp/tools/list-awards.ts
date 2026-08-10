@@ -11,10 +11,7 @@ export default defineTool({
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
     const payload = {
-      awards: (awards as Array<Record<string, unknown>>).map((award) => {
-        const { image: _image, ...rest } = award;
-        return rest;
-      }),
+      awards,
       timeline,
       achievements,
     };
