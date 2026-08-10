@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "achyuth-mukund-portfolio",
+      "version": "1.0.0",
+      "title": "Achyuth Mukund — Portfolio"
+    },
+    "tools": [
+      {
+        "name": "get_profile",
+        "title": "Get profile",
+        "description": "Get Achyuth Mukund's profile: name, location, current focus, bio, education (degrees, institutions, CGPA, coursework), languages spoken, and public links (GitHub, LinkedIn, ORCID, Google Scholar, ResearchGate).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_experience",
+        "title": "List work experience",
+        "description": "List Achyuth Mukund's professional work experience, including company, role, team, dates, location, responsibilities and technologies, plus the internal role progression within each company.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_projects",
+        "title": "List projects",
+        "description": "List Achyuth Mukund's engineering projects with descriptions, highlights, technologies, dates and GitHub links. Optionally filter to featured projects or search by keyword.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "featuredOnly": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "When true, return only featured projects."
+            },
+            "query": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Optional keyword to match against project title, description or technologies."
+            }
+          },
+          "required": [
+            "featuredOnly",
+            "query"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_publications",
+        "title": "List research publications",
+        "description": "List Achyuth Mukund's research publications and book chapters with authors, venue, publisher, year, DOI, publication status and abstracts, along with his research philosophy and scholarly profile links (Google Scholar, ResearchGate, ORCID).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_skills",
+        "title": "List skills and certifications",
+        "description": "List Achyuth Mukund's technical skills grouped by languages, frameworks, tools and domains, together with his professional certifications and their issuing organisations.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_awards",
+        "title": "List awards and milestones",
+        "description": "List Achyuth Mukund's awards, honours and recognitions (including the Guinness World Record, NCC and research honours) alongside his career timeline and notable achievements.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
