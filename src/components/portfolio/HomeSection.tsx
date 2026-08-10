@@ -158,17 +158,27 @@ export function HomeSection() {
                 <span className="text-muted-foreground">Applied ML Researcher</span>
               </motion.p>
 
-              {/* Subtitle line */}
-              <motion.p
+              {/* Intro — natural voice, generous spacing */}
+              <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25, duration: 0.5 }}
-                className="mt-5 text-base sm:text-lg text-foreground/80 max-w-xl leading-relaxed"
+                className="mt-7 relative max-w-2xl"
               >
-                Mostly I work on the unglamorous half of a product — the firmware, the test rigs, the CI that
-                catches a regression at 2 a.m. so nobody has to. On the side: a bit of research, a bit of ML,
-                and a long-running argument with my cricket bowling action.
-              </motion.p>
+                <span
+                  aria-hidden
+                  className="absolute -left-4 sm:-left-5 top-1 bottom-1 w-px bg-gradient-to-b from-primary/60 via-primary/30 to-transparent"
+                />
+                <p className="text-base sm:text-lg text-foreground/85 leading-[1.75]">
+                  I work across firmware, automation, and AI, building the systems that make products reliable and engineering workflows smarter. I'm particularly interested in the space where software meets hardware — and in solving the problems that don't always make it to the surface.
+                </p>
+                <p className="mt-4 text-base sm:text-lg text-foreground/70 leading-[1.75]">
+                  My interests span embedded systems, AI, machine learning, and research on LLMs. When I'm not building something, I'm probably playing cricket, playing keyboard, or finding an excuse to learn and talk more about aviation and automobiles.
+                </p>
+                <p className="mt-4 text-base sm:text-lg text-foreground/70 leading-[1.75]">
+                  Curiosity has always been the common thread: understand how something works, figure out how to make it better, and then build it.
+                </p>
+              </motion.div>
 
               {/* Role pills */}
               <motion.ul
