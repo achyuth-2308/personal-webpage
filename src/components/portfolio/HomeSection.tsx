@@ -379,23 +379,18 @@ export function HomeSection() {
               className="space-y-6"
             >
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm a <span className="text-primary font-medium">Firmware Engineer at Logitech</span>, working at the intersection of embedded systems, test automation and applied AI. I completed my{' '}
+                I work across firmware, automation, and AI, building the systems that make products reliable and engineering workflows smarter. I'm particularly interested in the space where software meets hardware — and in solving the problems that don't always make it to the surface. As a <span className="text-primary font-medium">Firmware Engineer at Logitech</span>, I focus on embedded software, test automation, and the quiet reliability work that keeps products working in the real world.
+              </p>
+
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                My interests span embedded systems, AI, machine learning, and research on LLMs. I completed my{' '}
                 <span className="text-foreground font-semibold">B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things)</span>{' '}
                 at Shiv Nadar University Chennai (2022–2026), and I'm currently pursuing a{' '}
                 <span className="text-foreground font-semibold">B.S. (Bachelor of Science) in Data Science and Applications</span> at Indian Institute of Technology (IIT), Madras.
               </p>
 
               <p className="text-lg leading-relaxed text-muted-foreground">
-                My journey in technology is driven by curiosity and a desire to build intelligent systems that solve real-world problems. From developing{' '}
-                <span className="text-primary font-medium">GenAI-powered applications</span> to designing{' '}
-                <span className="text-primary font-medium">IoT environmental monitoring systems</span>, I thrive at the intersection of hardware and software innovation.
-              </p>
-
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Beyond coding, I'm an avid <span className="text-foreground font-semibold">musician</span>{' '}
-                (keyboardist who's performed at multiple gigs), a{' '}
-                <span className="text-foreground font-semibold">cricket enthusiast</span>{' '}
-                (right arm - medium pace bowler and batsman), and an active contributor to campus leadership through MUN societies and cultural initiatives. I believe in building technology with purpose and creativity.
+                Curiosity has always been the common thread: understand how something works, figure out how to make it better, and then build it. When I'm not building something, I'm probably playing cricket, playing keyboard, or finding an excuse to learn and talk more about aviation and automobiles.
               </p>
             </motion.div>
           </div>
