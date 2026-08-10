@@ -339,7 +339,20 @@ export function HomeSection() {
               </div>
             </motion.aside>
           </div>
-        </div>
+        {/* Scroll prompt — subtle, unobtrusive */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60"
+        >
+          <span>Scroll</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-px h-8 bg-gradient-to-b from-muted-foreground/40 to-transparent"
+          />
+        </motion.div>
       </section>
 
 
