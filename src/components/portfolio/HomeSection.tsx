@@ -274,15 +274,30 @@ export function HomeSection() {
               className="relative hidden lg:block"
             >
               <div className="relative w-full max-w-sm ml-auto">
-                {/* Offset frame */}
+                {/* Offset frame with subtle gradient */}
                 <div className="absolute -inset-3 rounded-[28px] border border-border/70" />
+                <div
+                  aria-hidden
+                  className="absolute -inset-[2px] rounded-[28px] opacity-40 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(var(--primary) / 0.35) 0%, transparent 40%, hsl(var(--accent) / 0.25) 100%)',
+                    maskImage: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskImage: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskComposite: 'xor',
+                    maskComposite: 'exclude',
+                    padding: '1px',
+                  }}
+                />
 
                 <div className="relative rounded-[24px] bg-card/80 backdrop-blur-sm border border-border p-6">
                   {/* Header row */}
                   <div className="flex items-center justify-between pb-4 border-b border-border">
-                    <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                      What I Build
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                        What I Build
+                      </span>
+                    </div>
                     <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                       / 04
                     </span>
@@ -295,7 +310,7 @@ export function HomeSection() {
                         key={group.label}
                         className="py-3.5 flex items-start gap-3 group"
                       >
-                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-secondary/60 text-foreground/80 group-hover:text-primary transition-colors">
+                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-secondary/60 text-foreground/80 group-hover:text-primary group-hover:bg-primary/10 transition-colors">
                           <group.icon className="w-4 h-4" />
                         </span>
                         <div className="min-w-0">
@@ -312,7 +327,10 @@ export function HomeSection() {
 
                   {/* Footer signature */}
                   <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                    <span>Chennai → Anywhere</span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-1 w-1 rounded-full bg-green-500" />
+                      Chennai, India
+                    </span>
                     <span className="font-mono normal-case tracking-normal text-foreground/70">
                       AM.
                     </span>
