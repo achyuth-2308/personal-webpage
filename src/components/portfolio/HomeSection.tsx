@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ArrowRight, Code2, Cpu, Brain, Sparkles, MapPin, Cloud, GitBranch, CircuitBoard } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowRight, Cpu, Brain, MapPin, Cloud, CircuitBoard, Radio, Waves, Binary } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { personalInfo } from '@/data/portfolio';
 import profileImage from '@/assets/achyuth-photo.jpg';
+import { Button } from '@/components/ui/button';
 
 // Custom YouTube icon component
 const YouTubeIcon = ({ className }: { className?: string }) => (
@@ -26,24 +27,24 @@ const stats = [
 
 const specializations = [
   {
-    icon: Code2,
-    title: 'Full-Stack Development',
-    description: 'Building scalable web applications with modern frameworks and best practices'
+    icon: Binary,
+    title: 'Embedded Software',
+    description: 'Deterministic C and C++ for resource-constrained systems'
   },
   {
-    icon: Cpu,
-    title: 'IoT Systems',
-    description: 'Designing smart solutions with ESP32, sensors, and embedded systems'
+    icon: Radio,
+    title: 'Connected Devices',
+    description: 'Reliable protocols, sensor networks, and low-power IoT'
+  },
+  {
+    icon: Waves,
+    title: 'Test Automation',
+    description: 'Making hardware behaviour observable, repeatable, and measurable'
   },
   {
     icon: Brain,
-    title: 'Machine Learning',
-    description: 'Developing ML models with TensorFlow, PyTorch, and scikit-learn'
-  },
-  {
-    icon: Sparkles,
-    title: 'GenAI Innovation',
-    description: 'Leveraging LLMs, RAG systems, and multi-agent architectures'
+    title: 'Applied AI',
+    description: 'ML and LLM research grounded in useful engineering workflows'
   }
 ];
 
@@ -83,6 +84,89 @@ const expertiseGroups = [
   },
 ];
 
+const platforms = ['Nordic nRF', 'STM32', 'ESP32'];
+
+const reveal = {
+  hidden: { opacity: 0, y: 18 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] as const },
+  }),
+};
+
+function CircuitBackdrop() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <svg className="absolute inset-0 h-full w-full text-primary opacity-[0.12] dark:opacity-[0.16]" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="pcb-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M48 0H0V48" stroke="currentColor" strokeOpacity=".22" />
+          </pattern>
+          <linearGradient id="trace-fade" x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="currentColor" stopOpacity="0" />
+            <stop offset=".5" stopColor="currentColor" />
+            <stop offset="1" stopColor="currentColor" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <rect width="1440" height="900" fill="url(#pcb-grid)" />
+        <g stroke="currentColor" strokeWidth="1.5">
+          <path d="M0 176H230L278 224H470" />
+          <path d="M1440 130H1200L1138 192H930" />
+          <path d="M1440 660H1210L1160 610H974" />
+          <path d="M0 720H210L296 634H455" />
+          <path d="M720 0V112L668 164V250" />
+        </g>
+        <g fill="currentColor">
+          <circle cx="278" cy="224" r="4" /><circle cx="1138" cy="192" r="4" />
+          <circle cx="1160" cy="610" r="4" /><circle cx="296" cy="634" r="4" />
+        </g>
+        <motion.path d="M0 176H230L278 224H470" stroke="url(#trace-fade)" strokeWidth="3" strokeDasharray="80 390" animate={{ strokeDashoffset: [470, -470] }} transition={{ duration: 5, repeat: Infinity, ease: 'linear' }} />
+        <motion.path d="M1440 660H1210L1160 610H974" stroke="url(#trace-fade)" strokeWidth="3" strokeDasharray="70 390" animate={{ strokeDashoffset: [-460, 460] }} transition={{ duration: 6, repeat: Infinity, ease: 'linear', delay: 0.7 }} />
+      </svg>
+    </div>
+  );
+}
+
+function MicrocontrollerPanel() {
+  return (
+    <motion.aside
+      initial={{ opacity: 0, scale: 0.94, rotateY: -8 }}
+      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+      transition={{ delay: 0.25, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+      className="relative mx-auto w-full max-w-md lg:ml-auto"
+    >
+      <div className="absolute inset-8 border border-primary/20 bg-primary/5 blur-2xl" />
+      <div className="relative border border-border bg-card/90 p-3 shadow-bento backdrop-blur-md">
+        <div className="flex items-center justify-between border-b border-border px-3 py-2 font-mono text-[10px] uppercase text-muted-foreground">
+          <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />System / online</span>
+          <span>AM-FW-01</span>
+        </div>
+
+        <div className="relative m-3 aspect-[4/3] overflow-hidden border border-border bg-background/80">
+          <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] [background-size:24px_24px]" />
+          {[18, 32, 46, 60, 74, 88].map((top, index) => (
+            <motion.span key={top} className="absolute left-0 h-px bg-primary/60" style={{ top: `${top}%`, width: index % 2 ? '26%' : '18%' }} animate={{ opacity: [0.25, 0.9, 0.25] }} transition={{ duration: 2.6, repeat: Infinity, delay: index * 0.18 }} />
+          ))}
+          {[18, 32, 46, 60, 74, 88].map((top, index) => (
+            <motion.span key={`r-${top}`} className="absolute right-0 h-px bg-primary/60" style={{ top: `${top}%`, width: index % 2 ? '18%' : '26%' }} animate={{ opacity: [0.9, 0.25, 0.9] }} transition={{ duration: 2.6, repeat: Infinity, delay: index * 0.18 }} />
+          ))}
+          <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="absolute inset-[20%] flex flex-col items-center justify-center border border-primary/40 bg-card shadow-inner-glow">
+            <CircuitBoard className="mb-3 h-9 w-9 text-primary" />
+            <span className="font-mono text-xs font-semibold text-foreground">EMBEDDED CORE</span>
+            <span className="mt-1 font-mono text-[9px] text-muted-foreground">FIRMWARE · AUTOMATION</span>
+          </motion.div>
+          <motion.div className="absolute bottom-3 left-3 right-3 h-px origin-left bg-primary" animate={{ scaleX: [0.05, 1, 0.05], opacity: [0.25, 0.85, 0.25] }} transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }} />
+        </div>
+
+        <div className="grid grid-cols-3 gap-px border border-border bg-border">
+          {platforms.map((platform) => <div key={platform} className="bg-card px-2 py-3 text-center font-mono text-[10px] text-foreground">{platform}</div>)}
+        </div>
+      </div>
+    </motion.aside>
+  );
+}
+
 export function HomeSection() {
   const navigate = useNavigate();
 
@@ -96,28 +180,12 @@ export function HomeSection() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section — editorial split layout */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
-        {/* Soft ambient backdrop (hero-only theme accent) */}
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              'radial-gradient(ellipse 60% 50% at 18% 30%, hsl(var(--primary) / 0.10), transparent 60%), radial-gradient(ellipse 50% 40% at 85% 75%, hsl(var(--accent) / 0.08), transparent 65%)',
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 opacity-[0.35] mix-blend-overlay"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
-          }}
-        />
+      <section className="relative flex min-h-screen items-center overflow-hidden border-b border-border pt-28 pb-16 lg:pt-24">
+        <CircuitBackdrop />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/55" />
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1.25fr_1fr] gap-12 lg:gap-16 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
             {/* Left column — text */}
             <div className="text-left">
               {/* Kicker */}
@@ -139,7 +207,7 @@ export function HomeSection() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
-                className="font-display font-semibold text-foreground leading-[0.95] tracking-tight text-[clamp(2.75rem,7.2vw,5.75rem)]"
+                className="font-display font-semibold text-foreground leading-[0.95] text-[clamp(2.75rem,7.2vw,5.75rem)]"
               >
                 Achyuth Mukund
               </motion.h1>
@@ -180,28 +248,6 @@ export function HomeSection() {
                 </p>
               </motion.div>
 
-              {/* Role pills */}
-              <motion.ul
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="mt-6 flex flex-wrap gap-2"
-              >
-                {roleTags.map((role, i) => (
-                  <li
-                    key={role}
-                    className={
-                      i === 0
-                        ? 'px-3 py-1 rounded-full bg-foreground text-background text-xs font-medium'
-                        : 'px-3 py-1 rounded-full border border-border text-xs text-muted-foreground'
-                    }
-                  >
-                    {role}
-                  </li>
-                ))}
-              </motion.ul>
-
-
               {/* Education line — quieter, no rainbow highlights */}
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
@@ -221,27 +267,16 @@ export function HomeSection() {
                 transition={{ delay: 0.5 }}
                 className="mt-9 flex flex-wrap items-center gap-3"
               >
-                <button
-                  onClick={() => navigate('/projects')}
-                  className="group inline-flex items-center gap-2 px-5 py-2.5 bg-foreground text-background rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
-                >
+                <Button onClick={() => navigate('/projects')} className="group rounded-sm bg-foreground px-5 text-background hover:bg-foreground/90">
                   View Projects
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                </button>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border border-border text-foreground hover:bg-secondary/60 transition-colors"
-                >
-                  <Download className="w-4 h-4" />
-                  Resume
-                </a>
-                <button
-                  onClick={() => navigate('/contact')}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
-                >
+                </Button>
+                <Button asChild variant="outline" className="rounded-sm">
+                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"><Download className="w-4 h-4" />Resume</a>
+                </Button>
+                <Button variant="link" onClick={() => navigate('/contact')} className="px-2 text-muted-foreground hover:text-foreground">
                   Get in touch →
-                </button>
+                </Button>
               </motion.div>
 
               {/* Socials */}
@@ -266,78 +301,7 @@ export function HomeSection() {
               </motion.div>
             </div>
 
-            {/* Right column — expertise card (editorial, no portrait) */}
-            <motion.aside
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative hidden lg:block"
-            >
-              <div className="relative w-full max-w-sm ml-auto">
-                {/* Offset frame with subtle gradient */}
-                <div className="absolute -inset-3 rounded-[28px] border border-border/70" />
-                <div
-                  aria-hidden
-                  className="absolute -inset-[2px] rounded-[28px] opacity-40 pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(135deg, hsl(var(--primary) / 0.35) 0%, transparent 40%, hsl(var(--accent) / 0.25) 100%)',
-                    maskImage: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                    WebkitMaskImage: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                    WebkitMaskComposite: 'xor',
-                    maskComposite: 'exclude',
-                    padding: '1px',
-                  }}
-                />
-
-                <div className="relative rounded-[24px] bg-card/80 backdrop-blur-sm border border-border p-6">
-                  {/* Header row */}
-                  <div className="flex items-center justify-between pb-4 border-b border-border">
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                        What I Build
-                      </span>
-                    </div>
-                    <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                      / 04
-                    </span>
-                  </div>
-
-                  {/* Expertise list */}
-                  <ul className="mt-2 divide-y divide-border">
-                    {expertiseGroups.map((group) => (
-                      <li
-                        key={group.label}
-                        className="py-3.5 flex items-start gap-3 group"
-                      >
-                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-secondary/60 text-foreground/80 group-hover:text-primary group-hover:bg-primary/10 transition-colors">
-                          <group.icon className="w-4 h-4" />
-                        </span>
-                        <div className="min-w-0">
-                          <div className="text-sm font-medium text-foreground">
-                            {group.label}
-                          </div>
-                          <div className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
-                            {group.items.join(' · ')}
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Footer signature */}
-                  <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <span className="h-1 w-1 rounded-full bg-green-500" />
-                      Chennai, India
-                    </span>
-                    <span className="font-mono normal-case tracking-normal text-foreground/70">
-                      AM.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.aside>
+            <MicrocontrollerPanel />
           </div>
         </div>
 
@@ -358,73 +322,53 @@ export function HomeSection() {
       </section>
 
 
-      {/* About Section (Merged) */}
-      <section className="py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              About <span className="text-primary">Me</span>
-            </h2>
+      <section className="px-4 py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl">
+          <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-12 flex flex-col justify-between gap-5 border-b border-border pb-7 sm:flex-row sm:items-end">
+            <div>
+              <p className="mb-3 font-mono text-xs uppercase text-primary">01 / Profile snapshot</p>
+              <h2 className="max-w-2xl font-display text-3xl font-semibold leading-tight text-foreground sm:text-5xl">Engineering from silicon to system.</h2>
+            </div>
+            <p className="max-w-md text-sm leading-relaxed text-muted-foreground">A firmware-first practice, strengthened by automation, connected systems, and applied research.</p>
           </motion.div>
 
-          {/* Main Content - Image Left, Text Right */}
-          <div className="grid lg:grid-cols-[350px_1fr] gap-12 items-start">
+          <div className="grid items-stretch gap-6 lg:grid-cols-[0.72fr_1.28fr]">
             {/* Profile Image with Stats */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="space-y-6"
+              variants={reveal} custom={0.08} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+              className="flex flex-col border border-border bg-card"
             >
-              <div className="rounded-2xl overflow-hidden bg-card border border-border">
+              <div className="aspect-[5/4] overflow-hidden">
                 <img
                   src={profileImage}
                   alt="Achyuth Mukund"
-                  className="w-full h-auto object-cover"
+                  className="h-full w-full object-cover object-top transition-transform duration-700 hover:scale-[1.025]"
                 />
               </div>
-
-              {/* Stats below image */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 border-t border-border">
                 {stats.map((stat) => (
-                  <div key={stat.label} className="text-center p-4 rounded-xl bg-card border border-border">
-                    <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  <div key={stat.label} className="border-r border-border p-3 text-center last:border-r-0 sm:p-4">
+                    <div className="font-mono text-xl font-semibold text-primary sm:text-2xl">{stat.value}</div>
+                    <div className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{stat.label}</div>
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="space-y-6"
+              variants={reveal} custom={0.16} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+              className="grid border border-border bg-card sm:grid-cols-2"
             >
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                I work across firmware, automation, and AI, building the systems that make products reliable and engineering workflows smarter. I'm particularly interested in the space where software meets hardware — and in solving the problems that don't always make it to the surface. As a <span className="text-primary font-medium">Firmware Engineer at Logitech</span>, I focus on embedded software, test automation, and the quiet reliability work that keeps products working in the real world.
-              </p>
-
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                My interests span embedded systems, AI, machine learning, and research on LLMs. I completed my{' '}
-                <span className="text-foreground font-semibold">B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things)</span>{' '}
-                at Shiv Nadar University Chennai (2022–2026), and I'm currently pursuing a{' '}
-                <span className="text-foreground font-semibold">B.S. (Bachelor of Science) in Data Science and Applications</span> at Indian Institute of Technology (IIT), Madras.
-              </p>
-
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Curiosity has always been the common thread: understand how something works, figure out how to make it better, and then build it. When I'm not building something, I'm probably playing cricket, playing keyboard, or finding an excuse to learn and talk more about aviation and automobiles.
-              </p>
+              {expertiseGroups.map((group, index) => (
+                <div key={group.label} className={`p-6 sm:p-7 ${index % 2 === 0 ? 'sm:border-r' : ''} ${index < 2 ? 'border-b' : index === 2 ? 'border-b sm:border-b-0' : ''} border-border`}>
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="flex h-9 w-9 items-center justify-center border border-border bg-secondary text-primary"><group.icon className="h-4 w-4" /></span>
+                    <span className="font-mono text-[10px] text-muted-foreground">0{index + 1}</span>
+                  </div>
+                  <h3 className="font-display text-lg font-semibold text-foreground">{group.label}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{group.items.join(' · ')}</p>
+                </div>
+              ))}
             </motion.div>
           </div>
 
@@ -434,7 +378,7 @@ export function HomeSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16"
+            className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4"
           >
             {specializations.map((spec, i) => (
               <motion.div
@@ -443,7 +387,7 @@ export function HomeSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                className="p-6 rounded-xl bg-card border border-border hover:border-primary/40 transition-colors"
+                className="bg-card p-6 transition-colors hover:bg-secondary/50"
               >
                 <spec.icon className="w-8 h-8 text-primary mb-4" />
                 <h3 className="font-semibold text-foreground mb-2">{spec.title}</h3>
@@ -452,37 +396,41 @@ export function HomeSection() {
             ))}
           </motion.div>
 
-          {/* Beyond Code Section */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.8 }}
-            className="mt-16 p-8 rounded-2xl bg-card border border-border"
+            className="mt-6 grid border border-border bg-card md:grid-cols-[0.7fr_1.3fr]"
           >
-            <h3 className="text-xl font-semibold text-foreground mb-6">Beyond Code</h3>
-            <div className="flex flex-wrap gap-3 mb-6">
+            <div className="border-b border-border p-6 md:border-b-0 md:border-r md:p-8">
+              <p className="font-mono text-[10px] uppercase text-primary">Off the clock</p>
+              <h3 className="mt-3 font-display text-2xl font-semibold text-foreground">Still curious. Just elsewhere.</h3>
+            </div>
+            <div className="p-6 md:p-8">
+              <div className="flex flex-wrap gap-2">
               {interests.map((interest) => (
                 <span
                   key={interest.label}
-                  className="px-4 py-2 rounded-full bg-secondary text-foreground text-sm font-medium"
+                  className="border border-border bg-secondary px-3 py-2 text-sm font-medium text-foreground"
                 >
                   {interest.emoji} {interest.label}
                 </span>
               ))}
-            </div>
+              </div>
             
-            <div className="flex items-center gap-4 pt-4 border-t border-border">
+            <div className="mt-6 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:gap-4">
               <span className="text-sm text-muted-foreground">Languages:</span>
               <div className="flex flex-wrap gap-2">
                 {languages.map((lang) => (
                   <span
                     key={lang}
-                    className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm"
+                    className="font-mono text-xs text-primary"
                   >
                     {lang}
                   </span>
                 ))}
+              </div>
               </div>
             </div>
           </motion.div>
