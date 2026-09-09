@@ -63,12 +63,12 @@ const roleTags = ['Firmware Engineer', 'Software Developer', 'IoT Engineer', 'ML
 
 const expertiseGroups = [
   {
-    icon: CircuitBoard,
+    icon: Cpu,
     label: 'Firmware Engineering',
     items: ['Embedded C / C++', 'RTOS · Bare-metal', 'Driver & Protocol Design'],
   },
   {
-    icon: CircuitBoard,
+    icon: Radio,
     label: 'Hardware & IoT',
     items: ['IoT Systems', 'ESP32 / Embedded', 'Sensor Networks'],
   },
@@ -256,8 +256,8 @@ export function HomeSection() {
                 className="mt-8 text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed border-l-2 border-border pl-4"
               >
                 Currently a <span className="text-foreground">Firmware Engineer at Logitech</span>.
-                Completed my <span className="text-foreground">B. Tech in Computer Science &amp; Engineering (IoT)</span> at Shiv Nadar University Chennai (2022–2026),
-                and currently pursuing a <span className="text-foreground">B.S. in Data Science &amp; Applications</span> from IIT Madras.
+                Completed my <span className="text-foreground">B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things)</span> at Shiv Nadar University Chennai (2022–2026),
+                and currently pursuing a <span className="text-foreground">B.S. (Bachelor of Science) in Data Science and Applications</span> at Indian Institute of Technology (IIT), Madras.
               </motion.p>
 
               {/* CTAs */}
