@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ArrowRight, Cpu, Brain, MapPin, Cloud, CircuitBoard, Radio, Waves, Binary } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Cpu, Brain, MapPin, Cloud, CircuitBoard, Radio, Waves, Binary } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { personalInfo } from '@/data/portfolio';
 import profileImage from '@/assets/achyuth-photo.jpg';
