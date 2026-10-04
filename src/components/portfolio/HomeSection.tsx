@@ -43,8 +43,8 @@ const specializations = [
   },
   {
     icon: Brain,
-    title: 'Applied AI',
-    description: 'ML and LLM research grounded in useful engineering workflows'
+    title: 'Edge AI',
+    description: 'On-device intelligence, LLMs, and federated learning for wearables'
   }
 ];
 
@@ -224,7 +224,7 @@ export function HomeSection() {
                 <span aria-hidden="true" className="text-primary">·</span>
                 <span className="text-foreground font-medium">Embedded Systems</span>
                 <span aria-hidden="true" className="text-primary">·</span>
-                <span className="text-foreground font-medium">Applied AI</span>
+                <span className="text-foreground font-medium">Edge AI</span>
               </motion.p>
 
               {/* Concise professional introduction */}
@@ -244,9 +244,9 @@ export function HomeSection() {
                 transition={{ delay: 0.4 }}
                 className="mt-7 max-w-xl border-l-2 border-primary/50 pl-4 text-sm leading-relaxed text-muted-foreground"
               >
-                <p><span className="font-medium text-foreground">Now</span> · Firmware Engineer at Logitech</p>
-                <p className="mt-1"><span className="font-medium text-foreground">Completed</span> · B.Tech in Computer Science and Engineering (IoT), Shiv Nadar University Chennai</p>
-                <p className="mt-1"><span className="font-medium text-foreground">Pursuing</span> · B.S. in Data Science and Applications, IIT Madras</p>
+                <p>Firmware Engineer at Logitech</p>
+                <p className="mt-1">B.Tech in Computer Science and Engineering (IoT), Shiv Nadar University Chennai</p>
+                <p className="mt-1">B.S. in Data Science and Applications, IIT Madras</p>
               </motion.div>
 
               {/* CTAs */}
