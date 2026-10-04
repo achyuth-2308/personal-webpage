@@ -321,6 +321,12 @@ export function HomeSection() {
             <p className="max-w-md text-sm leading-relaxed text-muted-foreground">A firmware-first practice, strengthened by automation, connected systems, and applied research.</p>
           </motion.div>
 
+          <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="mb-12 max-w-3xl border-l-2 border-border pl-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p>I'm particularly interested in the space where software meets hardware — and in solving the problems that don't always make it to the surface. My interests span embedded systems, AI, machine learning, and research on LLMs.</p>
+            <p className="mt-3">When I'm not building something, I'm probably playing cricket, playing keyboard, or finding an excuse to learn and talk more about aviation and automobiles.</p>
+            <p className="mt-3">Curiosity has always been the common thread: understand how something works, figure out how to make it better, and then build it.</p>
+          </motion.div>
+
           <div className="grid items-stretch gap-6 lg:grid-cols-[0.72fr_1.28fr]">
             {/* Profile Image with Stats */}
             <motion.div
