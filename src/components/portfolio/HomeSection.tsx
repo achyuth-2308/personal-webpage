@@ -180,12 +180,12 @@ export function HomeSection() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative flex min-h-screen items-center overflow-hidden border-b border-border pt-28 pb-16 lg:pt-24">
+      <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden border-b border-border pt-28 pb-16 lg:pt-24">
         <CircuitBackdrop />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/55" />
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
             {/* Left column — text */}
             <div className="text-left">
               {/* Kicker */}
@@ -202,14 +202,15 @@ export function HomeSection() {
                 </span>
               </motion.div>
 
-              {/* Name — single color, generous tracking */}
+              {/* The two lines share one color; the type carries the visual emphasis. */}
               <motion.h1
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
-                className="font-display font-semibold text-foreground leading-[0.95] text-[clamp(2.75rem,7.2vw,5.75rem)]"
+                className="home-display-heading text-foreground leading-[0.98] text-5xl sm:text-6xl lg:text-[5.25rem]"
               >
-                Achyuth Mukund
+                <span className="block">Achyuth</span>
+                <span className="block">Mukund</span>
               </motion.h1>
 
               {/* Primary role headline — Firmware Engineer emphasis */}
@@ -217,62 +218,50 @@ export function HomeSection() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.5 }}
-                className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-base sm:text-lg"
+                className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm sm:text-base"
               >
                 <span className="text-foreground font-medium">Firmware Engineer</span>
-                <span className="text-muted-foreground/50">/</span>
-                <span className="text-muted-foreground">IoT &amp; Embedded Systems</span>
-                <span className="text-muted-foreground/50">/</span>
-                <span className="text-muted-foreground">Applied ML Researcher</span>
+                <span aria-hidden="true" className="text-primary">·</span>
+                <span className="text-foreground font-medium">Embedded Systems</span>
+                <span aria-hidden="true" className="text-primary">·</span>
+                <span className="text-foreground font-medium">Applied AI</span>
               </motion.p>
 
-              {/* Intro — natural voice, generous spacing */}
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25, duration: 0.5 }}
-                className="mt-7 relative max-w-2xl"
-              >
-                <span
-                  aria-hidden
-                  className="absolute -left-4 sm:-left-5 top-1 bottom-1 w-px bg-gradient-to-b from-primary/60 via-primary/30 to-transparent"
-                />
-                <p className="text-base sm:text-lg text-foreground/85 leading-[1.75]">
-                  I work across firmware, automation, and AI, building the systems that make products reliable and engineering workflows smarter. I'm particularly interested in the space where software meets hardware — and in solving the problems that don't always make it to the surface.
-                </p>
-                <p className="mt-4 text-base sm:text-lg text-foreground/70 leading-[1.75]">
-                  My interests span embedded systems, AI, machine learning, and research on LLMs. When I'm not building something, I'm probably playing cricket, playing keyboard, or finding an excuse to learn and talk more about aviation and automobiles.
-                </p>
-                <p className="mt-4 text-base sm:text-lg text-foreground/70 leading-[1.75]">
-                  Curiosity has always been the common thread: understand how something works, figure out how to make it better, and then build it.
-                </p>
-              </motion.div>
-
-              {/* Education line — quieter, no rainbow highlights */}
+              {/* Concise professional introduction */}
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mt-8 text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed border-l-2 border-border pl-4"
+                transition={{ delay: 0.25, duration: 0.5 }}
+                className="mt-6 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg"
               >
-                Currently a <span className="text-foreground">Firmware Engineer at Logitech</span>.
-                Completed my <span className="text-foreground">B. Tech (Bachelor of Technology) in Computer Science and Engineering (Internet of Things)</span> at Shiv Nadar University Chennai (2022–2026),
-                and currently pursuing a <span className="text-foreground">B.S. (Bachelor of Science) in Data Science and Applications</span> at Indian Institute of Technology (IIT), Madras.
+                I build firmware and automation for connected products, and use IoT and applied AI to make engineering workflows more reliable.
               </motion.p>
+
+              {/* Credentials remain secondary to the name and positioning. */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="mt-7 max-w-xl border-l-2 border-primary/50 pl-4 text-sm leading-relaxed text-muted-foreground"
+              >
+                <p><span className="font-medium text-foreground">Now</span> · Firmware Engineer at Logitech</p>
+                <p className="mt-1"><span className="font-medium text-foreground">Completed</span> · B.Tech in Computer Science and Engineering (IoT), Shiv Nadar University Chennai</p>
+                <p className="mt-1"><span className="font-medium text-foreground">Pursuing</span> · B.S. in Data Science and Applications, IIT Madras</p>
+              </motion.div>
 
               {/* CTAs */}
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="mt-9 flex flex-wrap items-center gap-3"
+                className="mt-8 flex flex-wrap items-center gap-3"
               >
-                <Button onClick={() => navigate('/projects')} className="group rounded-sm bg-foreground px-5 text-background hover:bg-foreground/90">
+                <Button onClick={() => navigate('/projects')} className="group rounded-sm px-5">
                   View Projects
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
                 <Button asChild variant="outline" className="rounded-sm">
-                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"><Download className="w-4 h-4" />Resume</a>
+                  <a href={`mailto:${personalInfo.email}?subject=Resume%20request`}><Download className="w-4 h-4" />Resume</a>
                 </Button>
                 <Button variant="link" onClick={() => navigate('/contact')} className="px-2 text-muted-foreground hover:text-foreground">
                   Get in touch →
