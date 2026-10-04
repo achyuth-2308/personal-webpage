@@ -1,0 +1,1 @@
+- Scope the self-hosted heavy display face to the homepage's main heading; keep the shared typography unchanged so other portfolio pages retain their established hierarchy.

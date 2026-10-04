@@ -180,7 +180,7 @@ export function HomeSection() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden border-b border-border pt-28 pb-16 lg:pt-24">
+      <section className="relative flex min-h-[calc(100svh-4rem)] items-start overflow-hidden border-b border-border pt-28 pb-16 lg:items-center lg:pt-24">
         <CircuitBackdrop />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/55" />
 
@@ -261,7 +261,7 @@ export function HomeSection() {
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
                 <Button asChild variant="outline" className="rounded-sm">
-                  <a href={`mailto:${personalInfo.email}?subject=Resume%20request`}><Download className="w-4 h-4" />Resume</a>
+                  <a href={`mailto:${personalInfo.email}?subject=Resume%20request`}><Mail className="w-4 h-4" />Resume</a>
                 </Button>
                 <Button variant="link" onClick={() => navigate('/contact')} className="px-2 text-muted-foreground hover:text-foreground">
                   Get in touch →
