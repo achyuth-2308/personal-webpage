@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Outfit Hero";
+  src: url("./assets/fonts/outfit-extrabold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+.home-display-heading {
+  font-family: "Outfit Hero", "Space Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+}
+
 /* =====================================================
    ACHYUTH MUKUND PORTFOLIO - Design System
    Premium, trendy dark-first aesthetic with electric accents
